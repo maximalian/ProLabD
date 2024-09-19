@@ -6,7 +6,7 @@ Sabiedrībā pieaug nepieciešamība pēc veselīga un ekonomiska uztura plāno�
 ## 2. Darba un novērtēšanas mērķis
 Projekta mērķis ir izstrādāt risinājumu, kas palīdz minimizēt ēdiena izmaksas, ņemot vērā cilvēkam ikdienā nepieciešamo uzturvērtības ierobežojumus. Risinājumam jābūt lietotājam draudzīgam, spējīgam pielāgoties individuālām prasībām un nodrošināt sabalansētu uzturu.
 
-# Līdzīgo risinājumu pārskats1
+# Līdzīgo risinājumu pārskats
 
 ## 1. Līdzīgi tehniskie risinājumi
 
