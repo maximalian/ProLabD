@@ -14,19 +14,19 @@ Projekta mērķis ir izstrādāt risinājumu, kas palīdz minimizēt ēdiena izm
 
 ### 1.1. The Diet Problem
 - **Saite:** [The Diet Problem](https://www.slideshare.net/santttosh/the-diet-problem)
-- **Apraksts:** Risinājums izmanto lineārās programmēšanas pieeju, lai minimizētu uztura izmaksas, ņemot vērā cilvēkam nepieciešamo uzturvielu ierobežojumus. Modelis izmanto uzturvielu un pārtikas produktu izmaksu ievades, lai optimizētu ikdienas ēdienkartes plānošanu. Šī pieeja ir viena no senākajām un vienkāršākajām, kas nodrošina efektīvu risinājumu.
+- **Apraksts:** Šajā risinājumā tiek izmantota lineārā programmēšana, lai samazinātu uztura izmaksas, ņemot vērā uzturvielu ierobežojumus un produktu izmaksas. Modelis balstās uz ievades datiem un izmanto vienkāršotus pieņēmumus, kuri neņem vērā produktu dinamiku un mainīgās uztura prasības.
 
 ### 1.2. Diet Models with Linear Goal Programming
 - **Saite:** [Impact of Achievement Functions](https://www.nature.com/articles/ejcn201556)
-- **Apraksts:** Šis risinājums paplašina klasiskos uztura modeļus, izmantojot lineāro mērķa programmēšanu, lai ņemtu vērā vairākus mērķus, piemēram, izmaksu un uzturvielu līdzsvarošanu. Mērķa funkcijas izmantošana ļauj pielāgot risinājumu, lai sasniegtu specifiskus uzturvērtības un izmaksu mērķus, piedāvājot vairāk elastības nekā tradicionālās lineārās programmēšanas pieejas.
+- **Apraksts:** Šis modelis paplašina klasiskos uztura modeļus, izmantojot lineārās mērķa programmēšanas funkcijas, kas ļauj ņemt vērā vairākus faktorus, piemēram, izmaksas un uzturvielu līdzsvaru. Tas ir sarežģītāks nekā klasiskie modeļi, jo tas nodrošina lielāku elastību un pielāgošanās spēju atbilstoši mainīgajiem nosacījumiem.
 
 ### 1.3. A Review of the Use of Linear Programming to Optimize Diets
 - **Saite:** [Linear Programming to Optimize Diets](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6021504/)
-- **Apraksts:** Šis risinājums piedāvā apskatu par lineārās programmēšanas izmantošanu, lai optimizētu uztura plānus, koncentrējoties uz uzturvielu, ekonomisko un vides faktoru līdzsvarošanu. Tas analizē dažādus modeļus un metodoloģijas, kas tiek izmantotas uztura optimizēšanā, un uzsver pielāgojamību dažādos kontekstos.
+- **Apraksts:** Šis risinājums sniedz pārskatu par lineārās programmēšanas pielietošanu uztura optimizācijā, pievēršot uzmanību uzturvielu, ekonomiskajiem un vides faktoriem. Risinājums piedāvā daudzveidīgas iespējas, piemēram, pielāgojamību dažādiem mērķiem un ierobežojumiem, tai skaitā produktu pieejamību un lietotāju vēlmēm.
 
 ### 1.4. Powell Allocation Covering Blending Constraints
 - **Saite:** [Powell Allocation](https://web.fe.up.pt/~mac/ensino/docs/OR/otherDocs/PowellAllocationCoveringBlendingConstraints.pdf)
-- **Apraksts:** Šis risinājums koncentrējas uz resursu alokācijas un sajaukšanas ierobežojumiem, izmantojot matemātiskas optimizācijas metodes. Algoritmi nodrošina efektīvu resursu sadali un līdzsvaro uzturvielu prasības ar izmaksu minimizāciju, veidojot kompleksas uztura optimizācijas problēmas risinājumus.
+- **Apraksts:** Šis modelis koncentrējas uz resursu sadali un sajaukšanas ierobežojumiem, izmantojot matemātiskās optimizācijas metodes. Galvenā atšķirība no citiem risinājumiem ir sarežģītāku ierobežojumu un pieņēmumu izmantošana, kas ļauj modelim pielāgoties dažādiem apstākļiem, piemēram, resursu apvienošanai optimālam rezultātam.
 
 ## 2. Novērojumu apkopojums tabulā
 
@@ -39,6 +39,6 @@ Projekta mērķis ir izstrādāt risinājumu, kas palīdz minimizēt ēdiena izm
 
 ## 3. Intelektuālo algoritmu pārskats
 
-Līdzīgie risinājumi parasti izmanto lineāro programmēšanu, kas ir plaši izmantots algoritms uztura plānošanā. Intelektuālo algoritmu mērķis ir optimizēt pārtikas produktu izvēli, samazinot izmaksas, vienlaikus ievērojot uzturvielu ierobežojumus. Mērķa programmēšana ļauj vēl vairāk pielāgot risinājumu konkrētām vajadzībām, sasniedzot vairākus mērķus vienlaikus.
+Līdzīgie risinājumi parasti izmanto lineāro programmēšanu, kas ir plaši pielietots algoritms uztura plānošanā. Šo algoritmu mērķis ir optimizēt pārtikas produktu izvēli, samazinot izmaksas un ievērojot uzturvielu ierobežojumus. Mērķa programmēšana nodrošina iespēju sasniegt vairākus mērķus vienlaikus un pielāgot risinājumu konkrētām vajadzībām, piedāvājot lielāku elastību un precizitāti.
 
 Šis pārskats sniedz padziļinātu ieskatu līdzīgos tehniskajos risinājumos, kas var kalpot par pamatu efektīvas sabalansētas ēdienkartes plānošanai.
