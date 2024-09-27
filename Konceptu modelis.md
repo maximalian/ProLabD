@@ -43,6 +43,7 @@ classDiagram
         +cena : float
         +kalorijas : int
         +uzturaVielas : String
+        +svars : float
     }
 
     class Veikals {
