@@ -1,6 +1,5 @@
 # Konceptu modelis:Sabalansētas ēdienkartes
 
-```mermaid
 classDiagram
     class Lietotajs {
         +vards : String
@@ -36,6 +35,7 @@ classDiagram
     class GrafiskaisAttelojums {
         +paraditUzturvielas()
         +paraditKalorijas()
+        +paraditProduktusUnCenas()
     }
 
     class Produkts {
