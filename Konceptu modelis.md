@@ -44,13 +44,11 @@ classDiagram
         +kalorijas : int
         +uzturaVielas : String
         +svars : float
-        +veikals : Veikals
     }
 
     class Veikals {
         +nosaukums : String
         +adrese : String
-        +cena : float
         +iegutCenas()
     }
 
@@ -61,4 +59,4 @@ classDiagram
     Edienkarte --> GrafiskaisAttelojums : paradit
     ProduktuSaraksts --> Produkts : satur
     ProduktuSaraksts --> GrafiskaisAttelojums : salidzinaCenas
-    Produkts --> Veikals : piedava
+    Produkts <-- Veikals : piedava
