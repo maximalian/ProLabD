@@ -1,5 +1,6 @@
 # Konceptu modelis:Sabalansētas ēdienkartes
 
+```mermaid
 classDiagram
     class Lietotajs {
         +vards : String
