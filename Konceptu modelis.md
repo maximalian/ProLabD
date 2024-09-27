@@ -10,6 +10,8 @@ classDiagram
         +augums : float
         +uzturalerobezjojumi : String
         +alergijas : String
+        +dietasVeids : String
+        +saslimšanas : String
         +ievaditVajadzibas()
         +izveidotEdienkarti()
     }
@@ -31,6 +33,7 @@ classDiagram
         +nosaukums : String
         +alergijas : String
         +dietasVeids : String
+        +saslimšanas : String
     }
 
     class GrafiskaisAttelojums {
@@ -62,4 +65,3 @@ classDiagram
     ProduktuSaraksts <--> Veikals : piedava un atjauno
     ProduktuSaraksts --> GrafiskaisAttelojums : salidzinaCenas
     Produkts <-- Veikals : piedava
-
