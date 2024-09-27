@@ -53,11 +53,13 @@ classDiagram
         +iegutCenas()
     }
 
-    Lietotajs --> Edienkarte : izveido
+    Lietotajs <--> Edienkarte : izveido un lieto
     Lietotajs --> SpecialasVajadzibas : nosaka
     SpecialasVajadzibas --> ProduktuSaraksts : ietekme
-    Edienkarte --> ProduktuSaraksts : izmanto
+    Edienkarte <--> ProduktuSaraksts : izmanto un ietekme
     Edienkarte --> GrafiskaisAttelojums : paradit
     ProduktuSaraksts --> Produkts : satur
+    ProduktuSaraksts <--> Veikals : piedava un atjauno
     ProduktuSaraksts --> GrafiskaisAttelojums : salidzinaCenas
     Produkts <-- Veikals : piedava
+
