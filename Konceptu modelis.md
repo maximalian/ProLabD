@@ -1,9 +1,14 @@
 # Konceptu modelis:Sabalansētas ēdienkartes
+
 ```mermaid
 classDiagram
     class Lietotajs {
         +vards : String
-        +uzturaIerobezojumi : String
+        +vecums : int
+        +dzimums : String
+        +svars : float
+        +augums : float
+        +uzturalerobezjojumi : String
         +alergijas : String
         +ievaditVajadzibas()
         +izveidotEdienkarti()
@@ -40,6 +45,12 @@ classDiagram
         +uzturaVielas : String
     }
 
+    class Veikals {
+        +nosaukums : String
+        +adrese : String
+        +iegutCenas()
+    }
+
     Lietotajs --> Edienkarte : izveido
     Lietotajs --> SpecialasVajadzibas : nosaka
     SpecialasVajadzibas --> ProduktuSaraksts : ietekme
@@ -47,3 +58,4 @@ classDiagram
     Edienkarte --> GrafiskaisAttelojums : paradit
     ProduktuSaraksts --> Produkts : satur
     ProduktuSaraksts --> GrafiskaisAttelojums : salidzinaCenas
+    Produkts <-- Veikals : piedava
