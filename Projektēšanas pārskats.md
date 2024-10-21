@@ -43,28 +43,28 @@ Līdzīgie risinājumi parasti izmanto lineāro programmēšanu, kas ir plaši p
 
 Šis pārskats sniedz padziļinātu ieskatu līdzīgos tehniskajos risinājumos, kas var kalpot par pamatu efektīvas sabalansētas ēdienkartes plānošanai.
 
-### Tehniskais risinājums
+# Tehniskais risinājums
 
-#### Prasības
+## 1. Prasības
 
 Sistēmas prasības tiek sadalītas vairākās galvenajās kategorijās: funkcionālās, nefunkcionālās un lietotāja prasības.
 
 - **Funkcionālās prasības:**
-  1. Lietotājam jāspēj ievadīt personīgo informāciju, piemēram, vecumu, dzimumu, svaru, aktivitātes līmeni un uzturvērtību prasības.
-  2. Sistēmai jānodrošina iespēja ievadīt un atjaunināt produktu uzturvērtības (olbaltumvielas, tauki, ogļhidrāti, kalorijas u.c.) un cenas.
-  3. Jānodrošina iespēja optimizēt ēdienkarti, pamatojoties uz uzturvielu un cenu datiem, ievērojot lietotāja norādītos ierobežojumus.
-  4. Sistēmai jāsniedz iespēja ievadīt īpašas prasības (piemēram, pārtikas nepanesamība, alerģijas), kas ierobežo noteiktu produktu izmantošanu.
-  5. Jānodrošina iespēja dinamiski atjaunināt pieejamo produktu sarakstu, piemēram, mainot produktus vai pievienojot jaunus veikalus.
-  6. Jānodrošina uzturvielu grafiskā vizualizācija, parādot olbaltumvielu, tauku, ogļhidrātu un kaloriju vērtības lietotāja ēdienkartē.
-  7. Jānodrošina iespēja lietotājam sekot līdzi cenu izmaiņām dažādos veikalos.
+1. Lietotājam jāspēj ievadīt personīgo informāciju, piemēram, vecumu, dzimumu, svaru, aktivitātes līmeni un uzturvērtību prasības.
+2. Sistēmai jānodrošina iespēja ievadīt un atjaunināt produktu uzturvērtības (olbaltumvielas, tauki, ogļhidrāti, kalorijas u.c.) un cenas.
+3. Jānodrošina iespēja optimizēt ēdienkarti, pamatojoties uz uzturvielu un cenu datiem, ievērojot lietotāja norādītos ierobežojumus.
+4. Sistēmai jāsniedz iespēja ievadīt īpašas prasības (piemēram, pārtikas nepanesamība, alerģijas), kas ierobežo noteiktu produktu izmantošanu.
+5. Jānodrošina iespēja dinamiski atjaunināt pieejamo produktu sarakstu, piemēram, mainot produktus vai pievienojot jaunus veikalus.
+6. Jānodrošina uzturvielu grafiskā vizualizācija, parādot olbaltumvielu, tauku, ogļhidrātu un kaloriju vērtības lietotāja ēdienkartē.
+7. Jānodrošina iespēja lietotājam sekot līdzi cenu izmaiņām dažādos veikalos.
 
 - **Nefunkcionālās prasības:**
-  1. Sistēmai jābūt pieejamai kā tīmekļa lietotnei, nodrošinot lietojamību jebkurā laikā un no jebkuras vietas.
-  2. Datu bāzes struktūrai jābūt optimizētai ātrai meklēšanai un datu apstrādei.
-  3. Sistēmai jābūt drošai, nodrošinot lietotāju datu aizsardzību un privātumu.
-  4. Lietotāja interfeisam jābūt intuitīvam un viegli lietojamam.
+1. Sistēmai jābūt pieejamai kā tīmekļa lietotnei, nodrošinot lietojamību jebkurā laikā un no jebkuras vietas.
+2. Datu bāzes struktūrai jābūt optimizētai ātrai meklēšanai un datu apstrādei.
+3. Sistēmai jābūt drošai, nodrošinot lietotāju datu aizsardzību un privātumu.
+4. Lietotāja interfeisam jābūt intuitīvam un viegli lietojamam.
 
-#### Algoritms
+## 2. Algoritms
 
 Sistēma izmanto **lineārās programmēšanas algoritmu**, lai optimizētu lietotāja ēdienkarti. Algoritms darbojas šādi:
 1. **Ievaddatu apstrāde**: Lietotājs ievada prasības un ierobežojumus (uzturvielu un cenu dati), kas tiek saglabāti datu bāzē.
@@ -72,7 +72,7 @@ Sistēma izmanto **lineārās programmēšanas algoritmu**, lai optimizētu liet
 3. **Optimizācijas process**: Algoritms nosaka produktu kombināciju, kas nodrošina maksimālu uzturvielu vērtību, minimizējot kopējās izmaksas.
 4. **Rezultātu attēlošana**: Pēc optimizācijas lietotājam tiek parādīta ēdienkarte, kurā atspoguļoti uzturvērtību dati un kopējās izmaksas.
 
-#### Konceptu modelis
+## 3. Konceptu modelis
 
 Konceptu modelis ietver šādus pamata elementus:
 - **Lietotājs**: Sniedz datus par savām uzturvērtību prasībām, ievada īpašas prasības un pielāgo produktus.
@@ -83,7 +83,7 @@ Konceptu modelis ietver šādus pamata elementus:
 - **Cena**: Informācija par optimizēto ēdiena izmaksu dažādos veikalos.
 - **Uzturvērtība**: Produkta uzturvielu dati, kas tiek izmantoti optimizācijas algoritmā.
 
-#### Tehnoloģiju steks
+## 4. Tehnoloģiju steks
 
 Lai nodrošinātu sistēmas darbību, tiks izmantots šāds tehnoloģiju steks:
 - **Front-end**:
@@ -98,7 +98,7 @@ Lai nodrošinātu sistēmas darbību, tiks izmantots šāds tehnoloģiju steks:
   - Python – uzturvielu un izmaksu optimizācijas algoritmu izstrādei.
   - PuLP (Python Library for Linear Programming) – lineārās programmēšanas algoritmu bibliotēka uztura plānošanai.
   
-#### Programmatūras apraksts
+## 5. Programmatūras apraksts
 
 Izstrādātā sistēma ir tīmekļa lietotne, kas palīdz lietotājiem plānot ikdienas ēdienkarti, pamatojoties uz uzturvērtības un izmaksu ierobežojumiem. Lietotājs ievada informāciju par savām uztura vajadzībām un pieejamajiem produktiem. Sistēma, izmantojot lineārās programmēšanas algoritmus, ģenerē optimālu ēdienkarti, kas atbilst lietotāja uzturvielu prasībām, vienlaikus samazinot izmaksas. Lietotājs var vizualizēt uzturvērtības grafikos, kā arī saņemt informāciju par produktu cenām dažādos veikalos.
 
