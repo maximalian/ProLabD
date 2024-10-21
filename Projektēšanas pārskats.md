@@ -87,18 +87,16 @@ Konceptu modelis ietver šādus pamata elementus:
 
 ## 4. Tehnoloģiju steks
 
-Lai nodrošinātu sistēmas darbību, tiks izmantots šāds tehnoloģiju steks:
-- **Front-end**:
-  - HTML, CSS, JavaScript – lietotāja interfeisa izveidei.
-  - React.js – komponentu balstītas lietotnes struktūras veidošanai un dinamiskai datu vizualizācijai.
-- **Back-end**:
-  - Node.js – servera puses darbību nodrošināšanai.
-  - Express.js – tīmekļa lietotņu rāmja nodrošināšanai.
-- **Datu bāze**:
-  - MongoDB – uzturvielu un produktu cenu datu uzglabāšanai un pārvaldībai.
-- **Algoritmi un optimizācija**:
-  - Python – uzturvielu un izmaksu optimizācijas algoritmu izstrādei.
-  - PuLP (Python Library for Linear Programming) – lineārās programmēšanas algoritmu bibliotēka uztura plānošanai.
+Tehnoloģiju steks, kas tiks izmantots risinājuma implementācijai, sastāv no šādiem komponentiem:
+
+- **Satvars**: Python Flask – tīmekļa lietotnes apstrādei servera pusē.
+- **Programmēšanas valoda**: Python – risinājuma loģikas un funkcionalitātes izstrādei.
+- **Datu bāze**: MySQL vai Oracle SQL – datu glabāšanai un pārvaldībai.
+- **Tīmekļa serveris**: Apache2 vai nginx – tīmekļa lietotnes apkalpošanai un pieejamības nodrošināšanai.
+- **Operētājsistēma**: Ubuntu vai Debian – servera operētājsistēma, kas nodrošina stabilu vidi lietotnes darbībai.
+- **Virtualizācija**: VMbox – virtualizācijas risinājums, kas nodrošina elastību un drošību serveru vadībā.
+
+![Tehnoloģiju steks](https://github.com/maximalian/ProLabD/blob/main/Tehnolo%C4%A3iju%20steks.png)
   
 ## 5. Programmatūras apraksts
 
