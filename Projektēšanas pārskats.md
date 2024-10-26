@@ -91,10 +91,10 @@ Tehnoloģiju steks, kas tiks izmantots risinājuma implementācijai, sastāv no 
 
 - **Satvars**: Python Flask – tīmekļa lietotnes apstrādei servera pusē.
 - **Programmēšanas valoda**: Python – risinājuma loģikas un funkcionalitātes izstrādei.
-- **Datu bāze**: MySQL vai Oracle SQL – datu glabāšanai un pārvaldībai.
-- **Tīmekļa serveris**: Apache2 vai nginx – tīmekļa lietotnes apkalpošanai un pieejamības nodrošināšanai.
-- **Operētājsistēma**: Ubuntu vai Debian – servera operētājsistēma, kas nodrošina stabilu vidi lietotnes darbībai.
-- **Virtualizācija**: VMbox – virtualizācijas risinājums, kas nodrošina elastību un drošību serveru vadībā.
+- **Datu bāze**: PostgreSQL – datu glabāšanai un pārvaldībai.
+- **Tīmekļa serveris**: nginx – tīmekļa lietotnes apkalpošanai un pieejamības nodrošināšanai.
+- **Operētājsistēma**: Ubuntu – servera operētājsistēma, kas nodrošina stabilu vidi lietotnes darbībai.
+- **Virtualizācija**: Amazon AWS (EC2) – virtualizācijas risinājums, kas nodrošina elastību un drošību serveru vadībā.
 
 ![Tehnoloģiju steks](https://github.com/maximalian/ProLabD/blob/main/Tehnolo%C4%A3iju%20steks.png)
   
