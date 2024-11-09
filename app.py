@@ -40,4 +40,4 @@ def calculate():
 
 if __name__ == '__main__':
 	# Run the Flask application on the specified host and port
-	app.run("0.0.0.0", port = 5001, debug = True)
+	app.run("0.0.0.0", port = 443, debug = True)
