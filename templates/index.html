@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Form</title>
+</head>
+<body>
+<!-- Form for user to input their data -->
+    <h1>Enter your details</h1>
+    <form action="/calculate" method="POST">
+        <!-- Input field for age -->
+        Age: <input type="number" name="age" step="any" required><br>
+        <!-- Input field for height -->
+        Height: <input type="number" name="height" step="any" required><br>
+        <!-- Input field for weight -->
+        Weight: <input type="number" name="weight" step="any" required><br>
+        <!-- Input field for gender -->
+        <select name="gender" required>
+            <option value="man">Man</option>
+            <option value="woman">Woman</option>
+        </select><br>
+        <!-- Submit button -->
+        <input type="submit" value="Calculate">
+    </form>
+</body>
+</html>
