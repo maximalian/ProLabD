@@ -68,7 +68,7 @@ def calculate_diet(age, height, weight, gender=1):
     mer = [row[10] for row in records]
     cen = safe_array(cenM, cenR)
 
-    # Formulas for calculating daily norms
+    # Formulas for calculating daily norms https://www.calculator.net/protein-calculator.html
     if gender:
         norm_kca = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)
     else:
