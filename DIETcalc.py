@@ -16,7 +16,7 @@ def calculate_diet(age, height, weight, gender = 1):
 	# Database configuration parameters
 	db_config = {
 		'dbname': 'prolab24',
-		'user': 'root',
+		'user': 'postgres',
 		'password': 'prolab24',
 		'host': '13.61.89.142',
 		'port': '5432'
