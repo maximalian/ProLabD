@@ -102,20 +102,30 @@ def calculate_diet(age, height, weight, gender = 1):
 	if pulp.LpStatus[problem.status] == "Optimal":
 		results["Cena"] = str(round(pulp.value(problem.objective), 2)) + " eiro"
 		results["Edienkarte"] = []
-		for i, var in enumerate(x):
-			if var.varValue:
-				solb += float(olb[i]) * var.varValue / 10
-				stau += float(tau[i]) * var.varValue / 10
-				sogl += float(ogl[i]) * var.varValue / 10
-				skca += float(kal[i]) * var.varValue / 10
-				if (safe_min(cenM) > safe_min(cenR)):
-					cena = cenM[i]
-					site = saiM[i]
-				else:
-					cena = cenR[i]
-					site = saiR[i]
-				results["Edienkarte"].append(
-					f"{name[i]} : {var.varValue / 10} {mer[i]} Cena:{cena}  tīmekļa vietne: {site}")
+		# Modify the comparison logic to apply safe_min to each element in cenM and cenR
+for i, var in enumerate(x):
+    if var.varValue:
+        solb += float(olb[i]) * var.varValue / 10
+        stau += float(tau[i]) * var.varValue / 10
+        sogl += float(ogl[i]) * var.varValue / 10
+        skca += float(kal[i]) * var.varValue / 10
+
+        # Apply safe_min to each element in cenM and cenR
+        cena_m = safe_min(cenM[i])
+        cena_r = safe_min(cenR[i])
+        
+        # Compare with safe_min to handle NoneType correctly
+        if cena_m > cena_r:
+            cena = cena_m
+            site = saiM[i]
+        else:
+            cena = cena_r
+            site = saiR[i]
+        
+        results["Edienkarte"].append(
+            f"{name[i]} : {var.varValue / 10} {mer[i]} Cena:{cena} tīmekļa vietne: {site}"
+        )
+
 		results["solb"] = round(solb, 2)
 		results["stau"] = round(stau, 2)
 		results["sogl"] = round(sogl, 2)
