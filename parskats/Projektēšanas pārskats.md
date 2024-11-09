@@ -83,7 +83,7 @@ Konceptu modelis ietver šādus pamata elementus:
 - **Cena**: Informācija par optimizēto ēdiena izmaksu dažādos veikalos.
 - **Uzturvērtība**: Produkta uzturvielu dati, kas tiek izmantoti optimizācijas algoritmā.
 
-![Konceptu modelis](https://github.com/maximalian/ProLabD/blob/main/Konceptu%20modelis.jpg)
+![Konceptu modelis](https://github.com/maximalian/ProLabD/blob/main/parskats/Konceptu%20modelis.jpg)
 
 ## 4. Tehnoloģiju steks
 
@@ -96,7 +96,7 @@ Tehnoloģiju steks, kas tiks izmantots risinājuma implementācijai, sastāv no 
 - **Operētājsistēma**: Ubuntu – servera operētājsistēma, kas nodrošina stabilu vidi lietotnes darbībai.
 - **Virtualizācija**: Amazon AWS (EC2) – virtualizācijas risinājums, kas nodrošina elastību un drošību serveru vadībā.
 
-![Tehnoloģiju steks](https://github.com/maximalian/ProLabD/blob/main/Tehnolo%C4%A3iju%20steks.png)
+![Tehnoloģiju steks](https://github.com/maximalian/ProLabD/blob/main/parskats/Tehnolo%C4%A3iju%20steks.png)
   
 ## 5. Programmatūras apraksts
 
