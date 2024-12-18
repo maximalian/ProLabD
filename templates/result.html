@@ -2,28 +2,136 @@
 <html>
 <head>
     <title>Calculation Results</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/result.css">
 </head>
 <body>
-<!-- Display the results of the diet calculation -->
-    <h1>Calculation Results</h1>
-    {% if results.Error %}
-        <p>{{ results.Error }}</p>
-    {% else %}
-        <p>Cena: {{ results.Cena }}</p>
-        <h2>Edienkarte</h2>
-        <ul>
-            {% for item in results.Edienkarte %}
-                <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
-        <p>Olbaltumvielas summa: {{ results.solb }}</p>
-        <p>Tauki summa: {{ results.stau }}</p>
-        <p>Oglhidrati summa: {{ results.sogl }}</p>
-        <p>Kalorijas summa: {{ results.skca }}</p>
-        <p>Aprēķinātā olbaltumvielas dienas norma: {{ results.nolb }}</p>
-        <p>Aprēķinātā tauki dienas norma: {{ results.ntau }}</p>
-        <p>Aprēķinātā oglhidrati dienas norma: {{ results.nogl }}</p>
-        <p>Aprēķinātā kaloriju dienas norma: {{ results.nkca }}</p>
-    {% endif %}
+    <main>
+        <h1>Calculation Results</h1>
+
+        <!-- Store Selection Form -->
+        <form method="POST" action="/user_bp/calculate_menu" onsubmit="return validateStoreSelection()">
+            <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Proteins (g)</th>
+                    <th>Fats (g)</th>
+                    <th>Carbohydrates (g)</th>
+                    <th>Calories (kcal)</th>
+                    <th>Quantity</th>
+                    <th>
+                        <div class="checkbox-container">
+                            <label>Maxima</label>
+                            <input type="checkbox" id="store_maxima" name="store_maxima" value="Maxima" {% if 'Maxima' in store or 'both' in store %}checked{% endif %}>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="checkbox-container">
+                            <label>Rimi</label>
+                            <input type="checkbox" id="store_rimi" name="store_rimi" value="Rimi" {% if 'Rimi' in store or 'both' in store %}checked{% endif %}>
+                        </div>
+                    </th>
+                    <th>Total Price</th>
+                </tr>
+                {% for item in results.Edienkarte %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ "%.2f" % item.protein }}</td>
+                    <td>{{ "%.2f" % item.fat }}</td>
+                    <td>{{ "%.2f" % item.carbs }}</td>
+                    <td>{{ "%.2f" % item.calories }}</td>
+                    <td>{{ "%.2f" % item.quantity }} {{ item.unit }}</td>
+
+                    <td class="{% if item.price == item.maxima_price and ('Maxima' in store or 'both' in store) %}highlight{% endif %}">
+                        {% if 'Maxima' in store or 'both' in store %}
+                            {% if item.maxima_price %}{{ "%.2f" % item.maxima_price }} EUR/{{ item.unit }}{% else %}-{% endif %}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+
+                    <td class="{% if item.price == item.rimi_price and ('Rimi' in store or 'both' in store) %}highlight{% endif %}">
+                        {% if 'Rimi' in store or 'both' in store %}
+                            {% if item.rimi_price %}{{ "%.2f" % item.rimi_price }} EUR/{{ item.unit }}{% else %}-{% endif %}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+
+                    <td>{{ "%.2f" % (item.price * item.quantity) }} EUR</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="8"><strong>Total Menu Price:</strong></td>
+                    <td><strong>{{ "%.2f" % results.Cena }} EUR</strong></td>
+                </tr>
+            </table>            
+
+            <div class="button-container">
+                <button type="submit">Calculate</button>
+                <button type="button" class="bottom-button" onclick="window.location.href='/user_bp/profile'">Profile</button>
+                <button type="button" class="bottom-button" onclick="window.location.href='/auth/login'">Back to Login</button>
+            </div>
+        </form>
+
+        {% if results.Error %}
+            <p style="color: red;">{{ results.Error }}</p>
+        {% else %}
+            <h2>Daily Nutrients and Norms</h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Proteins (g)</th>
+                    <th>Fats (g)</th>
+                    <th>Carbohydrates (g)</th>
+                    <th>Calories (kcal)</th>
+                </tr>
+                <tr>
+                    <td style="background-color: rgba(54, 162, 235, 0.6);"><strong>Daily Nutrients Obtained:</strong></td>
+                    <td>{{ "%.2f" % results.nutrients.Proteins }}</td>
+                    <td>{{ "%.2f" % results.nutrients.Fats }}</td>
+                    <td>{{ "%.2f" % results.nutrients.Carbohydrates }}</td>
+                    <td>{{ "%.2f" % results.nutrients.Calories }}</td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgba(255, 99, 132, 0.6);"><strong>Daily Norms:</strong></td>
+                    <td>{{ "%.2f" % results.norms.Protein }}</td>
+                    <td>{{ "%.2f" % results.norms.Fat }}</td>
+                    <td>{{ "%.2f" % results.norms.Carbs }}</td>
+                    <td>{{ "%.2f" % results.norms.Calories }}</td>
+                </tr>
+            </table>
+
+            <div id="chartData"
+            data-nutrients-obtained='{{ results.nutrients | tojson | safe }}'
+            data-daily-norms='{{ results.norms | tojson | safe }}'></div>
+
+
+            <h2>Daily Nutrient Comparison</h2>
+            <canvas id="nutrientChart" width="400" height="200"></canvas>
+
+            <h2>User Details</h2>
+            <p><strong>Age:</strong> {{ user_data.vecums }}</p>
+            <p><strong>Height:</strong> {{ user_data.augums }} cm</p>
+            <p><strong>Weight:</strong> {{ user_data.svars }} kg</p>
+
+            <h2>Selected Products</h2>
+            <table>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Min Limit</th>
+                    <th>Max Limit</th>
+                </tr>
+                {% for product in user_data.selected_products %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.min_limit if product.min_limit else "Not Set" }}</td>
+                    <td>{{ product.max_limit if product.max_limit else "Not Set" }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/result.js"></script>
 </body>
 </html>
