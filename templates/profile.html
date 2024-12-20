@@ -100,7 +100,6 @@
         const userLimits = JSON.parse('{{ user.min_limits|default({})|tojson|safe }}');
     
     
-        // Передаём значения excludedProducts в глобальный контекст
         excludedProducts = new Set(initialExcludedProducts);
     
         document.getElementById("productSearch").addEventListener("input", () => {
