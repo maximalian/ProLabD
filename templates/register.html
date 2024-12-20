@@ -6,22 +6,18 @@
 <body>
     <h1>Register</h1>
     <form method="POST" onsubmit="validateForm(event)">
-        <!-- Поле для ввода email -->
         Email: <input type="email" name="email" required><br>
 
-        <!-- Поле для ввода пароля с кнопкой-глазиком -->
         Password:
         <input type="password" id="password" name="password" required>
         <button type="button" id="togglePassword" onclick="togglePasswordVisibility('password', 'togglePassword')">Show</button>
         <br>
 
-        <!-- Поле для подтверждения пароля с кнопкой-глазиком -->
         Confirm Password:
         <input type="password" id="confirm_password" name="confirm_password" required>
         <button type="button" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirm_password', 'toggleConfirmPassword')">Show</button>
         <br>
 
-        <!-- Кнопка отправки формы -->
         <button type="submit">Register</button>
     </form>
     <script src="/static/js/register.js"></script>
