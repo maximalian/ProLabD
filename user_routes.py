@@ -12,6 +12,7 @@ import logging
 user_bp = Blueprint('user_bp', __name__)
 bcrypt = Bcrypt()
 
+
 @user_bp.route('/profile', methods=['GET', 'POST'])
 def profile():
 
@@ -205,7 +206,13 @@ def calculate_menu():
                 error_msg = results['Error']
             return render_template('error.html', error_message=error_msg)
 
-        return render_template('result.html', results=results, user_data=user_data, store=user_data['store_preference'], error_message=None)
+        return render_template('result.html', 
+                               results=results, 
+                               user_data=user_data, 
+                               store=user_data['store_preference'], 
+                               error_message=None, 
+                               first_name=user_data['vards'], 
+                               last_name=user_data['uzvards'])
 
     except psycopg2.DatabaseError as db_error:
         logging.error(f"Database error: {db_error}")

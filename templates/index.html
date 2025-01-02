@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Welcome</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
 </head>
+
 <body>
-    <h1>Welcome to Our Service</h1>
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
-    <form method="POST" action="/auth/login">
-        <h2>Login</h2>
-        Email: <input type="email" name="email" required><br>
-        Password: <input type="password" name="password" required><br>
-        <button type="submit">Login</button>
-    </form>
-    <p>Don't have an account? <a href="/auth/register">Register here</a>.</p>
+    <div class="container">
+        <h1>Welcome to Food Balancer</h1>
+        {% if error %}
+        <p class="error-message">{{ error }}</p>
+        {% endif %}
+        <form method="POST" action="/auth/login">
+            <h2>Login</h2>
+            Email: <input type="email" name="email" required>
+            Password: <input type="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="/auth/register">Register here</a>.</p>
+    </div>
 </body>
+
 </html>

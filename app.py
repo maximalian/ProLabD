@@ -11,7 +11,7 @@ logging.basicConfig(
     level=logging.ERROR,  # Žurnālu līmenis (ERROR, INFO, DEBUG utt.)
     format='%(asctime)s - %(levelname)s - %(message)s',  # Formāts: laiks, līmenis un ziņa
     handlers=[
-        logging.FileHandler("app.log"),  # Ieraksti tiek glabāti failā app.log
+        logging.FileHandler("app.log", mode='w'),  # Ieraksti tiek glabāti failā app.log
         logging.StreamHandler()  # Ieraksti tiek parādīti konsolē
     ]
 )
@@ -30,4 +30,4 @@ def home():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run("0.0.0.0", port=5001, debug=True)
+    app.run("0.0.0.0", port=5002, debug=True)

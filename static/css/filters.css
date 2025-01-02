@@ -1,45 +1,24 @@
-body {
-    zoom: 100%;
-}
-
-.bottom-buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid black;
-    padding: 5px;
-    text-align: left;
-}
-
-thead th {
-    position: sticky;
-    top: 0;
-    background-color: #f9f9f9;
-}
-
-.scroll-container {
-    border: 1px solid black;
-    max-height: 250px;
-    overflow-y: auto;
-    display: inline-block;
-    width: 90%;
-}
-
 .filters-container {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
+#productSearch {
+    padding: 3px 8px;
+    width: 250px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
 .mass-limits-container {
     display: flex;
@@ -79,3 +58,29 @@ thead th {
     background-color: #c82333;
 }
 
+.filter-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-btn.exclude-btn {
+    background-color: #ffc107;
+    color: black;
+}
+
+.filter-btn.exclude-btn:hover {
+    background-color: #e0a800;
+}
+
+.filter-btn.clear-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.filter-btn.clear-btn:hover {
+    background-color: #5a6268;
+}

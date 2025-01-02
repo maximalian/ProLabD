@@ -1,66 +1,78 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Add Details</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/product_table.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/profile.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
 </head>
+
 <body>
-    <h1>Enter Your Details</h1>
-    <form method="POST" onsubmit="prepareLimits()">
-        <!-- Hidden fields for limits -->
-        <input type="hidden" id="min_limits_input" name="min_limits">
-        <input type="hidden" id="max_limits_input" name="max_limits">
-        <input type="hidden" id="excluded_products_input" name="excluded_products">
+    <div class="container">
+        <div class="user-profile-container">
+            <h1>Enter Your Details</h1>
+            <form id="user-profile-form" class="user-profile-form" method="POST" onsubmit="prepareLimits()">
+                <!-- Hidden fields for limits -->
+                <input type="hidden" id="min_limits_input" name="min_limits">
+                <input type="hidden" id="max_limits_input" name="max_limits">
+                <input type="hidden" id="excluded_products_input" name="excluded_products">
 
-        <label for="name">First Name:</label>
-        <input type="text" name="name" required><br>
+                <label for="name">First Name:</label>
+                <input type="text" name="name" required>
 
-        <label for="surname">Last Name:</label>
-        <input type="text" name="surname"><br>
+                <label for="surname">Last Name:</label>
+                <input type="text" name="surname">
 
-        <label for="gender">Gender:</label>
-        <select name="gender" required>
-            <option value="man">Man</option>
-            <option value="woman">Woman</option>
-        </select><br>
+                <label for="gender">Gender:</label>
+                <select name="gender" required>
+                    <option value="man">Man</option>
+                    <option value="woman">Woman</option>
+                </select>
 
-        <label for="weight">Weight (kg):</label>
-        <input type="number" name="weight" step="any" required><br>
+                <label for="weight">Weight (kg):</label>
+                <input type="number" name="weight" step="any" required>
 
-        <label for="height">Height (cm):</label>
-        <input type="number" name="height" step="any" required><br>
+                <label for="height">Height (cm):</label>
+                <input type="number" name="height" step="any" required>
 
-        <label for="age">Age:</label>
-        <input type="number" name="age" required><br>
+                <label for="age">Age:</label>
+                <input type="number" name="age" required>
+            </form>
+        </div>
 
         <!-- Product Filtering Table -->
-        <h2>Filter Products</h2>
         <div class="filters-container">
-            <input type="text" id="productSearch" placeholder="Search by product name...">
+            <div class="filters-wrapper">
+                <h2>Filter Products</h2>
+                <input type="text" id="productSearch" placeholder="Search by product name...">
 
-            <label for="categoryFilter">Category:</label>
-            <select id="categoryFilter">
-                <option value="">All</option>
-                {% for category in all_categories %}
-                <option value="{{ category.kategorija_key }}">{{ category.nosaukums }}</option>
-                {% endfor %}
-            </select>
+                <label for="categoryFilter">Category:</label>
+                <select id="categoryFilter">
+                    <option value="">All</option>
+                    {% for category in all_categories %}
+                    <option value="{{ category.kategorija_key }}">{{ category.nosaukums }}</option>
+                    {% endfor %}
+                </select>
 
-            <label for="veganFilter">Vegan:</label>
-            <select id="veganFilter">
-                <option value="">All</option>
-                <option value="1">Yes</option>
-                <option value="0">No</option>
-            </select>
+                <label for="veganFilter">Vegan:</label>
+                <select id="veganFilter">
+                    <option value="">All</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+                <div class="filter-buttons">
+                    <button type="button" onclick="excludeFilteredProducts()">Exclude All Filtered</button>
+                    <button type="button" onclick="clearExcludedFilteredProducts()">Clear All Filtered</button>
+                </div>
 
-            <button type="button" onclick="excludeFilteredProducts()">Exclude All Filtered</button>
-            <button type="button" onclick="clearExcludedFilteredProducts()">Clear All Filtered</button>
-            
-            <div class="mass-limits-container">
-                <input type="number" id="massMinLimit" placeholder="Min Limit" step="0.0001">
-                <input type="number" id="massMaxLimit" placeholder="Max Limit" step="0.0001">
-                <button type="button" class="apply-limits" onclick="setLimitsForFiltered()">Apply Limits</button>
-                <button type="button" class="clear-limits" onclick="clearLimitsForFiltered()">Clear Limits</button>
+                <div class="mass-limits-container">
+                    <input type="number" id="massMinLimit" placeholder="Min Limit" step="0.0001">
+                    <input type="number" id="massMaxLimit" placeholder="Max Limit" step="0.0001">
+                </div>
+                <div class="limits-buttons">
+                    <button type="button" class="apply-limits" onclick="setLimitsForFiltered()">Apply Limits</button>
+                    <button type="button" class="clear-limits" onclick="clearLimitsForFiltered()">Clear Limits</button>
+                </div>
             </div>
         </div>
 
@@ -79,9 +91,10 @@
                 </tbody>
             </table>
         </div>
-
-        <button type="submit">Submit</button>
-    </form>
+        <div class="submit-button">
+            <button type="submit" class="submit-add-details" form="user-profile-form">Submit</button>
+        </div>        
+    </div>
 
     <script src="/static/js/product_table.js"></script>
     <script>
@@ -90,9 +103,9 @@
         const maxLimits = JSON.parse('{{ user.max_limits|default({})|tojson|safe }}');
         const initialExcludedProducts = JSON.parse('{{ user.selected_products|default([])|tojson|safe }}');
         const tableBody = document.querySelector("#productTable tbody");
-    
+
         excludedProducts = new Set(initialExcludedProducts);
-    
+
         document.getElementById("productSearch").addEventListener("input", () => {
             applyFilters(allProducts);
         });
@@ -102,8 +115,9 @@
         document.getElementById("veganFilter").addEventListener("change", () => {
             applyFilters(allProducts);
         });
-    
+
         renderRows(allProducts);
     </script>
 </body>
+
 </html>

@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
 </head>
+
 <body>
-    <h1>Register</h1>
-    <form method="POST" onsubmit="validateForm(event)">
-        Email: <input type="email" name="email" required><br>
+    <div class="container">
+        <h1>Register</h1>
+        <form method="POST" onsubmit="validateForm(event)">
+            Email: <input type="email" id="email" name="email" required>
+            <span id="emailError"></span>
 
-        Password:
-        <input type="password" id="password" name="password" required>
-        <button type="button" id="togglePassword" onclick="togglePasswordVisibility('password', 'togglePassword')">Show</button>
-        <br>
+            Password:
+            <input type="password" id="password" name="password" required>
+            <button type="button" id="togglePassword"
+                onclick="togglePasswordVisibility('password', 'togglePassword')">Show</button>
 
-        Confirm Password:
-        <input type="password" id="confirm_password" name="confirm_password" required>
-        <button type="button" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirm_password', 'toggleConfirmPassword')">Show</button>
-        <br>
+            Confirm Password:
+            <input type="password" id="confirm_password" name="confirm_password" required>
+            <button type="button" id="toggleConfirmPassword"
+                onclick="togglePasswordVisibility('confirm_password', 'toggleConfirmPassword')">Show</button>
 
-        <button type="submit">Register</button>
-    </form>
+            <button class="register" type="submit">Register</button>
+        </form>
+    </div>
     <script src="/static/js/register.js"></script>
 </body>
+
 </html>

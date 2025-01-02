@@ -35,10 +35,11 @@ def calculate_diet(age, height, weight, gender=1, selected_products=[], user_max
         return {"Error": "No products found in the database."}
 
     # Iniciē tukšus sarakstus datu glabāšanai
-    ind, name, kal, olb, tau, ogl, cen, maxima_price, rimi_price, mer = ([] for _ in range(10))
+    ind, name, kal, olb, tau, ogl, cen, maxima_price, rimi_price, maxima_link, rimi_link, mer = ([] for _ in range(12))
 
     # Apstrādā katru produktu un filtrē pēc lietotāja parametriem
     for row in records:
+
         # Pārbauda, vai produkts atbilst ierobežojumiem vai ir izvēlēts
         if str(row[0]) in user_min_limits or str(row[0]) in user_max_limits:
             pass  # Produktu vienmēr iekļauj
@@ -71,6 +72,8 @@ def calculate_diet(age, height, weight, gender=1, selected_products=[], user_max
         olb.append(to_float(row[3]) or 0)
         tau.append(to_float(row[4]) or 0)
         ogl.append(to_float(row[5]) or 0)
+        maxima_link.append(row[8])  # saite_maxima
+        rimi_link.append(row[9])    # saite_rimi
         cen.append(price)
         maxima_price.append(cenM)
         rimi_price.append(cenR)
@@ -131,6 +134,8 @@ def calculate_diet(age, height, weight, gender=1, selected_products=[], user_max
                 "price": cen[i],
                 "maxima_price": maxima_price[i],
                 "rimi_price": rimi_price[i],
+                "maxima_link": maxima_link[i],
+                "rimi_link": rimi_link[i],
                 "protein": round(olb[i] * x[i].varValue, 2),
                 "fat": round(tau[i] * x[i].varValue, 2),
                 "carbs": round(ogl[i] * x[i].varValue, 2),

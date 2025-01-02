@@ -28,38 +28,36 @@ function togglePasswordVisibility(passwordFieldId, toggleButtonId) {
     }
 }
 
-function validateForm(event) {
+async function validateForm(event) {
 
     /**
-     * Funkcija, lai pārbaudītu reģistrācijas formas derīgumu.
-     * Pārbauda, vai paroles lauki ir aizpildīti un vai paroles sakrīt.
+     * Validē reģistrācijas formu, pārbaudot e-pastu un paroles atbilstību.
      * 
-     * @param {Event} event - Formas iesniegšanas notikums, lai to apturētu, ja validācija neizdodas.
+     * @param {Event} event - Notikums, kas aktivizē funkciju (piem., pogas nospiešana).
+     * @returns {boolean} - Atgriež false, ja validācija neizdodas, pretējā gadījumā iesniedz formu.
      */
 
-    try {
-        const passwordField = document.getElementById("password");
-        const confirmPasswordField = document.getElementById("confirm_password");
+    event.preventDefault();
 
-        if (!passwordField || !confirmPasswordField) {
-            throw new Error("Password or confirm password field not found. Please check the element IDs.");
-        }
+    const email = document.getElementById('email').value;
+    const emailError = document.getElementById('emailError');
 
-        const password = passwordField.value;
-        const confirmPassword = confirmPasswordField.value;
+    const response = await fetch('/auth/check_email?email=' + encodeURIComponent(email));
+    const data = await response.json();
 
-        if (!password || !confirmPassword) {
-            event.preventDefault();
-            alert("Both password fields are required.");
-            return;
-        }
-
-        if (password !== confirmPassword) {
-            event.preventDefault();
-            alert("Passwords do not match. Please try again.");
-        }
-    } catch (error) {
-        console.error("Error in validateForm:", error);
-        alert("An unexpected error occurred during form validation. Please try again.");
+    if (data.exists) {
+        emailError.textContent = "This email is already in use!";
+        return false;
+    } else {
+        emailError.textContent = "";
     }
+
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm_password').value;
+    if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return false;
+    }
+
+    event.target.submit();
 }

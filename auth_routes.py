@@ -52,6 +52,35 @@ def register():
 
     return render_template('register.html')
 
+@auth.route('/check_email')
+def check_email():
+    """
+    Funkcija, lai pārbaudītu, vai e-pasts jau pastāv datubāzē.
+    """
+    email = request.args.get('email')
+
+    if not email:
+        return {"error": "Email is required."}, 400
+
+    connection = None
+    cursor = None
+
+    try:
+        connection = get_db_connection()
+        cursor = connection.cursor()
+
+        cursor.execute("SELECT COUNT(*) FROM Lietotajs WHERE epasts = %s", (email,))
+        result = cursor.fetchone()
+
+        return {"exists": result[0] > 0}
+
+    except psycopg2.DatabaseError as db_error:
+        logging.error(f"Database error while checking email: {db_error}")
+        return {"error": "Database error occurred."}, 500
+
+    except Exception as e:
+        logging.error(f"Unexpected error while checking email: {e}")
+        return {"error": "An unexpected error occurred."}, 500
 
 @auth.route('/add_details', methods=['GET', 'POST'])
 def add_details():
