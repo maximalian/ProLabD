@@ -320,8 +320,9 @@ td:has(button) {
     }
 
     .bottom-button button {
-        width: 100%;
+        width: **80%**;
         padding: 0.6rem;
+        margin: 0 auto;
     }
 
     .download-container {
@@ -329,8 +330,9 @@ td:has(button) {
     }
 
     #file-label {
-        width: 100%;
+        width: **80%**;
         padding: 0.6rem;
+        margin: 0 auto;
     }
 
     .custom-file-upload {
@@ -368,6 +370,8 @@ td:has(button) {
     button {
         font-size: 12px;
         padding: 0.6rem;
+        width: **70%**;
+        margin: 0 auto;
     }
 
     table {
