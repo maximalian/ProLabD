@@ -80,8 +80,8 @@ button,
 .bottom-button {
     display: flex;
     justify-content: center;
-    gap: 10px; /* Добавляем пространство между кнопками */
-    margin-top: 2rem; /* Отступ сверху */
+    gap: 10px;
+    margin-top: 2rem;
 }
 
 .bottom-button button {
@@ -160,6 +160,7 @@ td:has(button) {
 .manage-container {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 20px;
     max-width: 1100px;
     margin: 0 auto; 
@@ -168,7 +169,8 @@ td:has(button) {
     .manage-categories,
     .filters-container,
     .manage-products {
-        flex: 1;
+        flex: 1 1 calc(33.33% - 20px);
+        box-sizing: border-box;
         max-width: 300px;
     }
 
@@ -197,11 +199,11 @@ td:has(button) {
     }
 
     .filters-container h2 {
-        margin-bottom: 10px; /* Уменьшаем отступ снизу заголовка */
+        margin-bottom: 10px;
     }
     
     .filters-container input {
-        margin-top: 0; /* Убираем верхний отступ у поля ввода */
+        margin-top: 0;
     }
     
 
@@ -273,5 +275,78 @@ td:has(button) {
             border: 1px solid #ddd;
             border-radius: 4px;
         }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .manage-container {
+        flex-direction: column;
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .manage-categories,
+    .filters-container,
+    .manage-products {
+        flex: 1 1 100%;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    table {
+        font-size: 10px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th,
+    td {
+        padding: 3px;
+        font-size: 12px;
+    }
+
+    .download-container {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 0.6rem;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1,
+    h2,
+    h3 {
+        font-size: 18px;
+    }
+
+    .filters-wrapper {
+        width: 100%;
+    }
+
+    input,
+    select {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    table {
+        font-size: 10px;
+    }
+
+    th,
+    td {
+        padding: 2px;
+    }
+
+    .scroll-container {
+        overflow-x: auto;
+        white-space: nowrap;
     }
 }
