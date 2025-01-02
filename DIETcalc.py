@@ -83,7 +83,7 @@ def calculate_diet(age, height, weight, gender=1, selected_products=[], user_max
     if not ind:
         return {"Error": "No suitable products found for the selected criteria."}
 
-    # Aprēķina uzturvērtības normas, pamatojoties uz lietotāja parametriem
+    # Aprēķina uzturvērtības normas, pamatojoties uz lietotāja parametriem https://www.calculator.net/protein-calculator.html
     norm_kcal = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) if gender else (
         9.247 * weight + 3.098 * height - 4.330 * age + 447.593)
     norm_protein = 1.3 * weight
