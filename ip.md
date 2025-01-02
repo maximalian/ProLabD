@@ -1,6 +1,6 @@
 # Sabalansētas ēdienkartes plānošanas projekts
 
-Projekta vietne ir pieejama šeit: [http://13.61.89.142/](http://13.61.89.142/) (latviešu valodā).
+Projekta vietne ir pieejama šeit: [http://13.61.89.142/](http://13.61.89.142/) (Angļu valoda).
 
 ## Par projektu
 Šis projekts piedāvā rīku sabalansētas ēdienkartes plānošanai, ņemot vērā uztura un izmaksu ierobežojumus.
