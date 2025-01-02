@@ -80,8 +80,8 @@ button,
 .bottom-button {
     display: flex;
     justify-content: center;
-    gap: 10px; /* Добавляем пространство между кнопками */
-    margin-top: 2rem; /* Отступ сверху */
+    gap: 10px;
+    margin-top: 2rem;
 }
 
 .bottom-button button {
@@ -197,11 +197,11 @@ td:has(button) {
     }
 
     .filters-container h2 {
-        margin-bottom: 10px; /* Уменьшаем отступ снизу заголовка */
+        margin-bottom: 10px;
     }
     
     .filters-container input {
-        margin-top: 0; /* Убираем верхний отступ у поля ввода */
+        margin-top: 0;
     }
     
 
@@ -273,5 +273,109 @@ td:has(button) {
             border: 1px solid #ddd;
             border-radius: 4px;
         }
+    }
+}
+
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .manage-container {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+    }
+
+    .manage-categories,
+    .filters-container,
+    .manage-products {
+        flex: 1 1 100%;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    table {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        padding: 3px;
+        font-size: 12px;
+    }
+
+    td input[type="text"],
+    td input[type="number"],
+    td select {
+        font-size: 12px;
+        padding: 3px;
+    }
+
+    .bottom-button {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .bottom-button button {
+        width: 100%;
+        padding: 0.6rem;
+    }
+
+    .download-container {
+        align-items: center;
+    }
+
+    #file-label {
+        width: 100%;
+        padding: 0.6rem;
+    }
+
+    .custom-file-upload {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #file-name {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .scroll-container {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1,
+    h2,
+    h3 {
+        font-size: 18px;
+    }
+
+    .filters-wrapper {
+        width: 100%;
+    }
+
+    input,
+    select {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 0.6rem;
+    }
+
+    table {
+        font-size: 10px;
+    }
+
+    th,
+    td {
+        padding: 2px;
     }
 }
