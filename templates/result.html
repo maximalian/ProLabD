@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html data-first-name="{{ first_name }}" data-last-name="{{ last_name }}">
+<html>
+
+<head>
+    <title>Calculation Results</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/result.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+</head>
+
+<body>
+    <main>
+        <div id="results">
+
+            <h2 class="user-details-title">User Details</h2>
+            <div class="user-details-container">
+                <p><strong>Age:</strong> {{ user_data.vecums }}</p>
+                <p><strong>Height:</strong> {{ user_data.augums }} cm</p>
+                <p><strong>Weight:</strong> {{ user_data.svars }} kg</p>
+                <p><strong>Gender:</strong> {{ user_data.dzimums }}</p>
+            </div>            
+
+            <h1>Calculation Results</h1>
+
+            <!-- Store Selection Form -->
+            <form method="POST" action="/user_bp/calculate_menu" onsubmit="return validateStoreSelection()">
+                <table>
+                    <tr>
+                        <th>Product</th>
+                        <th>Proteins (g)</th>
+                        <th>Fats (g)</th>
+                        <th>Carbohydrates (g)</th>
+                        <th>Calories (kcal)</th>
+                        <th>Quantity</th>
+                        <th>
+                            <div class="checkbox-container">
+                                <label>Maxima</label>
+                                <input type="checkbox" id="store_maxima" name="store_maxima" value="Maxima" {%
+                                    if 'Maxima' in store or 'both' in store %}checked{% endif %}>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="checkbox-container">
+                                <label>Rimi</label>
+                                <input type="checkbox" id="store_rimi" name="store_rimi" value="Rimi" {% if 'Rimi' in
+                                    store or 'both' in store %}checked{% endif %}>
+                            </div>
+                        </th>
+                        <th>Total Price</th>
+                    </tr>
+                    {% for item in results.Edienkarte %}
+                    <tr>
+                        <td>{{ item.name }}</td>
+                        <td>{{ "%.2f" % item.protein }}</td>
+                        <td>{{ "%.2f" % item.fat }}</td>
+                        <td>{{ "%.2f" % item.carbs }}</td>
+                        <td>{{ "%.2f" % item.calories }}</td>
+                        <td>{{ "%.2f" % item.quantity }} {{ item.unit }}</td>
+
+                        <td
+                            class="{% if item.price == item.maxima_price and ('Maxima' in store or 'both' in store) %}highlight{% endif %}">
+                            {% if 'Maxima' in store or 'both' in store %}
+                            {% if item.maxima_link %}
+                            <a href="{{ item.maxima_link }}" target="_blank">
+                                {{ "%.2f" % item.maxima_price }} EUR/{{ item.unit }}
+                            </a>
+                            {% else %}
+                            {{ "%.2f" % item.maxima_price }} EUR/{{ item.unit }}
+                            {% endif %}
+                            {% else %}
+                            -
+                            {% endif %}
+                        </td>
+
+                        <td
+                            class="{% if item.price == item.rimi_price and ('Rimi' in store or 'both' in store) %}highlight{% endif %}">
+                            {% if 'Rimi' in store or 'both' in store %}
+                            {% if item.rimi_link %}
+                            <a href="{{ item.rimi_link }}" target="_blank">
+                                {{ "%.2f" % item.rimi_price }} EUR/{{ item.unit }}
+                            </a>
+                            {% else %}
+                            {{ "%.2f" % item.rimi_price }} EUR/{{ item.unit }}
+                            {% endif %}
+                            {% else %}
+                            -
+                            {% endif %}
+                        </td>
+
+
+
+                        <td>{{ "%.2f" % (item.price * item.quantity) }} EUR</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="8"><strong>Total Menu Price:</strong></td>
+                        <td><strong>{{ "%.2f" % results.Cena }} EUR</strong></td>
+                    </tr>
+                </table>
+
+                <div class="button-container">
+                    <button type="button" class="bottom-button" onclick="window.location.href='/auth/login'">Back to
+                        Login</button>
+                    <button type="button" class="bottom-button"
+                        onclick="window.location.href='/user_bp/profile'">Profile</button>
+                    <button type="button" onclick="window.location.href='/product_bp/manage_products'">Edit
+                        products</button>
+                    <button type="submit">Calculate</button>
+                    <button id="downloadDoc">Download as DOCX</button>
+                </div>
+            </form>
+
+            {% if results.Error %}
+            <p class="results-error">{{ results.Error }}</p>
+            {% else %}
+            <h2>Daily Nutrients and Norms</h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Proteins (g)</th>
+                    <th>Fats (g)</th>
+                    <th>Carbohydrates (g)</th>
+                    <th>Calories (kcal)</th>
+                </tr>
+                <tr class="daily-obtained">
+                    <td><strong>Daily Nutrients Obtained:</strong></td>
+                    <td>{{ "%.2f" % results.nutrients.Proteins }}</td>
+                    <td>{{ "%.2f" % results.nutrients.Fats }}</td>
+                    <td>{{ "%.2f" % results.nutrients.Carbohydrates }}</td>
+                    <td>{{ "%.2f" % results.nutrients.Calories }}</td>
+                </tr>
+                <tr class="daily-norms">
+                    <td><strong>Daily Norms:</strong></td>
+                    <td>{{ "%.2f" % results.norms.Protein }}</td>
+                    <td>{{ "%.2f" % results.norms.Fat }}</td>
+                    <td>{{ "%.2f" % results.norms.Carbs }}</td>
+                    <td>{{ "%.2f" % results.norms.Calories }}</td>
+                </tr>
+            </table>
+
+            <div id="chartData" data-nutrients-obtained='{{ results.nutrients | tojson | safe }}'
+                data-daily-norms='{{ results.norms | tojson | safe }}'></div>
+
+
+            <h2>Daily Nutrient Comparison</h2>
+            <canvas id="nutrientChart" width="400" height="200"></canvas>
+
+            <h2>Selected Products</h2>
+            <table>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Min Limit</th>
+                    <th>Max Limit</th>
+                </tr>
+                {% for product in user_data.selected_products %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.min_limit if product.min_limit else "Not Set" }}</td>
+                    <td>{{ product.max_limit if product.max_limit else "Not Set" }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/result.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html-docx-js@0.3.1/dist/html-docx.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Manage Products</title>
+    <link rel="stylesheet" href="/static/css/manage_products.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+</head>
+
+<body>
+    <main>
+        <!-- Add New Product Form -->
+        <div class="new-product-form">
+            <h1>Manage Products</h1>
+            <form method="POST" action="/product_bp/add_product" id="productForm">
+                <div id="productTablesContainer">
+                    <div class="product-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Calories</th>
+                                    <th>Proteins</th>
+                                    <th>Fats</th>
+                                    <th>Carbs</th>
+                                    <th>Maxima Link</th>
+                                    <th>Maxima Price</th>
+                                    <th>Rimi Link</th>
+                                    <th>Rimi Price</th>
+                                    <th>Unit</th>
+                                    <th>Category</th>
+                                    <th>Vegan</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" name="nosaukums" required></td>
+                                    <td><input type="number" step="0.01" name="kalorijas" required></td>
+                                    <td><input type="number" step="0.01" name="olbaltumvielas" required></td>
+                                    <td><input type="number" step="0.01" name="tauki" required></td>
+                                    <td><input type="number" step="0.01" name="oglhidrati" required></td>
+                                    <td><input type="text" name="saite_maxima"></td>
+                                    <td><input type="number" step="0.01" name="cena_maxima"></td>
+                                    <td><input type="text" name="saite_rimi"></td>
+                                    <td><input type="number" step="0.01" name="cena_rimi"></td>
+                                    <td><input type="text" name="meris_vieniba" required></td>
+                                    <td>
+                                        <select name="kategorija_key" required>
+                                            {% for category in categories %}
+                                            <option value="{{ category.kategorija_key }}">{{ category.nosaukums }}
+                                            </option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="vegan" required>
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="addProduct">Add Product</button>
+                                        <button type="button" class="deleteRow" disabled>Delete Table</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="manage-products-buttons">
+                    <button type="button" id="addTable">Add Table</button>
+                    <button type="submit">Add All</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="manage-container">
+            <!-- Manage Categories -->
+            <div class="manage-categories">
+                <h2>Manage Categories</h2>
+                <div id="category-management">
+                    <input type="text" id="newCategoryInput" placeholder="Enter category name">
+                    <button id="addCategoryButton">Add Category</button>
+                    <select id="categoryDropdown">
+                        <option value="all">All</option>
+                        {% for category in categories|sort(attribute='kategorija_key') %}
+                        <option value="{{ category.kategorija_key }}">{{ category.kategorija_key }} - {{
+                            category.nosaukums
+                            }}</option>
+                        {% endfor %}
+                    </select>
+                    <button id="deleteCategoryButton">Delete Category</button>
+                </div>
+            </div>
+        
+            <!-- Filter Products -->
+            <div class="filters-container">
+                <div class="filters-wrapper">
+                    <h2>Filter Products</h2>
+                <input type="text" id="productSearch" placeholder="Search by product name...">
+                <label for="categoryFilter">Category:</label>
+                <select id="categoryFilter">
+                    <option value="">All</option>
+                    {% for category in categories %}
+                    <option value="{{ category.kategorija_key }}">{{ category.nosaukums }}</option>
+                    {% endfor %}
+                </select>
+                <label for="veganFilter">Vegan:</label>
+                <select id="veganFilter">
+                    <option value="">All</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+                <label for="failedUrlsFilter">Show Failed URLs:</label>
+                <select id="failedUrlsFilter">
+                    <option value="">All</option>
+                    <option value="1">With Failed URLs</option>
+                </select>
+                </div>
+            </div>
+        
+            <!-- Manage Products -->
+            <div class="manage-products">
+                <h2>Manage Products</h2>
+                <div class="download-container">
+                    <button id="download-template">Download Template</button>
+                    <button id="download-example">Download Example</button>
+                    <div class="custom-file-upload">
+                        <label for="upload-file" id="file-label">Choose file</label>
+                        <input type="file" id="upload-file" class="hidden-input" accept=".xlsx">
+                        <span id="file-name">No file chosen</span>
+                    </div>
+                    <button id="upload-data">Upload Data</button>
+                </div>
+                <div id="upload-status"></div>
+            </div>
+        </div>
+        
+
+        <h2>Products</h2>
+        <div class="scroll-container">
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Calories</th>
+                        <th>Proteins</th>
+                        <th>Fats</th>
+                        <th>Carbs</th>
+                        <th>Maxima Link</th>
+                        <th>Maxima Price</th>
+                        <th>Rimi Link</th>
+                        <th>Rimi Price</th>
+                        <th>Unit</th>
+                        <th>Category</th>
+                        <th>Vegan</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic rows -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="bottom-button">
+            <button type="button" onclick="window.location.href='/user_bp/profile'">Back to Profile</button>
+            <button type="button" onclick="window.location.href='/user_bp/calculate_menu'">Back to Results</button>
+        </div>
+
+    </main>
+
+    <script src="/static/js/manage_products.js"></script>
+    <script>
+        const allProducts = JSON.parse('{{ all_products|tojson|safe }}');
+        const tableBody = document.querySelector("#productTable tbody");
+        const categories = JSON.parse('{{ categories|tojson|safe }}');
+
+        document.getElementById("productSearch").addEventListener("input", applyFilters);
+        document.getElementById("categoryFilter").addEventListener("change", applyFilters);
+        document.getElementById("veganFilter").addEventListener("change", applyFilters);
+        document.getElementById("failedUrlsFilter").addEventListener("change", applyFilters);
+
+        renderRows(allProducts);
+    </script>
+
+</body>
+
+</html>
