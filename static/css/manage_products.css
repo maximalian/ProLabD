@@ -1,0 +1,277 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    justify-content: center;
+    align-items: center;
+}
+
+h1,
+h2,
+h3 {
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    margin: 20px 20px;
+    padding: 50px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: left;
+    overflow: hidden;
+}
+
+td {
+
+    input[type="text"],
+    input[type="number"],
+    select {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5px;
+        font-size: 14px;
+        height: 30px;
+    }
+}
+
+.scroll-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.new-product-form {
+    margin-bottom: 20px;
+}
+
+.highlight-error {
+    background-color: red;
+    color: white;
+}
+
+button,
+.input-file {
+    color: #fff;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.bottom-button {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Добавляем пространство между кнопками */
+    margin-top: 2rem; /* Отступ сверху */
+}
+
+.bottom-button button {
+    background-color: #007bff;
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.bottom-button button:hover {
+    background-color: #0056b3;
+}
+
+
+.addProduct,
+.save-button,
+#addCategoryButton {
+    background-color: #28a745;
+
+    &:hover {
+        background-color: #218838;
+    }
+}
+
+td:has(.add-button) {
+    display: flex;
+    justify-content: center;
+}
+
+td:has(button) {
+    display: flex;
+}
+
+#upload-status,
+.deleteRow,
+.delete-button,
+#deleteCategoryButton {
+    background-color: #dc3545;
+
+    &:hover {
+        background-color: #c82333;
+    }
+}
+
+#upload-status,
+.deleteRow,
+.delete-button {
+    margin-left: 10px;
+}
+
+.addProduct,
+.deleteRow {
+    padding: 0.5rem;
+}
+
+
+.manage-products-buttons {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+    gap: 10px;
+
+    button {
+        background-color: #28a745;
+
+        &:hover {
+            background-color: #218838;
+        }
+    }
+}
+
+.manage-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto; 
+    padding: 20px;
+
+    .manage-categories,
+    .filters-container,
+    .manage-products {
+        flex: 1;
+        max-width: 300px;
+    }
+
+    .filters-container {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .filters-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            gap: 10px;
+        }
+
+        input,
+        select {
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    }
+
+    .filters-container h2 {
+        margin-bottom: 10px; /* Уменьшаем отступ снизу заголовка */
+    }
+    
+    .filters-container input {
+        margin-top: 0; /* Убираем верхний отступ у поля ввода */
+    }
+    
+
+    .download-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        gap: 1rem;
+
+        button {
+            background-color: #007bff;
+            padding: 0.8rem 2rem;
+
+            &:hover {
+                background-color: #0056b3;
+            }
+        }
+    }
+
+    .input-file {
+        background-color: #007bff;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+
+    .hidden-input {
+        display: none;
+    }
+
+    #file-label {
+        display: inline-block;
+        padding: 0.9rem 2rem;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+
+    .custom-file-upload {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #file-name {
+        margin-left: 10px;
+        font-size: 14px;
+        color: #555;
+        white-space: nowrap;
+    }
+
+    #category-management {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        input,
+        select {
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    }
+}

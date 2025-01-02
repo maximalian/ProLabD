@@ -1,0 +1,116 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  main {
+    flex: 1;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    h1,
+    h2 {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+      .user-details-title {
+        margin-bottom: 5px;
+    }
+
+      .user-details-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 5px;
+        margin: 10px auto;
+        max-width: 400px;
+    }
+    
+    .user-details-container p {
+        margin: 10px 0;
+        font-size: 16px;
+    }
+  
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .highlight {
+      background-color: lightgreen;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 1rem;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+
+    .results-error {
+      color: red;
+    }
+
+    .highlight {
+      background-color: lightgreen;
+    }
+
+    .daily-obtained td:first-child {
+      background-color: #86c7f3;
+      font-weight: bold;
+    }
+
+    .daily-norms td:first-child {
+      background-color: #ffa1b5;
+      font-weight: bold;
+    }
+  }
+}
