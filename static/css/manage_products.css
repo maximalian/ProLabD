@@ -279,19 +279,23 @@ td:has(button) {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
     .manage-container {
         flex-direction: column;
         padding: 10px;
         gap: 15px;
+        align-items: center;
+        justify-content: center;
     }
 
     .manage-categories,
     .filters-container,
     .manage-products {
         flex: 1 1 100%;
-        max-width: 100%;
-        padding: 10px;
+        max-width: 500px; 
+        width: 100%;
+        margin: 0 auto; 
+        text-align: center;
     }
 
     table {
