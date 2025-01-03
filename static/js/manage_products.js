@@ -273,8 +273,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Pārbauda, vai saites atbilst prasītajam formātam.
-        if (maximaLink && !maximaLink.startsWith("https://www.barbora.lv/")) {
-            alert("Maxima link must start with 'https://www.barbora.lv/'.");
+        if (maximaLink && !maximaLink.startsWith("https://barbora.lv/")) {
+            alert("Maxima link must start with 'https://barbora.lv/'.");
             return false;
         }
         if (rimiLink && !rimiLink.startsWith("https://www.rimi.lv/")) {
