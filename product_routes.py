@@ -403,7 +403,7 @@ def add_single_product():
 
         if not nosaukums:
             return {"error": "Product name is required."}, 400
-        if not kalorijas or not olbaltumvielas or not tauki or not oglhidrati:
+        if kalorijas is None or olbaltumvielas is None or tauki is None or oglhidrati is None:
             return {"error": "Nutritional values must be valid."}, 400
         if not meris_vieniba or not kategorija_key:
             return {"error": "Measurement unit and category key are required."}, 400
