@@ -78,10 +78,13 @@ function saveRow(productId) {
             return;
         }
 
-        if (maximaLink && !maximaLink.startsWith("https://barbora.lv/")) {
-            alert("Maxima link must start with 'https://barbora.lv/'.");
+        if (
+            maximaLink &&
+            !(maximaLink.startsWith("https://barbora.lv/") || maximaLink.startsWith("https://www.barbora.lv/"))) {
+            alert("Maxima link must start with 'https://barbora.lv/' or 'https://www.barbora.lv/'.");
             return;
         }
+
 
         if (rimiLink && !rimiLink.startsWith("https://www.rimi.lv/")) {
             alert("Rimi link must start with 'https://www.rimi.lv/'.");
@@ -273,8 +276,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Pārbauda, vai saites atbilst prasītajam formātam.
-        if (maximaLink && !maximaLink.startsWith("https://barbora.lv/")) {
-            alert("Maxima link must start with 'https://barbora.lv/'.");
+        if (
+            maximaLink &&
+            !(
+                maximaLink.startsWith("https://barbora.lv/") ||
+                maximaLink.startsWith("https://www.barbora.lv/")
+            )
+        ) {
+            alert("Maxima link must start with 'https://barbora.lv/' or 'https://www.barbora.lv/'.");
             return false;
         }
         if (rimiLink && !rimiLink.startsWith("https://www.rimi.lv/")) {
