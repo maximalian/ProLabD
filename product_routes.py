@@ -118,7 +118,7 @@ def upload_products():
 
             link_errors = validate_links(
                 {"Maxima Link": saite_maxima, "Rimi Link": saite_rimi},
-                valid_prefixes=["https://www.barbora.lv/", "https://www.rimi.lv/"]
+                valid_prefixes=["https://barbora.lv/", "https://www.rimi.lv/"]
             )
             if link_errors:
                 errors.append(f"Row {index + 1}: " + "; ".join(link_errors))
@@ -325,7 +325,7 @@ def add_product():
 
             link_errors = validate_links(
                 {"Maxima Link": saite_maxima, "Rimi Link": saite_rimi},
-                valid_prefixes=["https://www.barbora.lv/", "https://www.rimi.lv/"]
+                valid_prefixes=["https://barbora.lv/", "https://www.rimi.lv/"]
             )
             if link_errors:
                 errors.append(f"Row {index + 1}: " + "; ".join(link_errors))
@@ -413,7 +413,7 @@ def add_single_product():
 
         link_errors = validate_links(
             {"Maxima Link": saite_maxima, "Rimi Link": saite_rimi},
-            valid_prefixes=["https://www.barbora.lv/", "https://www.rimi.lv/"]
+            valid_prefixes=["https://barbora.lv/", "https://www.rimi.lv/"]
         )
         if link_errors:
             return {"error": "; ".join(link_errors)}, 400
