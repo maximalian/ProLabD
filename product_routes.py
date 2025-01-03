@@ -118,11 +118,16 @@ def upload_products():
 
             link_errors = validate_links(
                 {"Maxima Link": saite_maxima, "Rimi Link": saite_rimi},
-                valid_prefixes=["https://barbora.lv/", "https://www.rimi.lv/"]
+                valid_prefixes=[
+                    "https://barbora.lv/",         # Без www
+                    "https://www.barbora.lv/",    # С www
+                    "https://www.rimi.lv/"
+                ]
             )
             if link_errors:
                 errors.append(f"Row {index + 1}: " + "; ".join(link_errors))
                 continue
+
 
             if check_duplicate(cursor, "produkts", "nosaukums", nosaukums):
                 errors.append(f"Row {index + 1}: Product name already exists.")
@@ -315,7 +320,15 @@ def add_product():
             kategorija_key = product.get('kategorija_key')
             vegan = product.get('vegan')
 
-            if not all([nosaukums, kalorijas, olbaltumvielas, tauki, oglhidrati, meris_vieniba, kategorija_key]):
+            if not all([
+                nosaukums, 
+                kalorijas is not None,
+                olbaltumvielas is not None, 
+                tauki is not None, 
+                oglhidrati is not None, 
+                meris_vieniba, 
+                kategorija_key
+            ]):
                 errors.append(f"Row {index + 1}: Required fields are missing.")
                 continue
 
@@ -325,7 +338,11 @@ def add_product():
 
             link_errors = validate_links(
                 {"Maxima Link": saite_maxima, "Rimi Link": saite_rimi},
-                valid_prefixes=["https://barbora.lv/", "https://www.rimi.lv/"]
+                valid_prefixes=[
+                    "https://barbora.lv/", 
+                    "https://www.barbora.lv/", 
+                    "https://www.rimi.lv/"
+                ]
             )
             if link_errors:
                 errors.append(f"Row {index + 1}: " + "; ".join(link_errors))
@@ -403,7 +420,7 @@ def add_single_product():
 
         if not nosaukums:
             return {"error": "Product name is required."}, 400
-        if not kalorijas or not olbaltumvielas or not tauki or not oglhidrati:
+        if kalorijas is None or olbaltumvielas is None or tauki is None or oglhidrati is None:
             return {"error": "Nutritional values must be valid."}, 400
         if not meris_vieniba or not kategorija_key:
             return {"error": "Measurement unit and category key are required."}, 400
@@ -413,10 +430,15 @@ def add_single_product():
 
         link_errors = validate_links(
             {"Maxima Link": saite_maxima, "Rimi Link": saite_rimi},
-            valid_prefixes=["https://barbora.lv/", "https://www.rimi.lv/"]
+            valid_prefixes=[
+                "https://barbora.lv/", 
+                "https://www.barbora.lv/",
+                "https://www.rimi.lv/"
+            ]
         )
         if link_errors:
             return {"error": "; ".join(link_errors)}, 400
+
 
         cursor.execute(
             """
