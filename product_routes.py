@@ -315,7 +315,15 @@ def add_product():
             kategorija_key = product.get('kategorija_key')
             vegan = product.get('vegan')
 
-            if not all([nosaukums, kalorijas, olbaltumvielas, tauki, oglhidrati, meris_vieniba, kategorija_key]):
+            if not all([
+                nosaukums, 
+                kalorijas is not None,
+                olbaltumvielas is not None, 
+                tauki is not None, 
+                oglhidrati is not None, 
+                meris_vieniba, 
+                kategorija_key
+            ]):
                 errors.append(f"Row {index + 1}: Required fields are missing.")
                 continue
 
