@@ -116,11 +116,24 @@ def upload_products():
             saite_maxima = str(row['Maxima Link']).strip() if pd.notna(row['Maxima Link']) else None
             saite_rimi = str(row['Rimi Link']).strip() if pd.notna(row['Rimi Link']) else None
 
+            if kalorijas is None or kalorijas < 0:
+                errors.append(f"Row {index + 1}: Calories must be a number >= 0.")
+                continue
+            if olbaltumvielas is None or olbaltumvielas < 0:
+                errors.append(f"Row {index + 1}: Proteins must be a number >= 0.")
+                continue
+            if tauki is None or tauki < 0:
+                errors.append(f"Row {index + 1}: Fats must be a number >= 0.")
+                continue
+            if oglhidrati is None or oglhidrati < 0:
+                errors.append(f"Row {index + 1}: Carbs must be a number >= 0.")
+                continue
+
             link_errors = validate_links(
                 {"Maxima Link": saite_maxima, "Rimi Link": saite_rimi},
                 valid_prefixes=[
-                    "https://barbora.lv/",         # Без www
-                    "https://www.barbora.lv/",    # С www
+                    "https://barbora.lv/",
+                    "https://www.barbora.lv/",
                     "https://www.rimi.lv/"
                 ]
             )
