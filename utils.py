@@ -39,7 +39,7 @@ def safe_number(value):
     Funkcija, lai droši konvertētu vērtību uz skaitlisko formātu.
     """
     try:
-        return float(value) if value else None
+        return float(value) if value is not None and value != '' else None
     except ValueError:
         return None
 
