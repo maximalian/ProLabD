@@ -89,7 +89,11 @@ Konceptu modelis ietver šādus pamata elementus:
 Tehnoloģiju steks, kas tiks izmantots risinājuma implementācijai, sastāv no šādiem komponentiem:
 
 - **Satvars**: Python Flask – tīmekļa lietotnes apstrādei servera pusē.
-- **Programmēšanas valoda**: Python – risinājuma loģikas un funkcionalitātes izstrādei.
+- **Programmēšanas valoda**:
+  - **Python** – risinājuma loģikas un funkcionalitātes izstrādei.  
+  - **JavaScript** – dinamiskai lietotāja saskarnes funkcionalitātei un mijiedarbībai ar serveri.  
+  - **HTML** – satura un struktūras izveidei tīmekļa lietotnei.  
+  - **CSS** – dizaina un izkārtojuma pielāgošanai lietotāja saskarnē.  
 - **Datu bāze**: PostgreSQL – datu glabāšanai un pārvaldībai.
 - **Tīmekļa serveris**: nginx – tīmekļa lietotnes apkalpošanai un pieejamības nodrošināšanai.
 - **Operētājsistēma**: Ubuntu – servera operētājsistēma, kas nodrošina stabilu vidi lietotnes darbībai.
