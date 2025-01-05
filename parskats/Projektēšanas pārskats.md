@@ -344,7 +344,7 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 - **Produktu tabula**:
   - Rediģēšana produktu ar detalizētām īpašībām.
 
-  ![Produktu tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_products.png)
+  ![Produktu tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_table.png)
 
 - **Produktu rindas**:
   - Jaunu produktu pievienošana pa vienam vai vairākiem uzreiz.
