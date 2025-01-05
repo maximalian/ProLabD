@@ -212,7 +212,7 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 - **"Profile"** - Ķauj rediģēt lietotāja informāciju (vārds, vecums, dzimums) un ierobežojumus uzturvielām.
 - **"Edit Products"** - Dod iespēju rediģēt esošo produktu sarakstu datubāzē.
 - **"Calculate"** - Aprēķina uztura plānu un cenas, balstoties uz lietotāja izvēlētajiem veikaliem.
-- **"Download as DOCX"** - Lejupielādē rezultātus DOCX faila formātā, ķaujot tos saglabāt vai izdrukāt Lejupielādējamā DOCX faila piemērs: [Arturs_Pavlovs_results.docx](https://github.com/maximalian/ProLabD/blob/master/parskats/Arturs_Pavlovs_results.docx).
+- **"Download as DOCX"** - Lejupielādē rezultātus DOCX faila formātā, ķaujot tos saglabāt vai izdrukāt. DOCX faila piemērs: [Arturs_Pavlovs_results.docx](https://github.com/maximalian/ProLabD/blob/master/parskats/Arturs_Pavlovs_results.docx).
 
 ### Aprēķinu rezultātu vizualizācijas:
 - Kopējās aprēķinu rezultātu lapa
