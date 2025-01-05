@@ -134,23 +134,23 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 
 ---
 ### Attēls:
-![Pieteikšanās Lapa](./login.png)
+![Pieteikšanās Lapa](https://github.com/maximalian/ProLabD/blob/master/parskats/login.png)
 
 ---
 ### Kods:
-- [app.py](./app.py) - Galvenā aplikācijas konfigurācija un maršrutēšana【51†source】.
+- [app.py](https://github.com/maximalian/ProLabD/blob/master/app.py) - Galvenā aplikācijas konfigurācija un maršrutēšana【51†source】.
   - Funkcija: **home()** - Atgriež galveno lapu.
 
-- [auth_routes.py](./auth_routes.py) - Pieteikšanās un reģistrācijas loģika【52†source】.
+- [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Pieteikšanās un reģistrācijas loģika【52†source】.
   - Funkcija: **login()** - Apstrādā pieteikšanās pieprasījumus (GET un POST).
   - Funkcija: **register()** - Reģistrē jaunu lietotāju.
   - Funkcija: **logout()** - Izraksta lietotāju no sistēmas.
 
-- [index.html](./index.html) - HTML veidne pieteikšanās lapai【53†source】.
+- [index.html](https://github.com/maximalian/ProLabD/blob/master/templates/index.html) - HTML veidne pieteikšanās lapai【53†source】.
   - Satur ievades laukus e-pastam un parolei.
   - Pogas pieteikšanās un reģistrācijai.
 
-- [styles.css](./styles.css) - CSS stila faili lietotāja saskarnei【54†source】.
+- [styles.css](https://github.com/maximalian/ProLabD/blob/master/static/css/styles.css) - CSS stila faili lietotāja saskarnei【54†source】.
   - Nodrošina dizainu ar responsīvu izkārtojumu un pogu animācijām.
 
 ---
