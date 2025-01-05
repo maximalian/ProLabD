@@ -132,11 +132,8 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 - Tiek veikta lietotāja autentifikācija, izmantojot bcrypt hash algoritmu.
 - Ja pieteikšanās ir veiksmīga, lietotājs tiek pāradresēts uz personalizēto profilu.
 
----
-### Attēls:
 ![Pieteikšanās Lapa](https://github.com/maximalian/ProLabD/blob/master/parskats/login.png)
 
----
 ### Kods:
 - [app.py](https://github.com/maximalian/ProLabD/blob/master/app.py) - Galvenā aplikācijas konfigurācija un maršrutēšana【51†source】.
   - Funkcija: **home()** - Atgriež galveno lapu.
