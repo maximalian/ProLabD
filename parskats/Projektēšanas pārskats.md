@@ -159,11 +159,8 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 - Validē e-pasta un paroles atbilstību.
 - Ja reģistrācija veiksmīga, lietotājs tiek novirzīts uz profila iestatīšanas lapu.
 
----
-### Attēls:
-![Reģistrācijas Lapa](./register.png)
+![Reģistrācijas Lapa](https://github.com/maximalian/ProLabD/blob/master/parskats/register.png)
 
----
 ### Kods:
 - [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Reģistrācijas loģika【79†source】.
   - Funkcija: **register()** - Apstrādā reģistrācijas pieprasījumus (GET un POST).
