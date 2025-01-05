@@ -216,20 +216,28 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 
 ### Aprēķinu rezultātu vizualizācijas:
 - Kopējās aprēķinu rezultātu lapa
+
   ![Rezultātu lapa](https://github.com/maximalian/ProLabD/blob/master/parskats/result.png)
 - Lietotāja dati
+
   ![Lietotāja dati](https://github.com/maximalian/ProLabD/blob/master/parskats/user_details.png)
 - Aprēķinu tabula
+
   ![Aprēķinu tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/calc_result.png)
 - Dienas uzturvielu normas
+
   ![Uzturvielu normas](https://github.com/maximalian/ProLabD/blob/master/parskats/daily_NN.png)
 - Dienas uzturvielu salīdzinājums
+
   ![Salīdzinājums](https://github.com/maximalian/ProLabD/blob/master/parskats/daily_NC.png)
 - Izvēlētie produkti
+
   ![Izvēlētie produkti](https://github.com/maximalian/ProLabD/blob/master/parskats/selected_products.png)
 - Veikalu izvēle un aprēķini
+
   ![Veikalu izvēle](https://github.com/maximalian/ProLabD/blob/master/parskats/calculate.png)
 - Navigācijas pogas
+
   ![Navigācijas pogas](https://github.com/maximalian/ProLabD/blob/master/parskats/result_buttons.png)
 
 ### Kods:
