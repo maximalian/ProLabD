@@ -263,5 +263,39 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
   - Kopējā ēdienkartes cena tiek rādīta apakšā.
 
 ---
-Turpinājums sekos ar citām sadaļām.
+
+## 5.5 Profila lapa
+### Funkcionalitāte:
+- Lietotājs var rediģēt savu informāciju, ieskaitot vārdu, uzvārdu, e-pastu, vecumu, augumu un svaru.
+- Parole var tikt mainīta, ievadot jaunu paroli.
+- Uzturvērtību ierobežojumi (minimālie un maksimālie) var tikt definēti konkrētiem produktiem.
+- Produkta filtri ļauj izslēgt produktus pēc kategorijas vai vegānisma statusa.
+- Ierobežojumu saglabāšana automātiski atjaunina uztura aprēķinus.
+
+### Navigācijas pogas:
+- **"Back to Results"** - Atgriež lietotāju uz rezultātu lapu.
+- **"Save Changes"** - Saglabā lietotāja veiktās izmaiņas.
+- **"Edit Products"** - Dod iespēju pārvaldīt produktu sarakstu datubāzē.
+
+- Kopējais profils:
+  ![Profils](https://github.com/maximalian/ProLabD/blob/master/parskats/user_profile.png)
+- Lietotāja informācija:
+  ![Informācija](https://github.com/maximalian/ProLabD/blob/master/parskats/user_info.png)
+- Filtra piemēri:
+  ![Filtri](https://github.com/maximalian/ProLabD/blob/master/parskats/profile_product_filter.png)
+  ![Filtru ierobežojumi](https://github.com/maximalian/ProLabD/blob/master/parskats/profile_filter.png)
+- Navigācijas pogas:
+  ![Navigācija](https://github.com/maximalian/ProLabD/blob/master/parskats/profile_button.png)
+- Jauni aprēķini pēc izmaiņām:
+  ![Rezultāti](https://github.com/maximalian/ProLabD/blob/master/parskats/new_calculation_result.png)
+  ![Izvēlētie produkti](https://github.com/maximalian/ProLabD/blob/master/parskats/new_celected_products.png)
+
+### Kods:
+- [user_routes.py](https://github.com/maximalian/ProLabD/blob/master/user_routes.py) - Funkcijas profila un uztura ierobežojumu atjaunināšanai.
+  - Funkcija: **profile()** - Rediģē lietotāja profilu.
+  - Funkcija: **update_selected_products()** - Atjauno lietotāja izvēlētos produktus.
+- [profile.html](https://github.com/maximalian/ProLabD/blob/master/templates/profile.html) - HTML veidne profila rediģēšanai.
+- [product_table.js](https://github.com/maximalian/ProLabD/blob/master/static/js/product_table.js) - Produkta filtru pārvaldība.
+- [profile.css](https://github.com/maximalian/ProLabD/blob/master/static/css/profile.css) - Stila faili profila lapai.
+
 
