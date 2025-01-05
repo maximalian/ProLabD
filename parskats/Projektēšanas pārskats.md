@@ -50,13 +50,12 @@ Līdzīgie risinājumi parasti izmanto lineāro programmēšanu, kas ir plaši p
 Sistēmas prasības tiek sadalītas vairākās galvenajās kategorijās: funkcionālās, nefunkcionālās un lietotāja prasības.
 
 - **Funkcionālās prasības:**
-1. Lietotājam jāspēj ievadīt personīgo informāciju, piemēram, vecumu, dzimumu, svaru, aktivitātes līmeni un uzturvērtību prasības.
+1. Lietotājam jāspēj ievadīt personīgo informāciju, piemēram, vecumu, dzimumu, svaru un produktu prasības.
 2. Sistēmai jānodrošina iespēja ievadīt un atjaunināt produktu uzturvērtības (olbaltumvielas, tauki, ogļhidrāti, kalorijas u.c.) un cenas.
 3. Jānodrošina iespēja optimizēt ēdienkarti, pamatojoties uz uzturvielu un cenu datiem, ievērojot lietotāja norādītos ierobežojumus.
-4. Sistēmai jāsniedz iespēja ievadīt īpašas prasības (piemēram, pārtikas nepanesamība, alerģijas), kas ierobežo noteiktu produktu izmantošanu.
-5. Jānodrošina iespēja dinamiski atjaunināt pieejamo produktu sarakstu, piemēram, mainot produktus vai pievienojot jaunus veikalus.
-6. Jānodrošina uzturvielu grafiskā vizualizācija, parādot olbaltumvielu, tauku, ogļhidrātu un kaloriju vērtības lietotāja ēdienkartē.
-7. Jānodrošina iespēja lietotājam sekot līdzi cenu izmaiņām dažādos veikalos.
+4. Jānodrošina iespēja dinamiski atjaunināt pieejamo produktu sarakstu, piemēram, mainot produktus.
+5. Jānodrošina uzturvielu grafiskā vizualizācija, parādot olbaltumvielu, tauku, ogļhidrātu un kaloriju vērtības lietotāja ēdienkartē.
+6. Jānodrošina iespēja lietotājam sekot līdzi cenu izmaiņām dažādos veikalos.
 
 - **Nefunkcionālās prasības:**
 1. Sistēmai jābūt pieejamai kā tīmekļa lietotnei, nodrošinot lietojamību jebkurā laikā un no jebkuras vietas.
