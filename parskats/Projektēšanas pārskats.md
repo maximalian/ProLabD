@@ -81,7 +81,7 @@ Sistēmas prasības tiek sadalītas vairākās galvenajās kategorijās: funkcio
 ## 2. Algoritms
 
 Sistēma izmanto **lineārās programmēšanas algoritmu**, lai optimizētu lietotāja ēdienkarti. Algoritms darbojas šādi:
-1. **Ievaddatu apstrāde**: Lietotājs ievada prasības un ierobežojumus (uzturvielu un cenu dati), kas tiek saglabāti datu bāzē.
+1. **Ievaddatu apstrāde**: Lietotājs ievada prasības un ierobežojumus, kas tiek saglabāti datu bāzē.
 2. **Uzturvielu aprēķins**: Algoritms aprēķina nepieciešamās uzturvielas un produktus, kas atbilst lietotāja vajadzībām, ņemot vērā uzturvērtību un izmaksas.
 3. **Optimizācijas process**: Algoritms nosaka produktu kombināciju, kas nodrošina maksimālu uzturvielu vērtību, minimizējot kopējās izmaksas.
 4. **Rezultātu attēlošana**: Pēc optimizācijas lietotājam tiek parādīta ēdienkarte, kurā atspoguļoti uzturvērtību dati un kopējās izmaksas.
