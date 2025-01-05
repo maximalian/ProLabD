@@ -173,5 +173,45 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
   - Dizains ar responsīvu izkārtojumu un animācijām.
 
 ---
-Turpinājums sekos ar citām sadaļām.
 
+## 5.3 Lietotāja dati un produktu filtrēšana
+### Funkcionalitāte:
+- Lietotājs ievada personas datus (vārds, uzvārds, dzimums, vecums, svars, augums).
+- Lietotājs filtrē produktus pēc kategorijām un diētas prasībām (vegan, ne-vegan).
+- Ir iespēja uzstādīt minimālos un maksimālos daudzumus produktiem.
+- Produktus var izslēgt no aprēķina (piem., alerģiju vai nepatiku dēļ). Piemēram, ja lietotājam ir alerģija uz riekstiem, viņš var atlasīt kategoriju "Rieksti", nospiest "Exclude All Filtered" un visi atzīmētie produkti netiks ņemti vērā ēdienkartes veidošanā.
+- Filtrēšanas rezultāti tiek saglabāti lietotāja profilā.
+
+---
+### Attēli:
+- Lietotāja datu ievade un filtri
+  ![Lietotāja dati](./details.png)
+- Produktu filtrēšana
+  ![Produktu filtrs](./details_filter.png)
+
+---
+### Kods:
+- [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Datu apstrādes loģika【95†source】.
+  - Funkcija: **add_details()** - Lietotāja datu pievienošana un atjaunināšana.
+- [add_details.html](https://github.com/maximalian/ProLabD/blob/master/templates/add_details.html) - HTML veidne lietotāja datu ievadei【96†source】.
+- [profile.css](https://github.com/maximalian/ProLabD/blob/master/static/css/profile.css) - CSS stila faili lietotāja saskarnei【97†source】.
+- [product_table.js](https://github.com/maximalian/ProLabD/blob/master/static/js/product_table.js) - JavaScript funkcijas produktu filtrēšanai un ierobežojumu iestatīšanai【98†source】.
+
+---
+### Datu bāzes struktūra:
+Tabula **lietotajs** satur:
+- **id** (integer, primārais atslēga) - unikāls lietotāja ID.
+- **vards** (string) - lietotāja vārds.
+- **uzvards** (string) - lietotāja uzvārds.
+- **epasts** (string) - lietotāja e-pasts.
+- **parole** (string) - hashēta parole.
+- **dzimums** (string) - lietotāja dzimums.
+- **vecums** (integer) - lietotāja vecums.
+- **svars** (numeric) - svars (kg).
+- **augums** (numeric) - augums (cm).
+- **min_limits** (jsonb) - minimālie produktu ierobežojumi.
+- **max_limits** (jsonb) - maksimālie produktu ierobežojumi.
+- **selected_products** (jsonb) - izslēgtie produkti.
+
+---
+Turpinājums sekos ar citām sadaļām.
