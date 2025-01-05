@@ -351,8 +351,13 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 
 - **Produktu rindas**:
   - Jaunu produktu pievienošana pa vienam vai vairākiem uzreiz.
+  - Lietotājs var aizpildīt datus par produktiem, norādot nosaukumu, kalorijas, olbaltumvielas, taukus, ogļhidrātus, saites uz veikaliem, cenas un citas īpašības.
+  - Ir iespēja izvēlēties kategoriju un norādīt, vai produkts ir vegānisks.
+  - Pievienot produktus ar pogu **Add Product** vai dzēst tos ar pogu **Delete Table**.
+  - Papildu iespēja pievienot vairākas rindas vienlaicīgi, izmantojot pogu **Add Table** vai pievienot visus produktus uzreiz ar pogu **Add All**.
 
-  ![Produktu rindas](https://github.com/maximalian/ProLabD/blob/master/parskats/product_rows.png)
+  ![Produktu rinda](https://github.com/maximalian/ProLabD/blob/master/parskats/product_rows.png)
+  ![Produktu rindas](https://github.com/maximalian/ProLabD/blob/master/parskats/product_rows_addTable.png)
 
 - **Navigācijas pogas**:
   - Pāreja uz citām sadaļām (Profils vai Rezultāti).
