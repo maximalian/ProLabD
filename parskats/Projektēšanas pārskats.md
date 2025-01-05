@@ -323,9 +323,17 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 - **Navigācija**:
   - Pogas atgriež uz profila vai rezultātu lapām.
 
----
-
 ### Produktu pārvaldības sadaļas:
+  - Galvenā pārvaldības lapa, kas apvieno visas funkcionalitātes: filtrus, kategoriju pārvaldību, datu augšupielādi un produktu sarakstu.
+
+  ![Produktu pārvaldības lapa](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_products.png)
+
+- **Produktu tabula**:
+  - Produkta īpašību (kalorijas, olbaltumvielas, tauki, ogļhidrāti, cenas, saites) rediģēšana un saglabāšana.
+  - Rediģēšanas piemērs ar izceltiem nederīgiem URL sarkanā krāsā.
+
+  ![Produktu tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_table.png)
+
 - **Produktu filtrs**:
   - Lietotājs var meklēt produktus un filtrēt tos pēc noteiktiem kritērijiem (kategorija, vegānisms, bojāti URL).
 
@@ -341,11 +349,6 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 
   ![Failu pārvaldība](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_file.png)
 
-- **Produktu tabula**:
-  - Rediģēšana produktu ar detalizētām īpašībām.
-
-  ![Produktu tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_table.png)
-
 - **Produktu rindas**:
   - Jaunu produktu pievienošana pa vienam vai vairākiem uzreiz.
 
@@ -355,8 +358,6 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
   - Pāreja uz citām sadaļām (Profils vai Rezultāti).
 
   ![Navigācijas pogas](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_products_button.png)
-
----
 
 ### Kods:
 - [product_routes.py](https://github.com/maximalian/ProLabD/blob/master/product_routes.py) - Funkcijas produktu saraksta pārvaldībai:
