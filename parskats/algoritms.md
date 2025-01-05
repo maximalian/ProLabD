@@ -1,36 +1,39 @@
 ```mermaid
 flowchart TD
-    A[Start] --> B[Declare variables and read data from database]
-    B --> C{Are numbers or constraints enough?}
-    C -->|TRUE| D[Return result and stop process]
-    D --> E[End]
-    C -->|FALSE| F[Constraint Generation]
-    F --> G[Constructing model]
-    G --> H[Solving equations for constraints]
-    H --> I[Analyzing solutions for constraints]
-    I --> J[Test the model]
-    J --> K{Is result acceptable?}
-    K -->|YES| L[Return result and stop process]
-    L --> M[End]
-    K -->|NO| N[Create order and readjust new optimization related attributes]
-    N --> O[Return result of optimization]
-    O --> P[End]
+    A[Start] --> B[Savāc lietotāja datus]
+    B --> C[Saglabā lietotāja ievadītos datus datubāzē]
+    C --> D[Pārbauda datu korektumu]
+    D --> E{Vai dati ir derīgi?}
+    E -->|Nē| F[Kļūdas ziņojums]
+    F --> G[Beigt]
+    E -->|Jā| H[Aprēķina nepieciešamās uzturvielas]
+    H --> I[Izvēlas produktus no datubāzes]
+    I --> J[Optimizācijas process]
+    J --> K{Vai optimizācija izdevās?}
+    K -->|Nē| F[Kļūdas ziņojums]
+    K -->|Jā| L[Attēlo optimizācijas rezultātus]
+    L --> M[Lietotāja darbības iespējas]
+    M --> N[Lejupielādēt rezultātus DOCX]
+    M --> O[Rediģēt produktus vai prasības]
+    N --> P[Beigt]
+    O --> P[Beigt]
 ```
 
 ### **Apraksts:**
 1. **Start** - Algoritma sākuma punkts.
-2. **Declare variables and read data from database** - Datu nolasīšana un sākotnējo mainīgo definēšana.
-3. **Are numbers or constraints enough?** - Pārbauda, vai dati un ierobežojumi ir pietiekami.
-4. **Constraint Generation** - Ģenerē ierobežojumus, ja nepieciešams.
-5. **Constructing model** - Izveido matemātisko modeli.
-6. **Solving equations for constraints** - Rēķina vienādojumus, balstoties uz ierobežojumiem.
-7. **Analyzing solutions for constraints** - Analizē risinājumus un validē tos.
-8. **Test the model** - Pārbauda, vai modelis darbojas kā paredzēts.
-9. **Is result acceptable?** - Pārbauda, vai rezultāts ir pieņemams.
-10. **Create order and readjust new optimization related attributes** - Veido jaunus atribūtus, ja nepieciešams.
-11. **Return result of optimization** - Atgriež optimizācijas rezultātus.
-12. **End** - Algoritma beigas.
+2. **Savāc lietotāja datus** - Ievada vecumu, dzimumu, svaru, augumu, produktu prasības, uzturvērtību ierobežojumus un budžetu.
+3. **Saglabā datus datubāzē** - Ievadītie dati tiek uzglabāti datubāzē.
+4. **Pārbauda datu korektumu** - Verificē ievadīto datu pareizību un pilnīgumu.
+5. **Vai dati ir derīgi?** - Pārbauda, vai dati atbilst prasībām.
+6. **Kļūdas ziņojums** - Ja dati nav derīgi, atgriež kļūdu un pārtrauc algoritmu.
+7. **Aprēķina nepieciešamās uzturvielas** - Nosaka uzturvielu daudzumu un robežas.
+8. **Izvēlas produktus no datubāzes** - Atrod produktus, kas atbilst uzturvērtību un cenu prasībām.
+9. **Optimizācijas process** - Izmanto lineāro programmēšanu, lai atrastu optimālo produktu kombināciju.
+10. **Vai optimizācija izdevās?** - Pārbauda, vai optimizācija bija veiksmīga.
+11. **Attēlo optimizācijas rezultātus** - Parāda optimizēto ēdienkarti ar grafikiem un kopējām izmaksām.
+12. **Lietotāja darbības iespējas** - Lejupielāde vai rediģēšana.
+13. **Beigt** - Algoritma beigas.
 
 ### **Piezīmes:**
-- Diagramma atspoguļo loģisko algoritma modeli ar datu pārbaudi un optimizācijas soli.
-- Optimizācijas process tiek veikts, balstoties uz ieejas datiem un ierobežojumiem.
+- Diagramma attēlo loģisko algoritma modeli no datu ievades līdz rezultātu attēlošanai.
+- Izmanto lineārās programmēšanas algoritmu uzturvielu un izmaksu optimizācijai.
