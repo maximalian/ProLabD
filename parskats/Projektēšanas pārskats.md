@@ -182,36 +182,17 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 - Produktus var izslēgt no aprēķina (piem., alerģiju vai nepatiku dēļ). Piemēram, ja lietotājam ir alerģija uz riekstiem, viņš var atlasīt kategoriju "Rieksti", nospiest "Exclude All Filtered" un visi atzīmētie produkti netiks ņemti vērā ēdienkartes veidošanā.
 - Filtrēšanas rezultāti tiek saglabāti lietotāja profilā.
 
----
-### Attēli:
 - Lietotāja datu ievade un filtri
-  ![Lietotāja dati](./details.png)
+  ![Lietotāja dati](https://github.com/maximalian/ProLabD/blob/master/parskats/details.png)
 - Produktu filtrēšana
-  ![Produktu filtrs](./details_filter.png)
+  ![Produktu filtrs](https://github.com/maximalian/ProLabD/blob/master/parskats/details_filter.png)
 
----
 ### Kods:
 - [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Datu apstrādes loģika【95†source】.
   - Funkcija: **add_details()** - Lietotāja datu pievienošana un atjaunināšana.
 - [add_details.html](https://github.com/maximalian/ProLabD/blob/master/templates/add_details.html) - HTML veidne lietotāja datu ievadei【96†source】.
 - [profile.css](https://github.com/maximalian/ProLabD/blob/master/static/css/profile.css) - CSS stila faili lietotāja saskarnei【97†source】.
 - [product_table.js](https://github.com/maximalian/ProLabD/blob/master/static/js/product_table.js) - JavaScript funkcijas produktu filtrēšanai un ierobežojumu iestatīšanai【98†source】.
-
----
-### Datu bāzes struktūra:
-Tabula **lietotajs** satur:
-- **id** (integer, primārais atslēga) - unikāls lietotāja ID.
-- **vards** (string) - lietotāja vārds.
-- **uzvards** (string) - lietotāja uzvārds.
-- **epasts** (string) - lietotāja e-pasts.
-- **parole** (string) - hashēta parole.
-- **dzimums** (string) - lietotāja dzimums.
-- **vecums** (integer) - lietotāja vecums.
-- **svars** (numeric) - svars (kg).
-- **augums** (numeric) - augums (cm).
-- **min_limits** (jsonb) - minimālie produktu ierobežojumi.
-- **max_limits** (jsonb) - maksimālie produktu ierobežojumi.
-- **selected_products** (jsonb) - izslēgtie produkti.
 
 ---
 Turpinājums sekos ar citām sadaļām.
