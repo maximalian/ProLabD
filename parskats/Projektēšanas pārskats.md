@@ -120,6 +120,39 @@ Tehnoloģiju steks, kas tiks izmantots risinājuma implementācijai, sastāv no 
   
 ## 5. Programmatūras apraksts
 
-Izstrādātā sistēma ir tīmekļa lietotne, kas palīdz lietotājiem plānot ikdienas ēdienkarti, pamatojoties uz uzturvērtības un izmaksu ierobežojumiem. Lietotājs ievada informāciju par savām uztura vajadzībām un pieejamajiem produktiem. Sistēma, izmantojot lineārās programmēšanas algoritmus, ģenerē optimālu ēdienkarti, kas atbilst lietotāja uzturvielu prasībām, vienlaikus samazinot izmaksas. Lietotājs var vizualizēt uzturvērtības grafikos, kā arī saņemt informāciju par produktu cenām dažādos veikalos.
+Izstrādātā sistēma ir tīmeka lietotne, kas palīdz lietotājiem plānot ikdienas ēdienkarti, pamatojoties uz uzturvērtības un izmaksu ierobežojumiem. Lietotājs ievada informāciju par savām uztura vajadzībām un pieejamajiem produktiem. Sistēma, izmantojot lineārās programmēšanas algoritmus, ģenerē optimālu ēdienkarti, kas atbilst lietotāja uzturvielu prasībām, vienlaikus samazinot izmaksas. Lietotājs var vizualizēt uzturvērtības grafikos, kā arī saņemt informāciju par produktu cenām dažādos veikalos.
 
 Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskarni, ātru datu apstrādi un iespēju pielāgot produktu sarakstu dinamiskā veidā.
+
+---
+
+## 5.1 Pieteikšanās lapa
+### Funkcionalitāte:
+- Lietotājs ievada savu e-pasta adresi un paroli.
+- Tiek veikta lietotāja autentifikācija, izmantojot bcrypt hash algoritmu.
+- Ja pieteikšanās ir veiksmīga, lietotājs tiek pāradresēts uz personalizēto profilu.
+
+---
+### Attēls:
+![Pieteikšanās Lapa](./login.png)
+
+---
+### Kods:
+- [app.py](./app.py) - Galvenā aplikācijas konfigurācija un maršrutēšana【51†source】.
+  - Funkcija: **home()** - Atgriež galveno lapu.
+
+- [auth_routes.py](./auth_routes.py) - Pieteikšanās un reģistrācijas loģika【52†source】.
+  - Funkcija: **login()** - Apstrādā pieteikšanās pieprasījumus (GET un POST).
+  - Funkcija: **register()** - Reģistrē jaunu lietotāju.
+  - Funkcija: **logout()** - Izraksta lietotāju no sistēmas.
+
+- [index.html](./index.html) - HTML veidne pieteikšanās lapai【53†source】.
+  - Satur ievades laukus e-pastam un parolei.
+  - Pogas pieteikšanās un reģistrācijai.
+
+- [styles.css](./styles.css) - CSS stila faili lietotāja saskarnei【54†source】.
+  - Nodrošina dizainu ar responsīvu izkārtojumu un pogu animācijām.
+
+---
+Turpinājums sekos ar citām sadaļām.
+
