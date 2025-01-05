@@ -278,15 +278,21 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 - **"Edit Products"** - Dod iespēju pārvaldīt produktu sarakstu datubāzē.
 
 - Kopējais profils:
+
   ![Profils](https://github.com/maximalian/ProLabD/blob/master/parskats/user_profile.png)
 - Lietotāja informācija:
+
   ![Informācija](https://github.com/maximalian/ProLabD/blob/master/parskats/user_info.png)
 - Filtra piemēri:
+
   ![Filtri](https://github.com/maximalian/ProLabD/blob/master/parskats/profile_product_filter.png)
   ![Filtru ierobežojumi](https://github.com/maximalian/ProLabD/blob/master/parskats/profile_filter.png)
+
 - Navigācijas pogas:
+
   ![Navigācija](https://github.com/maximalian/ProLabD/blob/master/parskats/profile_button.png)
 - Jauni aprēķini pēc izmaiņām:
+
   ![Rezultāti](https://github.com/maximalian/ProLabD/blob/master/parskats/new_calculation_result.png)
   ![Izvēlētie produkti](https://github.com/maximalian/ProLabD/blob/master/parskats/new_celected_products.png)
 
