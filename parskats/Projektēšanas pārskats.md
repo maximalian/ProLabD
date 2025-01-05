@@ -63,7 +63,7 @@ Sistēmas prasības tiek sadalītas vairākās galvenajās kategorijās: funkcio
 3. Sistēmai jābūt drošai, nodrošinot lietotāju datu aizsardzību un privātumu.
 4. Lietotāja interfeisam jābūt intuitīvam un viegli lietojamam.
 
-## Lietotāja prasības
+- **Lietotāja prasības:**
 
 | Nr. | Lietotāju stāsts                                                              | Prioritāte     |
 |---- |------------------------------------------------------------------------------ |--------------- |
