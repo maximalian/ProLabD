@@ -151,5 +151,30 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
   - Nodrošina dizainu ar responsīvu izkārtojumu un pogu animācijām.
 
 ---
+
+## 5.2 Reģistrācijas lapa
+### Funkcionalitāte:
+- Lietotājs ievada e-pasta adresi, paroli un apstiprina paroli.
+- Nodrošināta paroles redzamības pārslēgšana.
+- Validē e-pasta un paroles atbilstību.
+- Ja reģistrācija veiksmīga, lietotājs tiek novirzīts uz profila iestatīšanas lapu.
+
+---
+### Attēls:
+![Reģistrācijas Lapa](./register.png)
+
+---
+### Kods:
+- [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Reģistrācijas loģika【79†source】.
+  - Funkcija: **register()** - Apstrādā reģistrācijas pieprasījumus (GET un POST).
+
+- [register.html](https://github.com/maximalian/ProLabD/blob/master/templates/register.html) - HTML veidne reģistrācijas lapai【80†source】.
+  - Ievades lauki e-pastam, parolei un apstiprinājuma parolei.
+  - Validācija un paroles redzamības pārslēgšana.
+
+- [styles.css](https://github.com/maximalian/ProLabD/blob/master/static/css/styles.css) - CSS stila faili【81†source】.
+  - Dizains ar responsīvu izkārtojumu un animācijām.
+
+---
 Turpinājums sekos ar citām sadaļām.
 
