@@ -183,8 +183,10 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 - Filtrēšanas rezultāti tiek saglabāti lietotāja profilā.
 
 - Lietotāja datu ievade un filtri
+
   ![Lietotāja dati](https://github.com/maximalian/ProLabD/blob/master/parskats/details.png)
 - Produktu filtrēšana
+
   ![Produktu filtrs](https://github.com/maximalian/ProLabD/blob/master/parskats/details_filter.png)
 
 ### Kods:
