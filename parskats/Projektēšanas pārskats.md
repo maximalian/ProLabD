@@ -342,7 +342,7 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
   ![Failu pārvaldība](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_file.png)
 
 - **Produktu tabula**:
-  - Rediģēšana vai jaunu produktu pievienošana ar detalizētām īpašībām.
+  - Rediģēšana produktu ar detalizētām īpašībām.
 
   ![Produktu tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_products.png)
 
