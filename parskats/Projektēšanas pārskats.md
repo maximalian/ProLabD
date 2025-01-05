@@ -286,6 +286,7 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 - Filtra piemēri:
 
   ![Filtri](https://github.com/maximalian/ProLabD/blob/master/parskats/profile_product_filter.png)
+  
   ![Filtru ierobežojumi](https://github.com/maximalian/ProLabD/blob/master/parskats/profile_filter.png)
 
 - Navigācijas pogas:
