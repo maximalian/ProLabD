@@ -203,9 +203,19 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 - Lietotājs apskata uztura aprēķinu rezultātus, ieskaitot uzturvielu daudzumus, kalorijas un kopējās izmaksas.
 - Lietotājs var salīdzināt iegūtos datus ar dienas normām.
 - Vizualizācija tiek parādīta diagrammu veidā.
-- Ir iespēja lejupielādēt rezultātus DOCX formātā.
-- Lietotāji var izvēlēties, no kuriem veikaliem (piem., Maxima, Rimi) iegūt cenu informāciju, izmantojot pogu "Calculate".
+- Ir iespēja lejupielādēt rezultātus DOCX formātā, izmantojot pogu **"Download as DOCX"**.
+- Lietotāji var izvēlēties, no kuriem veikaliem (piem., Maxima, Rimi) iegūt cenu informāciju, izmantojot pogu **"Calculate"**.
 
+---
+### Navigācijas pogas:
+- **"Back to Login"** - Atgriež lietotāju uz pieteikšanās lapu.
+- **"Profile"** - Ķauj rediģēt lietotāja informāciju (vārds, vecums, dzimums) un ierobežojumus uzturvielām.
+- **"Edit Products"** - Dod iespēju rediģēt esošo produktu sarakstu datubāzē.
+- **"Calculate"** - Aprēķina uztura plānu un cenas, balstoties uz lietotāja izvēlētajiem veikaliem.
+- **"Download as DOCX"** - Lejupielādē rezultātus DOCX faila formātā, ķaujot tos saglabāt vai izdrukāt.
+
+---
+### Attēli:
 - Kopējās aprēķinu rezultātu lapa
   ![Rezultātu lapa](./result.png)
 - Lietotāja dati
@@ -218,11 +228,12 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
   ![Salīdzinājums](./daily_NC.png)
 - Izvēlētie produkti
   ![Izvēlētie produkti](./selected_products.png)
-- Pogas navigācijai un darbībām
-  ![Navigācijas pogas](./result_buttons.png)
 - Veikalu izvēle un aprēķini
   ![Veikalu izvēle](./calculate.png)
+- Navigācijas pogas
+  ![Navigācijas pogas](./result_buttons.png)
 
+---
 ### Kods:
 - [user_routes.py](https://github.com/maximalian/ProLabD/blob/master/user_routes.py) - Funkcijas aprēķinu veikšanai un lietotāja datu apstrādei【120†source】.
   - Funkcija: **calculate_menu()** - Aprēķina uztura plānu.
