@@ -199,6 +199,7 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 ---
 
 ## 5.4 Aprēķinu rezultāti
+
 ### Funkcionalitāte:
 - Lietotājs apskata uztura aprēķinu rezultātus, ieskaitot uzturvielu daudzumus, kalorijas un kopējās izmaksas.
 - Lietotājs var salīdzināt iegūtos datus ar dienas normām.
@@ -206,43 +207,35 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 - Ir iespēja lejupielādēt rezultātus DOCX formātā, izmantojot pogu **"Download as DOCX"**.
 - Lietotāji var izvēlēties, no kuriem veikaliem (piem., Maxima, Rimi) iegūt cenu informāciju, izmantojot pogu **"Calculate"**.
 
----
 ### Navigācijas pogas:
 - **"Back to Login"** - Atgriež lietotāju uz pieteikšanās lapu.
 - **"Profile"** - Ķauj rediģēt lietotāja informāciju (vārds, vecums, dzimums) un ierobežojumus uzturvielām.
 - **"Edit Products"** - Dod iespēju rediģēt esošo produktu sarakstu datubāzē.
 - **"Calculate"** - Aprēķina uztura plānu un cenas, balstoties uz lietotāja izvēlētajiem veikaliem.
-- **"Download as DOCX"** - Lejupielādē rezultātus DOCX faila formātā, ķaujot tos saglabāt vai izdrukāt.
+- **"Download as DOCX"** - Lejupielādē rezultātus DOCX faila formātā, ķaujot tos saglabāt vai izdrukāt Lejupielādējamā DOCX faila piemērs: [Arturs_Pavlovs_results.docx](https://github.com/maximalian/ProLabD/blob/master/parskats/Arturs_Pavlovs_results.docx).
 
----
-### Attēli:
+### Aprēķinu rezultātu vizualizācijas:
 - Kopējās aprēķinu rezultātu lapa
-
   ![Rezultātu lapa](https://github.com/maximalian/ProLabD/blob/master/parskats/result.png)
 - Lietotāja dati
-
   ![Lietotāja dati](https://github.com/maximalian/ProLabD/blob/master/parskats/user_details.png)
 - Aprēķinu tabula
-
   ![Aprēķinu tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/calc_result.png)
 - Dienas uzturvielu normas
-
   ![Uzturvielu normas](https://github.com/maximalian/ProLabD/blob/master/parskats/daily_NN.png)
 - Dienas uzturvielu salīdzinājums
-
   ![Salīdzinājums](https://github.com/maximalian/ProLabD/blob/master/parskats/daily_NC.png)
 - Izvēlētie produkti
-
   ![Izvēlētie produkti](https://github.com/maximalian/ProLabD/blob/master/parskats/selected_products.png)
 - Veikalu izvēle un aprēķini
-
   ![Veikalu izvēle](https://github.com/maximalian/ProLabD/blob/master/parskats/calculate.png)
 - Navigācijas pogas
-
   ![Navigācijas pogas](https://github.com/maximalian/ProLabD/blob/master/parskats/result_buttons.png)
 
----
 ### Kods:
+- [DIETcalc.py](https://github.com/maximalian/ProLabD/blob/master/DIETcalc.py) - Galvenais algoritms uztura plāna aprēķināšanai【147†source】.
+  - Funkcija: **calculate_diet()** - Veido optimizācijas modeli, lai minimizētu izmaksas un nodrošinātu uzturvielu prasības.
+  - Algoritms izmanto Pulp bibliotēku, lai atrisinātu lineārās programmēšanas problēmu.
 - [user_routes.py](https://github.com/maximalian/ProLabD/blob/master/user_routes.py) - Funkcijas aprēķinu veikšanai un lietotāja datu apstrādei【120†source】.
   - Funkcija: **calculate_menu()** - Aprēķina uztura plānu.
   - Funkcija: **update_selected_products()** - Atjauno lietotāja izvēlētos produktus.
@@ -251,6 +244,15 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
   - Funkcija: **validateStoreSelection()** - Pārbauda veikalu izvēli.
   - Grafiku vizualizācijas izveide un eksportēšana DOCX formātā.
 - [result.css](https://github.com/maximalian/ProLabD/blob/master/static/css/result.css) - CSS stili rezultātu noformējumam un izkārtojumam.
+
+### Papildu funkcionalitāte:
+- Mazākās cenas tiek iezīmētas ar zaļu krāsu, lai palīdzētu lietotājiem ātri identificēt labākos piedāvājumus.
+- Tabulā tiek rādīti šādi atribūti:
+  - Produktu nosaukums.
+  - Uzturvielu daudzumi (proteīni, tauki, ogļhidrāti, kalorijas).
+  - Daudzums un vienības.
+  - Cena atsevišķos veikalos (Maxima, Rimi) un kopējās izmaksas.
+  - Kopējā ēdienkartes cena tiek rādīta apakšā.
 
 ---
 Turpinājums sekos ar citām sadaļām.
