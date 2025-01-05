@@ -217,21 +217,21 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 ---
 ### Attēli:
 - Kopējās aprēķinu rezultātu lapa
-  ![Rezultātu lapa](./result.png)
+  ![Rezultātu lapa](https://github.com/maximalian/ProLabD/blob/master/parskats/result.png)
 - Lietotāja dati
-  ![Lietotāja dati](./user_details.png)
+  ![Lietotāja dati](https://github.com/maximalian/ProLabD/blob/master/parskats/user_details.png)
 - Aprēķinu tabula
-  ![Aprēķinu tabula](./calc_result.png)
+  ![Aprēķinu tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/calc_result.png)
 - Dienas uzturvielu normas
-  ![Uzturvielu normas](./daily_NN.png)
+  ![Uzturvielu normas](https://github.com/maximalian/ProLabD/blob/master/parskats/daily_NN.png)
 - Dienas uzturvielu salīdzinājums
-  ![Salīdzinājums](./daily_NC.png)
+  ![Salīdzinājums](https://github.com/maximalian/ProLabD/blob/master/parskats/daily_NC.png)
 - Izvēlētie produkti
-  ![Izvēlētie produkti](./selected_products.png)
+  ![Izvēlētie produkti](https://github.com/maximalian/ProLabD/blob/master/parskats/selected_products.png)
 - Veikalu izvēle un aprēķini
-  ![Veikalu izvēle](./calculate.png)
+  ![Veikalu izvēle](https://github.com/maximalian/ProLabD/blob/master/parskats/calculate.png)
 - Navigācijas pogas
-  ![Navigācijas pogas](./result_buttons.png)
+  ![Navigācijas pogas](https://github.com/maximalian/ProLabD/blob/master/parskats/result_buttons.png)
 
 ---
 ### Kods:
