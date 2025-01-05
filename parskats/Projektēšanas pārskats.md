@@ -305,4 +305,79 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 - [product_table.js](https://github.com/maximalian/ProLabD/blob/master/static/js/product_table.js) - Produkta filtru pārvaldība.
 - [profile.css](https://github.com/maximalian/ProLabD/blob/master/static/css/profile.css) - Stila faili profila lapai.
 
+---
 
+## 5.6 Produktu saraksta pārvaldība
+
+### Funkcionalitāte:
+- **Produktu rediģēšana**: Lietotājs var rediģēt esošo produktu sarakstu, ieskaitot nosaukumu, uzturvielu daudzumu (kalorijas, proteīni, tauki, ogļhidrāti), cenu, veikalus, vienības, kategoriju un vegānismu.
+- **Kategoriju pārvaldība**:
+  - Pieejama iespēja pievienot jaunas kategorijas.
+  - Dzēst nevajadzīgās kategorijas.
+- **Produktu pievienošana**:
+  - Lietotājs var pievienot produktus pa vienam vai masveidā, izmantojot .xlsx failu.
+- **Filtri**:
+  - Meklēšana pēc produkta nosaukuma.
+  - Filtrēšana pēc kategorijām vai vegānisma statusa.
+  - Atzīmēti bojāti URL tiek izcelti sarkanā krāsā.
+- **Navigācija**:
+  - Pogas atgriež uz profila vai rezultātu lapām.
+
+---
+
+### Produktu pārvaldības sadaļas:
+- **Produktu filtrs**:
+  - Lietotājs var meklēt produktus un filtrēt tos pēc noteiktiem kritērijiem (kategorija, vegānisms, bojāti URL).
+
+  ![Produktu filtrs](https://github.com/maximalian/ProLabD/blob/master/parskats/filter_manage_product.png)
+
+- **Kategoriju pārvaldība**:
+  - Jaunas kategorijas pievienošana vai esošās kategorijas dzēšana.
+
+  ![Kategorijas pārvaldība](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_category.png)
+
+- **Failu pārvaldība**:
+  - Masveida produktu pievienošana, izmantojot .xlsx failus.
+
+  ![Failu pārvaldība](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_file.png)
+
+- **Produktu tabula**:
+  - Rediģēšana vai jaunu produktu pievienošana ar detalizētām īpašībām.
+
+  ![Produktu tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_products.png)
+
+- **Produktu rindas**:
+  - Jaunu produktu pievienošana pa vienam vai vairākiem uzreiz.
+
+  ![Produktu rindas](https://github.com/maximalian/ProLabD/blob/master/parskats/product_rows.png)
+
+- **Navigācijas pogas**:
+  - Pāreja uz citām sadaļām (Profils vai Rezultāti).
+
+  ![Navigācijas pogas](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_products_button.png)
+
+---
+
+### Kods:
+- [product_routes.py](https://github.com/maximalian/ProLabD/blob/master/product_routes.py) - Funkcijas produktu saraksta pārvaldībai:
+  - **download_template()** - Lejupielādē produktu veidnes Excel failu ar aktuālajām kategorijām.
+  - **download_example()** - Lejupielādē piemēra Excel failu produktu sarakstam.
+  - **upload_products()** - Augšupielādē produktus no Excel faila, validē datus un pievieno tos datubāzei.
+  - **manage_products()** - Attēlo visu produktu sarakstu un ļauj tos pārvaldīt.
+  - **update_product()** - Atjaunina produkta informāciju, piemēram, nosaukumu, uzturvielas, cenas un saites.
+  - **get_existing_names()** - Atgriež esošo produktu nosaukumus JSON formātā, lai pārbaudītu dublikātus.
+  - **add_product()** - Pievieno jaunus produktus masveidā, izmantojot JSON datus.
+  - **add_single_product()** - Pievieno vienu produktu, validējot datus un pārbaudot saites.
+  - **delete_product()** - Dzēš konkrētu produktu pēc tā ID.
+  - **add_category()** - Pievieno jaunu kategoriju ar unikālu nosaukumu un identifikatoru.
+  - **delete_category()** - Dzēš norādīto kategoriju no datubāzes pēc tās ID.
+
+- [manage_products.html](https://github.com/maximalian/ProLabD/blob/master/templates/manage_products.html) - HTML veidne produktu saraksta pārvaldībai.
+- [manage_products.js](https://github.com/maximalian/ProLabD/blob/master/static/js/manage_products.js) - JavaScript funkcijas tabulas un produktu datu validācijai.
+  - **validate_links()** - Pārbauda, vai ievadītās saites atbilst prasībām.
+  - **highlightErrors()** - Iezīmē kļūdainās saites sarkanā krāsā.
+  - **addRow()** - Pievieno jaunu rindu produktu tabulai.
+  - **deleteRow()** - Dzēš atsevišķu produktu no tabulas.
+  - **saveChanges()** - Saglabā izmaiņas produktos datubāzē.
+  - **uploadFile()** - Apstrādā augšupielādēto Excel failu un validē datus.
+- [manage_products.css](https://github.com/maximalian/ProLabD/blob/master/static/css/manage_products.css) - Stila faili tabulas un produktu pārvaldības lapai.
