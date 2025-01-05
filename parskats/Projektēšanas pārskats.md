@@ -197,4 +197,42 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 - [product_table.js](https://github.com/maximalian/ProLabD/blob/master/static/js/product_table.js) - JavaScript funkcijas produktu filtrēšanai un ierobežojumu iestatīšanai【98†source】.
 
 ---
+
+## 5.4 Aprēķinu rezultāti
+### Funkcionalitāte:
+- Lietotājs apskata uztura aprēķinu rezultātus, ieskaitot uzturvielu daudzumus, kalorijas un kopējās izmaksas.
+- Lietotājs var salīdzināt iegūtos datus ar dienas normām.
+- Vizualizācija tiek parādīta diagrammu veidā.
+- Ir iespēja lejupielādēt rezultātus DOCX formātā.
+- Lietotāji var izvēlēties, no kuriem veikaliem (piem., Maxima, Rimi) iegūt cenu informāciju, izmantojot pogu "Calculate".
+
+- Kopējās aprēķinu rezultātu lapa
+  ![Rezultātu lapa](./result.png)
+- Lietotāja dati
+  ![Lietotāja dati](./user_details.png)
+- Aprēķinu tabula
+  ![Aprēķinu tabula](./calc_result.png)
+- Dienas uzturvielu normas
+  ![Uzturvielu normas](./daily_NN.png)
+- Dienas uzturvielu salīdzinājums
+  ![Salīdzinājums](./daily_NC.png)
+- Izvēlētie produkti
+  ![Izvēlētie produkti](./selected_products.png)
+- Pogas navigācijai un darbībām
+  ![Navigācijas pogas](./result_buttons.png)
+- Veikalu izvēle un aprēķini
+  ![Veikalu izvēle](./calculate.png)
+
+### Kods:
+- [user_routes.py](https://github.com/maximalian/ProLabD/blob/master/user_routes.py) - Funkcijas aprēķinu veikšanai un lietotāja datu apstrādei【120†source】.
+  - Funkcija: **calculate_menu()** - Aprēķina uztura plānu.
+  - Funkcija: **update_selected_products()** - Atjauno lietotāja izvēlētos produktus.
+- [result.html](https://github.com/maximalian/ProLabD/blob/master/templates/result.html) - HTML veidne aprēķinu rezultātu parādīšanai【121†source】.
+- [result.js](https://github.com/maximalian/ProLabD/blob/master/static/js/result.js) - JavaScript koda funkcijas vizualizācijai un validācijai【122†source】.
+  - Funkcija: **validateStoreSelection()** - Pārbauda veikalu izvēli.
+  - Grafiku vizualizācijas izveide un eksportēšana DOCX formātā.
+- [result.css](https://github.com/maximalian/ProLabD/blob/master/static/css/result.css) - CSS stili rezultātu noformējumam un izkārtojumam.
+
+---
 Turpinājums sekos ar citām sadaļām.
+
