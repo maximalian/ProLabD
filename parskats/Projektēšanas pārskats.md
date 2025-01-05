@@ -86,6 +86,8 @@ Sistēma izmanto **lineārās programmēšanas algoritmu**, lai optimizētu liet
 3. **Optimizācijas process**: Algoritms nosaka produktu kombināciju, kas nodrošina maksimālu uzturvielu vērtību, minimizējot kopējās izmaksas.
 4. **Rezultātu attēlošana**: Pēc optimizācijas lietotājam tiek parādīta ēdienkarte, kurā atspoguļoti uzturvērtību dati un kopējās izmaksas.
 
+![Algoritma diagramma](https://github.com/maximalian/ProLabD/blob/master/parskats/algoritms.png)
+
 ## 3. Konceptu modelis
 
 Konceptu modelis ietver šādus pamata elementus:
