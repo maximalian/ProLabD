@@ -203,8 +203,8 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 - [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Datu apstrādes loģika.
   - Funkcija: **add_details()** - Lietotāja datu pievienošana un atjaunināšana.
 - [add_details.html](https://github.com/maximalian/ProLabD/blob/master/templates/add_details.html) - HTML veidne lietotāja datu ievadei.
-- [profile.css](https://github.com/maximalian/ProLabD/blob/master/static/css/profile.css) - CSS stila faili lietotāja saskarnei.
 - [product_table.js](https://github.com/maximalian/ProLabD/blob/master/static/js/product_table.js) - JavaScript funkcijas produktu filtrēšanai un ierobežojumu iestatīšanai.
+- [profile.css](https://github.com/maximalian/ProLabD/blob/master/static/css/profile.css) - CSS stila faili lietotāja saskarnei.
 
 ---
 
