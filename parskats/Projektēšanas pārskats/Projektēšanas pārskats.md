@@ -138,17 +138,14 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 
 ### Kods:
 - [app.py](https://github.com/maximalian/ProLabD/blob/master/app.py) - Galvenā aplikācijas konfigurācija un maršrutēšana.
-  - Funkcija: **home()** - Atgriež galveno lapu.
-
+  - **home()** - Atgriež galveno lapu.
 - [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Pieteikšanās un reģistrācijas loģika.
-  - Funkcija: **login()** - Apstrādā pieteikšanās pieprasījumus (GET un POST).
-  - Funkcija: **register()** - Reģistrē jaunu lietotāju.
-  - Funkcija: **logout()** - Izraksta lietotāju no sistēmas.
-
+  - **login()** - Apstrādā pieteikšanās pieprasījumus (GET un POST).
+  - **register()** - Reģistrē jaunu lietotāju.
+  - **logout()** - Izraksta lietotāju no sistēmas.
 - [index.html](https://github.com/maximalian/ProLabD/blob/master/templates/index.html) - HTML veidne pieteikšanās lapai.
   - Satur ievades laukus e-pastam un parolei.
   - Pogas pieteikšanās un reģistrācijai.
-
 - [styles.css](https://github.com/maximalian/ProLabD/blob/master/static/css/styles.css) - CSS stila faili lietotāja saskarnei.
   - Nodrošina dizainu ar responsīvu izkārtojumu un pogu animācijām.
 
@@ -166,11 +163,9 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 ### Kods:
 - [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Reģistrācijas loģika.
   - Funkcija: **register()** - Apstrādā reģistrācijas pieprasījumus (GET un POST).
-
 - [register.html](https://github.com/maximalian/ProLabD/blob/master/templates/register.html) - HTML veidne reģistrācijas lapai.
   - Ievades lauki e-pastam, parolei un apstiprinājuma parolei.
   - Validācija un paroles redzamības pārslēgšana.
-
 - [styles.css](https://github.com/maximalian/ProLabD/blob/master/static/css/styles.css) - CSS stila faili.
   - Dizains ar responsīvu izkārtojumu un animācijām.
 
@@ -201,7 +196,7 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 
 ### Kods:
 - [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Datu apstrādes loģika.
-  - Funkcija: **add_details()** - Lietotāja datu pievienošana un atjaunināšana.
+  - **add_details()** - Lietotāja datu pievienošana un atjaunināšana.
 - [add_details.html](https://github.com/maximalian/ProLabD/blob/master/templates/add_details.html) - HTML veidne lietotāja datu ievadei.
 - [product_table.js](https://github.com/maximalian/ProLabD/blob/master/static/js/product_table.js) - JavaScript funkcijas produktu filtrēšanai un ierobežojumu iestatīšanai.
   - **prepareLimits()** - Sagatavo un validē minimālos un maksimālos produktu ierobežojumus, saglabājot tos JSON formātā.  
