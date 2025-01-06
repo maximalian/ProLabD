@@ -206,8 +206,6 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 - Lietotājs apskata uztura aprēķinu rezultātus, ieskaitot uzturvielu daudzumus, kalorijas un kopējās izmaksas.
 - Lietotājs var salīdzināt iegūtos datus ar dienas normām.
 - Vizualizācija tiek parādīta diagrammu veidā.
-- Ir iespēja lejupielādēt rezultātus DOCX formātā, izmantojot pogu **"Download as DOCX"**.
-- Lietotāji var izvēlēties, no kuriem veikaliem (piem., Maxima, Rimi) iegūt cenu informāciju, izmantojot pogu **"Calculate"**.
 - Mazākās cenas tiek iezīmētas ar zaļu krāsu, lai palīdzētu lietotājiem ātri identificēt labākos piedāvājumus.
 - Tabulā tiek rādīti šādi atribūti:
   - Produktu nosaukums.
