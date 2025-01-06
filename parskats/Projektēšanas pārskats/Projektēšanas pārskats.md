@@ -389,3 +389,91 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
   - **saveChanges()** - Saglabā izmaiņas produktos datubāzē.
   - **uploadFile()** - Apstrādā augšupielādēto Excel failu un validē datus.
 - [manage_products.css](https://github.com/maximalian/ProLabD/blob/master/static/css/manage_products.css) - Stila faili tabulas un produktu pārvaldības lapai.
+
+
+## 5.7 Datu bāzes apraksts
+
+Programma izmanto relāciju datubāzi PostgreSQL, lai glabātu lietotāju, produktu un kategoriju datus. Zemāk aprakstītas galvenās datubāzes tabulas, to struktūra un katra atribūta nozīme.
+
+---
+
+### **5.7.1 Lietotāju tabula (lietotajs)**
+
+Tabula saglabā informāciju par lietotājiem, tostarp personīgos datus, uztura ierobežojumus un izvēles.
+
+![Lietotāju tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/lietotajs.png)
+
+**Atribūtu apraksts:**
+- **id** - Unikāls identifikators katram lietotājam (primārā atslēga).
+- **vards** - Lietotāja vārds (piemēram, Anna).
+- **uzvards** - Lietotāja uzvārds (piemēram, Kalniņa).
+- **epasts** - E-pasta adrese lietotāja autentifikācijai un saziņai.
+- **parole** - Lietotāja parole, kas tiek glabāta hash formātā drošībai.
+- **auth_provider** - Norāda autentifikācijas avotu (piem., vietējā vai Google autentifikācija).
+- **created_at** - Konta izveides datums un laiks.
+- **dzimums** - Lietotāja dzimums (piem., vīrietis vai sieviete).
+- **svars** - Lietotāja svars kilogramu formātā.
+- **augums** - Lietotāja augums centimetros.
+- **vecums** - Lietotāja vecums gados.
+- **max_limits** - JSON objekts, kas satur maksimālos produkta daudzuma ierobežojumus uz vienu mērvienību (piem., ne vairāk kā 100 g ābolu vai 200 ml piena).  
+- **min_limits** - JSON objekts, kas satur minimālos produkta daudzuma ierobežojumus uz vienu mērvienību (piem., ne mazāk kā 50 g riekstu vai 100 ml kefīra).  
+- **store_preference** - Norāda lietotāja vēlamo veikalu (piem., Maxima, Rimi vai abi).
+- **selected_products** - JSON saraksts ar lietotāja izvēlētajiem produktiem.
+
+---
+
+### **5.7.2 Produktu tabula (produkts)**
+
+Tabula glabā produktu datus, tostarp uzturvērtības, cenas un saites uz veikaliem.
+
+![Produktu tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/produkts.png)
+
+**Atribūtu apraksts:**
+- **id** - Unikāls identifikators katram produktam (primārā atslēga).
+- **nosaukums** - Produkta nosaukums (piem., ābols, piens).
+- **kalorijas** - Produkta enerģētiskā vērtība uz kilogramu (kcal/kg).
+- **olbaltumvielas** - Olbaltumvielu daudzums gramos uz kilogramu (g/kg).
+- **tauki** - Tauku daudzums gramos uz kilogramu (g/kg).
+- **oglhidrati** - Ogļhidrātu daudzums gramos uz kilogramu (g/kg).
+- **cena_maxima** - Produkta cena veikalā Maxima.
+- **cena_rimi** - Produkta cena veikalā Rimi.
+- **saite_maxima** - Hipersaite uz produktu Maxima internetveikalā.
+- **saite_rimi** - Hipersaite uz produktu Rimi internetveikalā.
+- **meris_vieniba** - Produkta mērīšanas vienība (piem., kg, l).
+- **kategorija_key** - Ārējā atslēga, kas saista produktu ar konkrētu kategoriju.
+- **vegan** - Norāda, vai produkts ir vegānisks (1 - jā, 0 - nē).
+- **failed_urls** - JSON saraksts ar kļūdainām saitēm, kas nav derīgas.
+
+---
+
+### **5.7.3 Kategoriju tabula (kategorijas)**
+
+Tabula glabā informāciju par produktu kategorijām, lai grupētu produktus.
+
+![Kategoriju tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/kategorijas.png)
+
+**Atribūtu apraksts:**
+- **kategorija_key** - Unikāls identifikators katrai kategorijai (primārā atslēga).
+- **nosaukums** - Kategorijas nosaukums (piem., augļi, dārzeņi, dzērieni).
+
+---
+
+### **5.7.4 Galvenās attiecības starp tabulām**
+1. **Lietotājs un produkti**:
+   - Lietotāja izvēlētie produkti tiek saglabāti kā JSON formāts tabulā **lietotajs** atribūtā `selected_products`.
+
+2. **Produkti un kategorijas**:
+   - Katram produktam ir svešatslēga `kategorija_key`, kas norāda uz tā kategoriju tabulā **kategorijas**.
+
+---
+
+### **5.7.5 Datu bāzes optimizācija un drošība**
+- **Indeksi**:
+  - Indekss uz kolonnām `id` un `kategorija_key` nodrošina ātru meklēšanu un savienošanu starp tabulām.
+- **Datu validācija**:
+  - Obligātie lauki nepieļauj null vērtības, lai novērstu nepilnīgus ierakstus.
+- **Šifrēšana**:
+  - Lietotāja paroles tiek glabātas kā hash, izmantojot bcrypt algoritmu.
+- **Drošība**:
+  - Datu bāze tiek aizsargāta ar lietotājvārdu un paroli.
+  - Piekļuve ir iespējama tikai autorizētiem lietotājiem.
