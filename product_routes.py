@@ -116,13 +116,24 @@ def upload_products():
             saite_maxima = str(row['Maxima Link']).strip() if pd.notna(row['Maxima Link']) else None
             saite_rimi = str(row['Rimi Link']).strip() if pd.notna(row['Rimi Link']) else None
 
-            if kalorijas is None or kalorijas < 0:
+            if kalorijas is None or kalorijas == '':
+                errors.append(f"Row {index + 1}: Calories cannot be empty and must be a number >= 0.")
+            elif kalorijas < 0:
                 errors.append(f"Row {index + 1}: Calories must be a number >= 0.")
-            if olbaltumvielas is None or olbaltumvielas < 0:
+
+            if olbaltumvielas is None or olbaltumvielas == '':
+                errors.append(f"Row {index + 1}: Proteins cannot be empty and must be a number >= 0.")
+            elif olbaltumvielas < 0:
                 errors.append(f"Row {index + 1}: Proteins must be a number >= 0.")
-            if tauki is None or tauki < 0:
+
+            if tauki is None or tauki == '':
+                errors.append(f"Row {index + 1}: Fats cannot be empty and must be a number >= 0.")
+            elif tauki < 0:
                 errors.append(f"Row {index + 1}: Fats must be a number >= 0.")
-            if oglhidrati is None or oglhidrati < 0:
+
+            if oglhidrati is None or oglhidrati == '':
+                errors.append(f"Row {index + 1}: Carbs cannot be empty and must be a number >= 0.")
+            elif oglhidrati < 0:
                 errors.append(f"Row {index + 1}: Carbs must be a number >= 0.")
 
             if saite_maxima:
@@ -135,34 +146,8 @@ def upload_products():
             if check_duplicate(cursor, "produkts", "nosaukums", nosaukums):
                 errors.append(f"Row {index + 1}: Product name already exists.")
 
-        except Exception as e:
-            errors.append(f"Row {index + 1}: {str(e)}")
-
-    if errors:
-        connection.rollback()
-        cursor.close()
-        connection.close()
-
-        try:
-            os.remove(file_path)
-        except Exception as e:
-            errors.append(f"File deletion failed: {str(e)}")
-
-        return jsonify({"errors": errors}), 400
-
-    try:
-        for index, row in df.iterrows():
-            nosaukums = str(row['Name']).strip()
-            kalorijas = safe_number(row['Energy Value (kcal per kg)'])
-            olbaltumvielas = safe_number(row['Proteins (g per kg)'])
-            tauki = safe_number(row['Fats (g per kg)'])
-            oglhidrati = safe_number(row['Carbohydrates (g per kg)'])
-            meris_vieniba = str(row['Unit (measurement unit)']).strip()
-            kategorija_key = int(row['Category Key (unique identifier)'])
-            kategorija_name = str(row['Category (product group)']).strip()
-            vegan = 1 if str(row['Vegan']).strip().lower() == '1' else 0
-            saite_maxima = str(row['Maxima Link']).strip() if pd.notna(row['Maxima Link']) else None
-            saite_rimi = str(row['Rimi Link']).strip() if pd.notna(row['Rimi Link']) else None
+            if errors:
+                continue
 
             if not check_duplicate(cursor, "kategorijas", "kategorija_key", kategorija_key):
                 cursor.execute(
@@ -180,25 +165,28 @@ def upload_products():
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 """,
                 (next_id, nosaukums, kalorijas, olbaltumvielas, tauki, oglhidrati,
-                 saite_maxima, saite_rimi, meris_vieniba, kategorija_key, vegan)
+                saite_maxima, saite_rimi, meris_vieniba, kategorija_key, vegan)
             )
             next_id += 1
 
-        connection.commit()
+        except Exception as e:
+            errors.append(f"Row {index + 1}: {str(e)}")
 
-    except Exception as e:
+    if errors:
         connection.rollback()
-        errors.append(f"Database error: {str(e)}")
-        return jsonify({"errors": errors}), 500
+        cursor.close()
+        connection.close()
 
-    finally:
         try:
             os.remove(file_path)
         except Exception as e:
             errors.append(f"File deletion failed: {str(e)}")
 
-        cursor.close()
-        connection.close()
+        return jsonify({"errors": errors}), 400
+
+    connection.commit()
+    cursor.close()
+    connection.close()
 
     return jsonify({"message": "All products added successfully!"})
 
