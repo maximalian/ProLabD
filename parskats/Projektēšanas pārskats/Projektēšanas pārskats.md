@@ -163,9 +163,13 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 ### Kods:
 - [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Reģistrācijas loģika.
   - **register()** - Apstrādā reģistrācijas pieprasījumus (GET un POST).
+  - **check_email()** - Pārbauda, vai e-pasta adrese jau pastāv datubāzē, un atgriež rezultātu JSON formātā.  
 - [register.html](https://github.com/maximalian/ProLabD/blob/master/templates/register.html) - HTML veidne reģistrācijas lapai.
   - Ievades lauki e-pastam, parolei un apstiprinājuma parolei.
   - Validācija un paroles redzamības pārslēgšana.
+- [register.js](https://github.com/maximalian/ProLabD/blob/master/static/js/register.js) - JavaScript funkcijas reģistrācijas formas validācijai un paroles redzamības pārslēgšanai.  
+  - **togglePasswordVisibility(passwordFieldId, toggleButtonId)** - Pārslēdz paroles redzamību ievades laukā, mainot tās tipu starp 'password' un 'text'.  
+  - **validateForm(event)** - Validē reģistrācijas formu, pārbaudot e-pasta adreses pieejamību un paroles atbilstību apstiprinājuma laukam, pirms iesniedz datus serverim.
 - [styles.css](https://github.com/maximalian/ProLabD/blob/master/static/css/styles.css) - CSS stila faili.
   - Dizains ar responsīvu izkārtojumu un animācijām.
 
