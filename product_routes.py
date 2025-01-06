@@ -78,12 +78,12 @@ def upload_products():
     """
     Funkcija produktu augšupielādei no Excel faila.
     - Apstrādā POST pieprasījumu un validē datus.
-    - Pievieno jaunus produktus un kategorijas datubāzē.
+    - Pievieno jaunus produktus un kategorijas datubāzē tikai, ja visi dati ir derīgi.
     """
 
     connection = get_db_connection()
     cursor = connection.cursor()
-    errors = [] 
+    errors = []
 
     if 'file' not in request.files:
         return jsonify({"error": "No file provided."}), 400
@@ -116,34 +116,37 @@ def upload_products():
             saite_maxima = str(row['Maxima Link']).strip() if pd.notna(row['Maxima Link']) else None
             saite_rimi = str(row['Rimi Link']).strip() if pd.notna(row['Rimi Link']) else None
 
-            if kalorijas is None or kalorijas < 0:
+            if kalorijas is None or kalorijas == '':
+                errors.append(f"Row {index + 1}: Calories cannot be empty and must be a number >= 0.")
+            elif kalorijas < 0:
                 errors.append(f"Row {index + 1}: Calories must be a number >= 0.")
-                continue
-            if olbaltumvielas is None or olbaltumvielas < 0:
+
+            if olbaltumvielas is None or olbaltumvielas == '':
+                errors.append(f"Row {index + 1}: Proteins cannot be empty and must be a number >= 0.")
+            elif olbaltumvielas < 0:
                 errors.append(f"Row {index + 1}: Proteins must be a number >= 0.")
-                continue
-            if tauki is None or tauki < 0:
+
+            if tauki is None or tauki == '':
+                errors.append(f"Row {index + 1}: Fats cannot be empty and must be a number >= 0.")
+            elif tauki < 0:
                 errors.append(f"Row {index + 1}: Fats must be a number >= 0.")
-                continue
-            if oglhidrati is None or oglhidrati < 0:
+
+            if oglhidrati is None or oglhidrati == '':
+                errors.append(f"Row {index + 1}: Carbs cannot be empty and must be a number >= 0.")
+            elif oglhidrati < 0:
                 errors.append(f"Row {index + 1}: Carbs must be a number >= 0.")
-                continue
 
-            link_errors = validate_links(
-                {"Maxima Link": saite_maxima, "Rimi Link": saite_rimi},
-                valid_prefixes=[
-                    "https://barbora.lv/",
-                    "https://www.barbora.lv/",
-                    "https://www.rimi.lv/"
-                ]
-            )
-            if link_errors:
-                errors.append(f"Row {index + 1}: " + "; ".join(link_errors))
-                continue
-
+            if saite_maxima:
+                if not (saite_maxima.startswith("https://barbora.lv/") or saite_maxima.startswith("https://www.barbora.lv/")):
+                    errors.append(f"Row {index + 1}: Maxima link must start with 'https://barbora.lv/' or 'https://www.barbora.lv/'.")
+            if saite_rimi:
+                if not saite_rimi.startswith("https://www.rimi.lv/"):
+                    errors.append(f"Row {index + 1}: Rimi link must start with 'https://www.rimi.lv/'.")
 
             if check_duplicate(cursor, "produkts", "nosaukums", nosaukums):
                 errors.append(f"Row {index + 1}: Product name already exists.")
+
+            if errors:
                 continue
 
             if not check_duplicate(cursor, "kategorijas", "kategorija_key", kategorija_key):
@@ -162,23 +165,30 @@ def upload_products():
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 """,
                 (next_id, nosaukums, kalorijas, olbaltumvielas, tauki, oglhidrati,
-                 saite_maxima, saite_rimi, meris_vieniba, kategorija_key, vegan)
+                saite_maxima, saite_rimi, meris_vieniba, kategorija_key, vegan)
             )
             next_id += 1
 
         except Exception as e:
             errors.append(f"Row {index + 1}: {str(e)}")
-            continue
+
+    if errors:
+        connection.rollback()
+        cursor.close()
+        connection.close()
+
+        try:
+            os.remove(file_path)
+        except Exception as e:
+            errors.append(f"File deletion failed: {str(e)}")
+
+        return jsonify({"errors": errors}), 400
 
     connection.commit()
+    cursor.close()
+    connection.close()
 
-    try:
-        os.remove(file_path)
-    except Exception as e:
-        errors.append(f"File deletion failed: {str(e)}")
-
-
-    return jsonify({"errors": errors})
+    return jsonify({"message": "All products added successfully!"})
 
 @product_bp.route('/manage_products', methods=['GET'])
 def manage_products():
