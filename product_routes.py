@@ -129,17 +129,15 @@ def upload_products():
                 errors.append(f"Row {index + 1}: Carbs must be a number >= 0.")
                 continue
 
-            link_errors = validate_links(
-                {"Maxima Link": saite_maxima, "Rimi Link": saite_rimi},
-                valid_prefixes=[
-                    "https://barbora.lv/",
-                    "https://www.barbora.lv/",
-                    "https://www.rimi.lv/"
-                ]
-            )
-            if link_errors:
-                errors.append(f"Row {index + 1}: " + "; ".join(link_errors))
-                continue
+            if saite_maxima:
+                if not (saite_maxima.startswith("https://barbora.lv/") or saite_maxima.startswith("https://www.barbora.lv/")):
+                    errors.append(f"Row {index + 1}: Maxima link must start with 'https://barbora.lv/' or 'https://www.barbora.lv/'.")
+                    continue
+
+            if saite_rimi:
+                if not saite_rimi.startswith("https://www.rimi.lv/"):
+                    errors.append(f"Row {index + 1}: Rimi link must start with 'https://www.rimi.lv/'.")
+                    continue
 
 
             if check_duplicate(cursor, "produkts", "nosaukums", nosaukums):
