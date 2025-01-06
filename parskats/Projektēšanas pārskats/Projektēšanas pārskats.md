@@ -195,7 +195,7 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 - Lietotāja datu ievade un filtri
 
   ![Lietotāja dati](https://github.com/maximalian/ProLabD/blob/master/parskats/details.png)
-- Produktu filtrēšana piemeri
+- Produktu filtrēšana piemērs
 
   ![Produktu filtrs](https://github.com/maximalian/ProLabD/blob/master/parskats/details_filter.png)
 
