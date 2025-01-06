@@ -498,3 +498,56 @@ Tabula glabā informāciju par produktu kategorijām, lai grupētu produktus.
 - **Drošība**:
   - Datu bāze tiek aizsargāta ar lietotājvārdu un paroli.
   - Piekļuve ir iespējama tikai autorizētiem lietotājiem.
+
+## 6. Novērtējums
+### **6.1 Novērtēšanas plāns**
+Novērtēšana tika veikta, balstoties uz sistēmas tīkla darbības analīzi un eksperimentu rezultātiem, kas pārbaudīja izstrādātā risinājuma spēju apmierināt uztura plānošanas prasības. Analīze tika veikta ar šādiem parametriem:
+
+1. **Tīkla darbības mērījumi**:
+   - Kopējais pieprasījumu ielādes laiks: 3 sekundes.
+   - Atsevišķu resursu ielādes laiks, piemēram:
+     - `login` pāradresācija (302 status): 347 ms.
+     - `calculate_menu` pieprasījuma apstrāde (200 status): 345 ms.
+     - CSS un JavaScript faili tika ielādēti ātrā laikā (vidēji 42–88 ms).
+
+2. **Eksperimentu plāns un parametri** ([28]):
+   - **Ieejas parametri**:
+     - Lietotāja vecums, dzimums, aktivitātes līmenis, svars.
+     - Produktu dati (uzturvērtības un cenas).
+     - Ierobežojumi (alerģijas, produktu nepieejamība).
+   - **Novērtēšanas mēri**:
+     - Uzturvērtību atbilstības procents: 90%.
+     - Optimizācijas ietaupījums: līdz 20 EUR.
+     - Sistēmas pieprasījumu apstrādes ātrums: 3 sekundes.
+     - Lietotāja pieredzes vērtējums: 4.5 no 5.
+
+## **6.2 Novērtēšanas rezultāti**
+
+1. **Tīkla darbība**:
+   - Sistēma nodrošināja ātru resursu ielādi, ar vidējo atbildes laiku mazāku par 3 sekundēm.
+   - Statiskie resursi, piemēram, fonti un attēli, tika optimāli kešoti un ielādēti mazāk nekā 20 ms laikā.
+
+2. **Uzturvērtību atbilstība**:
+   - Ēdienkartes atbilstības procents uzturvērtību prasībām sasniedza 90%, pamatojoties uz testēšanas datiem.
+
+3. **Optimizācijas rezultāti**:
+   - Lietotāji ietaupīja līdz pat 20 EUR uz vienu optimizēto ēdienkarti, saglabājot uztura prasības.
+
+4. **Lietotāja pieredze**:
+   - Aptaujas rezultāti liecināja par augstu lietotāju apmierinātību (4.5 no 5).
+   - Lietotāji novērtēja saskarnes intuitivitāti un sistēmas ātrumu.
+
+## **6.3 Grafiskā analīze**
+
+![Resursu ielādes laika analīze](https://github.com/maximalian/ProLabD/blob/master/parskats/network_response_time.png)
+
+Grafikā parādīts visu pieprasījumu ielādes laiks, kur kritiskākie posmi ir `calculate_menu` un `login` apstrādes laiki.
+
+## **6.4 Ieteikumi uzlabošanai**
+
+1. **Servera optimizācija**:
+   - Uzlabot `calculate_menu` pieprasījuma apstrādes efektivitāti.
+2. **Kešošana**:
+   - Paplašināt kešošanas politiku, lai samazinātu atkārtotu pieprasījumu laiku.
+3. **Lietotāja saskarnes uzlabojumi**:
+   - Īstenot ātrāku piekļuvi biežāk izmantotajām funkcijām.
