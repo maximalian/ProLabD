@@ -208,6 +208,14 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 - Vizualizācija tiek parādīta diagrammu veidā.
 - Ir iespēja lejupielādēt rezultātus DOCX formātā, izmantojot pogu **"Download as DOCX"**.
 - Lietotāji var izvēlēties, no kuriem veikaliem (piem., Maxima, Rimi) iegūt cenu informāciju, izmantojot pogu **"Calculate"**.
+- Mazākās cenas tiek iezīmētas ar zaļu krāsu, lai palīdzētu lietotājiem ātri identificēt labākos piedāvājumus.
+- Tabulā tiek rādīti šādi atribūti:
+  - Produktu nosaukums.
+  - Uzturvielu daudzumi (proteīni, tauki, ogļhidrāti, kalorijas).
+  - Daudzums un vienības.
+  - Cena atsevišķos veikalos (Maxima, Rimi) un kopējās izmaksas.
+  - Kopējā ēdienkartes cena tiek rādīta apakšā.
+
 
 ### Navigācijas pogas:
 - **"Back to Login"** - Atgriež lietotāju uz pieteikšanās lapu.
@@ -254,15 +262,6 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
   - Funkcija: **validateStoreSelection()** - Pārbauda veikalu izvēli.
   - Grafiku vizualizācijas izveide un eksportēšana DOCX formātā.
 - [result.css](https://github.com/maximalian/ProLabD/blob/master/static/css/result.css) - CSS stili rezultātu noformējumam un izkārtojumam.
-
-### Papildu funkcionalitāte:
-- Mazākās cenas tiek iezīmētas ar zaļu krāsu, lai palīdzētu lietotājiem ātri identificēt labākos piedāvājumus.
-- Tabulā tiek rādīti šādi atribūti:
-  - Produktu nosaukums.
-  - Uzturvielu daudzumi (proteīni, tauki, ogļhidrāti, kalorijas).
-  - Daudzums un vienības.
-  - Cena atsevišķos veikalos (Maxima, Rimi) un kopējās izmaksas.
-  - Kopējā ēdienkartes cena tiek rādīta apakšā.
 
 ---
 
@@ -390,12 +389,11 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
   - **uploadFile()** - Apstrādā augšupielādēto Excel failu un validē datus.
 - [manage_products.css](https://github.com/maximalian/ProLabD/blob/master/static/css/manage_products.css) - Stila faili tabulas un produktu pārvaldības lapai.
 
+---
 
 ## 5.7 Datu bāzes apraksts
 
 Programma izmanto relāciju datubāzi PostgreSQL, lai glabātu lietotāju, produktu un kategoriju datus. Zemāk aprakstītas galvenās datubāzes tabulas, to struktūra un katra atribūta nozīme.
-
----
 
 ### **5.7.1 Lietotāju tabula (lietotajs)**
 
@@ -420,8 +418,6 @@ Tabula saglabā informāciju par lietotājiem, tostarp personīgos datus, uztura
 - **store_preference** - Norāda lietotāja vēlamo veikalu (piem., Maxima, Rimi vai abi).
 - **selected_products** - JSON saraksts ar lietotāja izvēlētajiem produktiem.
 
----
-
 ### **5.7.2 Produktu tabula (produkts)**
 
 Tabula glabā produktu datus, tostarp uzturvērtības, cenas un saites uz veikaliem.
@@ -444,8 +440,6 @@ Tabula glabā produktu datus, tostarp uzturvērtības, cenas un saites uz veikal
 - **vegan** - Norāda, vai produkts ir vegānisks (1 - jā, 0 - nē).
 - **failed_urls** - JSON saraksts ar kļūdainām saitēm, kas nav derīgas.
 
----
-
 ### **5.7.3 Kategoriju tabula (kategorijas)**
 
 Tabula glabā informāciju par produktu kategorijām, lai grupētu produktus.
@@ -456,16 +450,12 @@ Tabula glabā informāciju par produktu kategorijām, lai grupētu produktus.
 - **kategorija_key** - Unikāls identifikators katrai kategorijai (primārā atslēga).
 - **nosaukums** - Kategorijas nosaukums (piem., augļi, dārzeņi, dzērieni).
 
----
-
 ### **5.7.4 Galvenās attiecības starp tabulām**
 1. **Lietotājs un produkti**:
    - Lietotāja izvēlētie produkti tiek saglabāti kā JSON formāts tabulā **lietotajs** atribūtā `selected_products`.
 
 2. **Produkti un kategorijas**:
    - Katram produktam ir svešatslēga `kategorija_key`, kas norāda uz tā kategoriju tabulā **kategorijas**.
-
----
 
 ### **5.7.5 Datu bāzes optimizācija un drošība**
 - **Indeksi**:
