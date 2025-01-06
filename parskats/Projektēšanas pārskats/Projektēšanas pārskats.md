@@ -183,11 +183,19 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 - Ir iespēja uzstādīt minimālos un maksimālos daudzumus produktiem.
 - Produktus var izslēgt no aprēķina (piem., alerģiju vai nepatiku dēļ). Piemēram, ja lietotājam ir alerģija uz riekstiem, viņš var atlasīt kategoriju "Rieksti", nospiest "Exclude All Filtered" un visi atzīmētie produkti netiks ņemti vērā ēdienkartes veidošanā.
 - Filtrēšanas rezultāti tiek saglabāti lietotāja profilā.
+- Produktu filtrēšana:  
+  - Lietotājs var atlasīt produktus pēc kategorijas (piem., augļi, dārzeņi, gaļa) un uztura prasībām (vegan, ne-vegan).  
+  - Ir iespējams filtrēt produktus pēc minimālā un maksimālā daudzuma uz vienu produktu (piem., ne vairāk kā 100 g ābolu vai ne mazāk kā 10 g banānu).  
+  - Lietotājs var definēt daudzuma ierobežojumus konkrētiem produktiem, ņemot vērā individuālās vajadzības vai diētas plānus.  
+  - Produktu daudzumu var pielāgot, lai nodrošinātu optimālu uzturvielu līdzsvaru un ievērotu kaloriju, proteīnu, tauku un ogļhidrātu prasības.  
+  - Filtrēšanas rezultāti tiek parādīti tabulā, kur lietotājs var rediģēt daudzumus vai izslēgt produktus, kas neatbilst prasībām.  
+
+
 
 - Lietotāja datu ievade un filtri
 
   ![Lietotāja dati](https://github.com/maximalian/ProLabD/blob/master/parskats/details.png)
-- Produktu filtrēšana
+- Produktu filtrēšana piemeri
 
   ![Produktu filtrs](https://github.com/maximalian/ProLabD/blob/master/parskats/details_filter.png)
 
