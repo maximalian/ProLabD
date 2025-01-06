@@ -204,6 +204,13 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
   - Funkcija: **add_details()** - Lietotāja datu pievienošana un atjaunināšana.
 - [add_details.html](https://github.com/maximalian/ProLabD/blob/master/templates/add_details.html) - HTML veidne lietotāja datu ievadei.
 - [product_table.js](https://github.com/maximalian/ProLabD/blob/master/static/js/product_table.js) - JavaScript funkcijas produktu filtrēšanai un ierobežojumu iestatīšanai.
+  - **prepareLimits()** - Sagatavo un validē minimālos un maksimālos produktu ierobežojumus, saglabājot tos JSON formātā.  
+  - **renderRows(products)** - Ģenerē un attēlo produktu rindas tabulā ar iespēju iestatīt ierobežojumus un izslēgt produktus.  
+  - **applyFilters(allProducts)** - Filtrē produktus pēc kategorijas, vegānisma statusa un nosaukuma, atjaunojot tabulu ar rezultātiem.  
+  - **setLimitsForFiltered()** - Uzstāda minimālos un maksimālos ierobežojumus visiem filtrētajiem produktiem, pamatojoties uz ievadītajām vērtībām.  
+  - **clearLimitsForFiltered()** - Noņem minimālos un maksimālos ierobežojumus visiem filtrētajiem produktiem, neietekmējot izslēgtos produktus.  
+  - **excludeFilteredProducts()** - Izslēdz filtrētos produktus no apstrādes un atjauno tabulu ar izmaiņām.  
+  - **clearExcludedFilteredProducts()** - Noņem filtrēto produktu izslēgšanas statusu un atjauno tabulu ar atgrieztajiem produktiem.  
 - [profile.css](https://github.com/maximalian/ProLabD/blob/master/static/css/profile.css) - CSS stila faili lietotāja saskarnei.
 
 ---
