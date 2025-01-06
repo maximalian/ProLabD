@@ -387,12 +387,20 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 
 - [manage_products.html](https://github.com/maximalian/ProLabD/blob/master/templates/manage_products.html) - HTML veidne produktu saraksta pārvaldībai.
 - [manage_products.js](https://github.com/maximalian/ProLabD/blob/master/static/js/manage_products.js) - JavaScript funkcijas tabulas un produktu datu validācijai.
-  - **validate_links()** - Pārbauda, vai ievadītās saites atbilst prasībām.
-  - **highlightErrors()** - Iezīmē kļūdainās saites sarkanā krāsā.
-  - **addRow()** - Pievieno jaunu rindu produktu tabulai.
-  - **deleteRow()** - Dzēš atsevišķu produktu no tabulas.
-  - **saveChanges()** - Saglabā izmaiņas produktos datubāzē.
-  - **uploadFile()** - Apstrādā augšupielādēto Excel failu un validē datus.
+  - **deleteProduct(productId)** - Dzēš produktu pēc ID, nosūtot POST pieprasījumu serverim un apstrādājot atbildi.  
+  - **saveRow(productId)** - Saglabā izmaiņas produktam, validē ievadītos datus un nosūta tos serverim.  
+  - **renderRows(products)** - Ģenerē tabulas rindas katram produktam un ievieto tās HTML tabulā.  
+  - **applyFilters()** - Filtrē produktus pēc nosaukuma, kategorijas, vegānisma statusa un nederīgām saitēm.  
+  - **validateProduct(table, existingNames)** - Validē produkta datus, pārbaudot nosaukumu un saites.  
+  - **addSingleProduct(table)** - Pievieno vienu produktu, pārbaudot validāciju un nosūtot POST pieprasījumu serverim.  
+  - **addAllProducts(event)** - Pievieno vairākus produktus vienlaicīgi, validējot datus un veicot masveida augšupielādi.  
+  - **setupTableActions(table)** - Inicializē pogas un darbības tabulā, piemēram, pievienošanu un dzēšanu.  
+  - **sortDropdown()** - Sakārto kategoriju nolaižamajā sarakstā vērtības augošā secībā.  
+  - **addCategory()** - Pievieno jaunu kategoriju, validē tās nosaukumu un saglabā to serverī.  
+  - **deleteCategory()** - Dzēš izvēlēto kategoriju, pārbaudot apstiprinājumu un dzēšot no servera.  
+  - **downloadTemplate()** - Lejupielādē Excel veidnes failu ar produktu struktūru.  
+  - **downloadExample()** - Lejupielādē Excel faila piemēru ar produktu sarakstu.  
+  - **uploadFile()** - Apstrādā lietotāja augšupielādēto Excel failu un nosūta datus serverim apstrādei.  
 - [manage_products.css](https://github.com/maximalian/ProLabD/blob/master/static/css/manage_products.css) - Stila faili tabulas un produktu pārvaldības lapai.
 
 ---
