@@ -258,14 +258,14 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 
 ### Kods:
 - [DIETcalc.py](https://github.com/maximalian/ProLabD/blob/master/DIETcalc.py) - Galvenais algoritms uztura plāna aprēķināšanai.
-  - Funkcija: **calculate_diet()** - Veido optimizācijas modeli, lai minimizētu izmaksas un nodrošinātu uzturvielu prasības.
+  - **calculate_diet()** - Veido optimizācijas modeli, lai minimizētu izmaksas un nodrošinātu uzturvielu prasības.
   - Algoritms izmanto Pulp bibliotēku, lai atrisinātu lineārās programmēšanas problēmu.
 - [user_routes.py](https://github.com/maximalian/ProLabD/blob/master/user_routes.py) - Funkcijas aprēķinu veikšanai un lietotāja datu apstrādei.
-  - Funkcija: **calculate_menu()** - Aprēķina uztura plānu.
-  - Funkcija: **update_selected_products()** - Atjauno lietotāja izvēlētos produktus.
+  - **calculate_menu()** - Aprēķina uztura plānu.
+  - **update_selected_products()** - Atjauno lietotāja izvēlētos produktus.
 - [result.html](https://github.com/maximalian/ProLabD/blob/master/templates/result.html) - HTML veidne aprēķinu rezultātu parādīšanai.
 - [result.js](https://github.com/maximalian/ProLabD/blob/master/static/js/result.js) - JavaScript koda funkcijas vizualizācijai un validācijai.
-  - Funkcija: **validateStoreSelection()** - Pārbauda veikalu izvēli.
+  - **validateStoreSelection()** - Pārbauda veikalu izvēli.
   - Grafiku vizualizācijas izveide un eksportēšana DOCX formātā.
 - [result.css](https://github.com/maximalian/ProLabD/blob/master/static/css/result.css) - CSS stili rezultātu noformējumam un izkārtojumam.
 
@@ -306,10 +306,17 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 
 ### Kods:
 - [user_routes.py](https://github.com/maximalian/ProLabD/blob/master/user_routes.py) - Funkcijas profila un uztura ierobežojumu atjaunināšanai.
-  - Funkcija: **profile()** - Rediģē lietotāja profilu.
-  - Funkcija: **update_selected_products()** - Atjauno lietotāja izvēlētos produktus.
+  - **profile()** - Rediģē lietotāja profilu.
+  - **update_selected_products()** - Atjauno lietotāja izvēlētos produktus.
 - [profile.html](https://github.com/maximalian/ProLabD/blob/master/templates/profile.html) - HTML veidne profila rediģēšanai.
 - [product_table.js](https://github.com/maximalian/ProLabD/blob/master/static/js/product_table.js) - Produkta filtru pārvaldība.
+  - **prepareLimits()** - Sagatavo un validē minimālos un maksimālos produktu ierobežojumus, saglabājot tos JSON formātā.  
+  - **renderRows(products)** - Ģenerē un attēlo produktu rindas tabulā ar iespēju iestatīt ierobežojumus un izslēgt produktus.  
+  - **applyFilters(allProducts)** - Filtrē produktus pēc kategorijas, vegānisma statusa un nosaukuma, atjaunojot tabulu ar rezultātiem.  
+  - **setLimitsForFiltered()** - Uzstāda minimālos un maksimālos ierobežojumus visiem filtrētajiem produktiem, pamatojoties uz ievadītajām vērtībām.  
+  - **clearLimitsForFiltered()** - Noņem minimālos un maksimālos ierobežojumus visiem filtrētajiem produktiem, neietekmējot izslēgtos produktus.  
+  - **excludeFilteredProducts()** - Izslēdz filtrētos produktus no apstrādes un atjauno tabulu ar izmaiņām.  
+  - **clearExcludedFilteredProducts()** - Noņem filtrēto produktu izslēgšanas statusu un atjauno tabulu ar atgrieztajiem produktiem.  
 - [profile.css](https://github.com/maximalian/ProLabD/blob/master/static/css/profile.css) - Stila faili profila lapai.
 
 ---
