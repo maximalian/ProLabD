@@ -120,9 +120,11 @@ Tehnoloģiju steks, kas tiks izmantots risinājuma implementācijai, sastāv no 
   
 ## 5. Programmatūras apraksts
 
-Izstrādātā sistēma ir tīmeka lietotne, kas palīdz lietotājiem plānot ikdienas ēdienkarti, pamatojoties uz uzturvērtības un izmaksu ierobežojumiem. Lietotājs ievada informāciju par savām uztura vajadzībām un pieejamajiem produktiem. Sistēma, izmantojot lineārās programmēšanas algoritmus, ģenerē optimālu ēdienkarti, kas atbilst lietotāja uzturvielu prasībām, vienlaikus samazinot izmaksas. Lietotājs var vizualizēt uzturvērtības grafikos, kā arī saņemt informāciju par produktu cenām dažādos veikalos.
+Programmai var piekļūt, izmantojot šādu saiti: [http://13.61.89.142/](http://13.61.89.142/)
 
-Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskarni, ātru datu apstrādi un iespēju pielāgot produktu sarakstu dinamiskā veidā.
+Izstrādātā tīmekļa lietotne ir programma, kas palīdz lietotājiem plānot ikdienas ēdienkarti, pamatojoties uz uzturvērtības un izmaksu ierobežojumiem. Lietotājs ievada informāciju par savām uztura vajadzībām un pieejamajiem produktiem. Programma, izmantojot lineārās programmēšanas algoritmus, ģenerē optimālu ēdienkarti, kas atbilst lietotāja uzturvielu prasībām, vienlaikus samazinot izmaksas. Lietotājs var vizualizēt uzturvērtības grafikos, kā arī saņemt informāciju par produktu cenām dažādos veikalos.
+
+Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskarni, ātru datu apstrādi un iespēju pielāgot produktu sarakstu dinamiskā veidā.
 
 ---
 
@@ -136,17 +138,14 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 
 ### Kods:
 - [app.py](https://github.com/maximalian/ProLabD/blob/master/app.py) - Galvenā aplikācijas konfigurācija un maršrutēšana.
-  - Funkcija: **home()** - Atgriež galveno lapu.
-
+  - **home()** - Atgriež galveno lapu.
 - [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Pieteikšanās un reģistrācijas loģika.
-  - Funkcija: **login()** - Apstrādā pieteikšanās pieprasījumus (GET un POST).
-  - Funkcija: **register()** - Reģistrē jaunu lietotāju.
-  - Funkcija: **logout()** - Izraksta lietotāju no sistēmas.
-
+  - **login()** - Apstrādā pieteikšanās pieprasījumus (GET un POST).
+  - **register()** - Reģistrē jaunu lietotāju.
+  - **logout()** - Izraksta lietotāju no sistēmas.
 - [index.html](https://github.com/maximalian/ProLabD/blob/master/templates/index.html) - HTML veidne pieteikšanās lapai.
   - Satur ievades laukus e-pastam un parolei.
   - Pogas pieteikšanās un reģistrācijai.
-
 - [styles.css](https://github.com/maximalian/ProLabD/blob/master/static/css/styles.css) - CSS stila faili lietotāja saskarnei.
   - Nodrošina dizainu ar responsīvu izkārtojumu un pogu animācijām.
 
@@ -163,12 +162,14 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 
 ### Kods:
 - [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Reģistrācijas loģika.
-  - Funkcija: **register()** - Apstrādā reģistrācijas pieprasījumus (GET un POST).
-
+  - **register()** - Apstrādā reģistrācijas pieprasījumus (GET un POST).
+  - **check_email()** - Pārbauda, vai e-pasta adrese jau pastāv datubāzē, un atgriež rezultātu JSON formātā.  
 - [register.html](https://github.com/maximalian/ProLabD/blob/master/templates/register.html) - HTML veidne reģistrācijas lapai.
   - Ievades lauki e-pastam, parolei un apstiprinājuma parolei.
   - Validācija un paroles redzamības pārslēgšana.
-
+- [register.js](https://github.com/maximalian/ProLabD/blob/master/static/js/register.js) - JavaScript funkcijas reģistrācijas formas validācijai un paroles redzamības pārslēgšanai.  
+  - **togglePasswordVisibility(passwordFieldId, toggleButtonId)** - Pārslēdz paroles redzamību ievades laukā, mainot tās tipu starp 'password' un 'text'.  
+  - **validateForm(event)** - Validē reģistrācijas formu, pārbaudot e-pasta adreses pieejamību un paroles atbilstību apstiprinājuma laukam, pirms iesniedz datus serverim.
 - [styles.css](https://github.com/maximalian/ProLabD/blob/master/static/css/styles.css) - CSS stila faili.
   - Dizains ar responsīvu izkārtojumu un animācijām.
 
@@ -181,20 +182,35 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 - Ir iespēja uzstādīt minimālos un maksimālos daudzumus produktiem.
 - Produktus var izslēgt no aprēķina (piem., alerģiju vai nepatiku dēļ). Piemēram, ja lietotājam ir alerģija uz riekstiem, viņš var atlasīt kategoriju "Rieksti", nospiest "Exclude All Filtered" un visi atzīmētie produkti netiks ņemti vērā ēdienkartes veidošanā.
 - Filtrēšanas rezultāti tiek saglabāti lietotāja profilā.
+- Produktu filtrēšana:  
+  - Lietotājs var atlasīt produktus pēc kategorijas (piem., augļi, dārzeņi, gaļa) un uztura prasībām (vegan, ne-vegan).  
+  - Ir iespējams filtrēt produktus pēc minimālā un maksimālā daudzuma uz vienu produktu (piem., ne vairāk kā 100 g ābolu vai ne mazāk kā 10 g banānu).  
+  - Lietotājs var definēt daudzuma ierobežojumus konkrētiem produktiem, ņemot vērā individuālās vajadzības vai diētas plānus.  
+  - Produktu daudzumu var pielāgot, lai nodrošinātu optimālu uzturvielu līdzsvaru un ievērotu kaloriju, proteīnu, tauku un ogļhidrātu prasības.  
+  - Filtrēšanas rezultāti tiek parādīti tabulā, kur lietotājs var rediģēt daudzumus vai izslēgt produktus, kas neatbilst prasībām.  
+
+
 
 - Lietotāja datu ievade un filtri
 
   ![Lietotāja dati](https://github.com/maximalian/ProLabD/blob/master/parskats/details.png)
-- Produktu filtrēšana
+- Produktu filtrēšana piemērs
 
   ![Produktu filtrs](https://github.com/maximalian/ProLabD/blob/master/parskats/details_filter.png)
 
 ### Kods:
 - [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Datu apstrādes loģika.
-  - Funkcija: **add_details()** - Lietotāja datu pievienošana un atjaunināšana.
+  - **add_details()** - Lietotāja datu pievienošana un atjaunināšana.
 - [add_details.html](https://github.com/maximalian/ProLabD/blob/master/templates/add_details.html) - HTML veidne lietotāja datu ievadei.
-- [profile.css](https://github.com/maximalian/ProLabD/blob/master/static/css/profile.css) - CSS stila faili lietotāja saskarnei.
 - [product_table.js](https://github.com/maximalian/ProLabD/blob/master/static/js/product_table.js) - JavaScript funkcijas produktu filtrēšanai un ierobežojumu iestatīšanai.
+  - **prepareLimits()** - Sagatavo un validē minimālos un maksimālos produktu ierobežojumus, saglabājot tos JSON formātā.  
+  - **renderRows(products)** - Ģenerē un attēlo produktu rindas tabulā ar iespēju iestatīt ierobežojumus un izslēgt produktus.  
+  - **applyFilters(allProducts)** - Filtrē produktus pēc kategorijas, vegānisma statusa un nosaukuma, atjaunojot tabulu ar rezultātiem.  
+  - **setLimitsForFiltered()** - Uzstāda minimālos un maksimālos ierobežojumus visiem filtrētajiem produktiem, pamatojoties uz ievadītajām vērtībām.  
+  - **clearLimitsForFiltered()** - Noņem minimālos un maksimālos ierobežojumus visiem filtrētajiem produktiem, neietekmējot izslēgtos produktus.  
+  - **excludeFilteredProducts()** - Izslēdz filtrētos produktus no apstrādes un atjauno tabulu ar izmaiņām.  
+  - **clearExcludedFilteredProducts()** - Noņem filtrēto produktu izslēgšanas statusu un atjauno tabulu ar atgrieztajiem produktiem.  
+- [profile.css](https://github.com/maximalian/ProLabD/blob/master/static/css/profile.css) - CSS stila faili lietotāja saskarnei.
 
 ---
 
@@ -204,8 +220,14 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 - Lietotājs apskata uztura aprēķinu rezultātus, ieskaitot uzturvielu daudzumus, kalorijas un kopējās izmaksas.
 - Lietotājs var salīdzināt iegūtos datus ar dienas normām.
 - Vizualizācija tiek parādīta diagrammu veidā.
-- Ir iespēja lejupielādēt rezultātus DOCX formātā, izmantojot pogu **"Download as DOCX"**.
-- Lietotāji var izvēlēties, no kuriem veikaliem (piem., Maxima, Rimi) iegūt cenu informāciju, izmantojot pogu **"Calculate"**.
+- Mazākās cenas tiek iezīmētas ar zaļu krāsu, lai palīdzētu lietotājiem ātri identificēt labākos piedāvājumus.
+- Tabulā tiek rādīti šādi atribūti:
+  - Produktu nosaukums.
+  - Uzturvielu daudzumi (proteīni, tauki, ogļhidrāti, kalorijas).
+  - Daudzums un vienības.
+  - Cena atsevišķos veikalos (Maxima, Rimi) un kopējās izmaksas.
+  - Kopējā ēdienkartes cena tiek rādīta apakšā.
+
 
 ### Navigācijas pogas:
 - **"Back to Login"** - Atgriež lietotāju uz pieteikšanās lapu.
@@ -242,25 +264,20 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 
 ### Kods:
 - [DIETcalc.py](https://github.com/maximalian/ProLabD/blob/master/DIETcalc.py) - Galvenais algoritms uztura plāna aprēķināšanai.
-  - Funkcija: **calculate_diet()** - Veido optimizācijas modeli, lai minimizētu izmaksas un nodrošinātu uzturvielu prasības.
+  - **calculate_diet()** - Veido optimizācijas modeli, lai minimizētu izmaksas un nodrošinātu uzturvielu prasības.
   - Algoritms izmanto Pulp bibliotēku, lai atrisinātu lineārās programmēšanas problēmu.
 - [user_routes.py](https://github.com/maximalian/ProLabD/blob/master/user_routes.py) - Funkcijas aprēķinu veikšanai un lietotāja datu apstrādei.
-  - Funkcija: **calculate_menu()** - Aprēķina uztura plānu.
-  - Funkcija: **update_selected_products()** - Atjauno lietotāja izvēlētos produktus.
+  - **calculate_menu()** - Aprēķina uztura plānu.
+  - **update_selected_products()** - Atjauno lietotāja izvēlētos produktus.
 - [result.html](https://github.com/maximalian/ProLabD/blob/master/templates/result.html) - HTML veidne aprēķinu rezultātu parādīšanai.
 - [result.js](https://github.com/maximalian/ProLabD/blob/master/static/js/result.js) - JavaScript koda funkcijas vizualizācijai un validācijai.
-  - Funkcija: **validateStoreSelection()** - Pārbauda veikalu izvēli.
-  - Grafiku vizualizācijas izveide un eksportēšana DOCX formātā.
+  - **validateStoreSelection()** - Pārbauda, vai lietotājs ir izvēlējies vismaz vienu veikalu (Maxima vai Rimi) un parāda brīdinājumu, ja veikals nav izvēlēts.
+  - **generateChart()** - Ģenerē uzturvielu salīdzinājuma diagrammu, vizualizējot iegūtās un dienas normas vērtības.
+  - **downloadDoc()** - Ģenerē un lejupielādē DOCX dokumentu ar aprēķinu rezultātiem, iekļaujot tabulas un diagrammas no lapas satura.
+  - **prepareChartImage()** - Konvertē diagrammu attēla formātā, lai to pievienotu DOCX dokumentam.
+  - **exportTableToHtml()** - Izveido HTML struktūru no tabulas datiem, ko var eksportēt DOCX formātā.
+  - **addChartToExport()** - Pievieno diagrammas attēlu pie eksporta datiem DOCX dokumentam.
 - [result.css](https://github.com/maximalian/ProLabD/blob/master/static/css/result.css) - CSS stili rezultātu noformējumam un izkārtojumam.
-
-### Papildu funkcionalitāte:
-- Mazākās cenas tiek iezīmētas ar zaļu krāsu, lai palīdzētu lietotājiem ātri identificēt labākos piedāvājumus.
-- Tabulā tiek rādīti šādi atribūti:
-  - Produktu nosaukums.
-  - Uzturvielu daudzumi (proteīni, tauki, ogļhidrāti, kalorijas).
-  - Daudzums un vienības.
-  - Cena atsevišķos veikalos (Maxima, Rimi) un kopējās izmaksas.
-  - Kopējā ēdienkartes cena tiek rādīta apakšā.
 
 ---
 
@@ -299,10 +316,17 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 
 ### Kods:
 - [user_routes.py](https://github.com/maximalian/ProLabD/blob/master/user_routes.py) - Funkcijas profila un uztura ierobežojumu atjaunināšanai.
-  - Funkcija: **profile()** - Rediģē lietotāja profilu.
-  - Funkcija: **update_selected_products()** - Atjauno lietotāja izvēlētos produktus.
+  - **profile()** - Rediģē lietotāja profilu.
+  - **update_selected_products()** - Atjauno lietotāja izvēlētos produktus.
 - [profile.html](https://github.com/maximalian/ProLabD/blob/master/templates/profile.html) - HTML veidne profila rediģēšanai.
 - [product_table.js](https://github.com/maximalian/ProLabD/blob/master/static/js/product_table.js) - Produkta filtru pārvaldība.
+  - **prepareLimits()** - Sagatavo un validē minimālos un maksimālos produktu ierobežojumus, saglabājot tos JSON formātā.  
+  - **renderRows(products)** - Ģenerē un attēlo produktu rindas tabulā ar iespēju iestatīt ierobežojumus un izslēgt produktus.  
+  - **applyFilters(allProducts)** - Filtrē produktus pēc kategorijas, vegānisma statusa un nosaukuma, atjaunojot tabulu ar rezultātiem.  
+  - **setLimitsForFiltered()** - Uzstāda minimālos un maksimālos ierobežojumus visiem filtrētajiem produktiem, pamatojoties uz ievadītajām vērtībām.  
+  - **clearLimitsForFiltered()** - Noņem minimālos un maksimālos ierobežojumus visiem filtrētajiem produktiem, neietekmējot izslēgtos produktus.  
+  - **excludeFilteredProducts()** - Izslēdz filtrētos produktus no apstrādes un atjauno tabulu ar izmaiņām.  
+  - **clearExcludedFilteredProducts()** - Noņem filtrēto produktu izslēgšanas statusu un atjauno tabulu ar atgrieztajiem produktiem.  
 - [profile.css](https://github.com/maximalian/ProLabD/blob/master/static/css/profile.css) - Stila faili profila lapai.
 
 ---
@@ -380,10 +404,97 @@ Sistēma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saskar
 
 - [manage_products.html](https://github.com/maximalian/ProLabD/blob/master/templates/manage_products.html) - HTML veidne produktu saraksta pārvaldībai.
 - [manage_products.js](https://github.com/maximalian/ProLabD/blob/master/static/js/manage_products.js) - JavaScript funkcijas tabulas un produktu datu validācijai.
-  - **validate_links()** - Pārbauda, vai ievadītās saites atbilst prasībām.
-  - **highlightErrors()** - Iezīmē kļūdainās saites sarkanā krāsā.
-  - **addRow()** - Pievieno jaunu rindu produktu tabulai.
-  - **deleteRow()** - Dzēš atsevišķu produktu no tabulas.
-  - **saveChanges()** - Saglabā izmaiņas produktos datubāzē.
-  - **uploadFile()** - Apstrādā augšupielādēto Excel failu un validē datus.
+  - **deleteProduct(productId)** - Dzēš produktu pēc ID, nosūtot POST pieprasījumu serverim un apstrādājot atbildi.  
+  - **saveRow(productId)** - Saglabā izmaiņas produktam, validē ievadītos datus un nosūta tos serverim.  
+  - **renderRows(products)** - Ģenerē tabulas rindas katram produktam un ievieto tās HTML tabulā.  
+  - **applyFilters()** - Filtrē produktus pēc nosaukuma, kategorijas, vegānisma statusa un nederīgām saitēm.  
+  - **validateProduct(table, existingNames)** - Validē produkta datus, pārbaudot nosaukumu un saites.  
+  - **addSingleProduct(table)** - Pievieno vienu produktu, pārbaudot validāciju un nosūtot POST pieprasījumu serverim.  
+  - **addAllProducts(event)** - Pievieno vairākus produktus vienlaicīgi, validējot datus un veicot masveida augšupielādi.  
+  - **setupTableActions(table)** - Inicializē pogas un darbības tabulā, piemēram, pievienošanu un dzēšanu.  
+  - **sortDropdown()** - Sakārto kategoriju nolaižamajā sarakstā vērtības augošā secībā.  
+  - **addCategory()** - Pievieno jaunu kategoriju, validē tās nosaukumu un saglabā to serverī.  
+  - **deleteCategory()** - Dzēš izvēlēto kategoriju, pārbaudot apstiprinājumu un dzēšot no servera.  
+  - **downloadTemplate()** - Lejupielādē Excel veidnes failu ar produktu struktūru.  
+  - **downloadExample()** - Lejupielādē Excel faila piemēru ar produktu sarakstu.  
+  - **uploadFile()** - Apstrādā lietotāja augšupielādēto Excel failu un nosūta datus serverim apstrādei.  
 - [manage_products.css](https://github.com/maximalian/ProLabD/blob/master/static/css/manage_products.css) - Stila faili tabulas un produktu pārvaldības lapai.
+
+---
+
+## 5.7 Datu bāzes apraksts
+
+Programma izmanto relāciju datubāzi PostgreSQL, lai glabātu lietotāju, produktu un kategoriju datus. Zemāk aprakstītas galvenās datubāzes tabulas, to struktūra un katra atribūta nozīme.
+
+### **5.7.1 Lietotāju tabula (lietotajs)**
+
+Tabula saglabā informāciju par lietotājiem, tostarp personīgos datus, uztura ierobežojumus un izvēles.
+
+![Lietotāju tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/lietotajs.png)
+
+**Atribūtu apraksts:**
+- **id** - Unikāls identifikators katram lietotājam (primārā atslēga).
+- **vards** - Lietotāja vārds (piemēram, Anna).
+- **uzvards** - Lietotāja uzvārds (piemēram, Kalniņa).
+- **epasts** - E-pasta adrese lietotāja autentifikācijai un saziņai.
+- **parole** - Lietotāja parole, kas tiek glabāta hash formātā drošībai.
+- **auth_provider** - Norāda autentifikācijas avotu (piem., vietējā vai Google autentifikācija).
+- **created_at** - Konta izveides datums un laiks.
+- **dzimums** - Lietotāja dzimums (piem., vīrietis vai sieviete).
+- **svars** - Lietotāja svars kilogramu formātā.
+- **augums** - Lietotāja augums centimetros.
+- **vecums** - Lietotāja vecums gados.
+- **max_limits** - JSON objekts, kas satur maksimālos produkta daudzuma ierobežojumus uz vienu mērvienību (piem., ne vairāk kā 100 g ābolu vai 200 ml piena).  
+- **min_limits** - JSON objekts, kas satur minimālos produkta daudzuma ierobežojumus uz vienu mērvienību (piem., ne mazāk kā 50 g riekstu vai 100 ml kefīra).  
+- **store_preference** - Norāda lietotāja vēlamo veikalu (piem., Maxima, Rimi vai abi).
+- **selected_products** - JSON saraksts ar lietotāja izvēlētajiem produktiem.
+
+### **5.7.2 Produktu tabula (produkts)**
+
+Tabula glabā produktu datus, tostarp uzturvērtības, cenas un saites uz veikaliem.
+
+![Produktu tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/produkts.png)
+
+**Atribūtu apraksts:**
+- **id** - Unikāls identifikators katram produktam (primārā atslēga).
+- **nosaukums** - Produkta nosaukums (piem., ābols, piens).
+- **kalorijas** - Produkta enerģētiskā vērtība uz kilogramu (kcal/kg).
+- **olbaltumvielas** - Olbaltumvielu daudzums gramos uz kilogramu (g/kg).
+- **tauki** - Tauku daudzums gramos uz kilogramu (g/kg).
+- **oglhidrati** - Ogļhidrātu daudzums gramos uz kilogramu (g/kg).
+- **cena_maxima** - Produkta cena veikalā Maxima.
+- **cena_rimi** - Produkta cena veikalā Rimi.
+- **saite_maxima** - Hipersaite uz produktu Maxima internetveikalā.
+- **saite_rimi** - Hipersaite uz produktu Rimi internetveikalā.
+- **meris_vieniba** - Produkta mērīšanas vienība (piem., kg, l).
+- **kategorija_key** - Ārējā atslēga, kas saista produktu ar konkrētu kategoriju.
+- **vegan** - Norāda, vai produkts ir vegānisks (1 - jā, 0 - nē).
+- **failed_urls** - JSON saraksts ar kļūdainām saitēm, kas nav derīgas.
+
+### **5.7.3 Kategoriju tabula (kategorijas)**
+
+Tabula glabā informāciju par produktu kategorijām, lai grupētu produktus.
+
+![Kategoriju tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/kategorijas.png)
+
+**Atribūtu apraksts:**
+- **kategorija_key** - Unikāls identifikators katrai kategorijai (primārā atslēga).
+- **nosaukums** - Kategorijas nosaukums (piem., augļi, dārzeņi, dzērieni).
+
+### **5.7.4 Galvenās attiecības starp tabulām**
+1. **Lietotājs un produkti**:
+   - Lietotāja izvēlētie produkti tiek saglabāti kā JSON formāts tabulā **lietotajs** atribūtā `selected_products`.
+
+2. **Produkti un kategorijas**:
+   - Katram produktam ir svešatslēga `kategorija_key`, kas norāda uz tā kategoriju tabulā **kategorijas**.
+
+### **5.7.5 Datu bāzes optimizācija un drošība**
+- **Indeksi**:
+  - Indekss uz kolonnām `id` un `kategorija_key` nodrošina ātru meklēšanu un savienošanu starp tabulām.
+- **Datu validācija**:
+  - Obligātie lauki nepieļauj null vērtības, lai novērstu nepilnīgus ierakstus.
+- **Šifrēšana**:
+  - Lietotāja paroles tiek glabātas kā hash, izmantojot bcrypt algoritmu.
+- **Drošība**:
+  - Datu bāze tiek aizsargāta ar lietotājvārdu un paroli.
+  - Piekļuve ir iespējama tikai autorizētiem lietotājiem.
