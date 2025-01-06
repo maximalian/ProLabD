@@ -162,7 +162,7 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 
 ### Kods:
 - [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Reģistrācijas loģika.
-  - Funkcija: **register()** - Apstrādā reģistrācijas pieprasījumus (GET un POST).
+  - **register()** - Apstrādā reģistrācijas pieprasījumus (GET un POST).
 - [register.html](https://github.com/maximalian/ProLabD/blob/master/templates/register.html) - HTML veidne reģistrācijas lapai.
   - Ievades lauki e-pastam, parolei un apstiprinājuma parolei.
   - Validācija un paroles redzamības pārslēgšana.
