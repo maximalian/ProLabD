@@ -265,8 +265,12 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
   - **update_selected_products()** - Atjauno lietotāja izvēlētos produktus.
 - [result.html](https://github.com/maximalian/ProLabD/blob/master/templates/result.html) - HTML veidne aprēķinu rezultātu parādīšanai.
 - [result.js](https://github.com/maximalian/ProLabD/blob/master/static/js/result.js) - JavaScript koda funkcijas vizualizācijai un validācijai.
-  - **validateStoreSelection()** - Pārbauda veikalu izvēli.
-  - Grafiku vizualizācijas izveide un eksportēšana DOCX formātā.
+  - **validateStoreSelection()** - Pārbauda, vai lietotājs ir izvēlējies vismaz vienu veikalu (Maxima vai Rimi) un parāda brīdinājumu, ja veikals nav izvēlēts.
+  - **generateChart()** - Ģenerē uzturvielu salīdzinājuma diagrammu, vizualizējot iegūtās un dienas normas vērtības.
+  - **downloadDoc()** - Ģenerē un lejupielādē DOCX dokumentu ar aprēķinu rezultātiem, iekļaujot tabulas un diagrammas no lapas satura.
+  - **prepareChartImage()** - Konvertē diagrammu attēla formātā, lai to pievienotu DOCX dokumentam.
+  - **exportTableToHtml()** - Izveido HTML struktūru no tabulas datiem, ko var eksportēt DOCX formātā.
+  - **addChartToExport()** - Pievieno diagrammas attēlu pie eksporta datiem DOCX dokumentam.
 - [result.css](https://github.com/maximalian/ProLabD/blob/master/static/css/result.css) - CSS stili rezultātu noformējumam un izkārtojumam.
 
 ---
