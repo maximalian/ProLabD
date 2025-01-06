@@ -78,12 +78,12 @@ def upload_products():
     """
     Funkcija produktu augšupielādei no Excel faila.
     - Apstrādā POST pieprasījumu un validē datus.
-    - Pievieno jaunus produktus un kategorijas datubāzē.
+    - Pievieno jaunus produktus un kategorijas datubāzē tikai, ja visi dati ir derīgi.
     """
 
     connection = get_db_connection()
     cursor = connection.cursor()
-    errors = [] 
+    errors = []
 
     if 'file' not in request.files:
         return jsonify({"error": "No file provided."}), 400
@@ -118,31 +118,51 @@ def upload_products():
 
             if kalorijas is None or kalorijas < 0:
                 errors.append(f"Row {index + 1}: Calories must be a number >= 0.")
-                continue
             if olbaltumvielas is None or olbaltumvielas < 0:
                 errors.append(f"Row {index + 1}: Proteins must be a number >= 0.")
-                continue
             if tauki is None or tauki < 0:
                 errors.append(f"Row {index + 1}: Fats must be a number >= 0.")
-                continue
             if oglhidrati is None or oglhidrati < 0:
                 errors.append(f"Row {index + 1}: Carbs must be a number >= 0.")
-                continue
 
             if saite_maxima:
                 if not (saite_maxima.startswith("https://barbora.lv/") or saite_maxima.startswith("https://www.barbora.lv/")):
                     errors.append(f"Row {index + 1}: Maxima link must start with 'https://barbora.lv/' or 'https://www.barbora.lv/'.")
-                    continue
-
             if saite_rimi:
                 if not saite_rimi.startswith("https://www.rimi.lv/"):
                     errors.append(f"Row {index + 1}: Rimi link must start with 'https://www.rimi.lv/'.")
-                    continue
-
 
             if check_duplicate(cursor, "produkts", "nosaukums", nosaukums):
                 errors.append(f"Row {index + 1}: Product name already exists.")
-                continue
+
+        except Exception as e:
+            errors.append(f"Row {index + 1}: {str(e)}")
+
+    if errors:
+        connection.rollback()
+        cursor.close()
+        connection.close()
+
+        try:
+            os.remove(file_path)
+        except Exception as e:
+            errors.append(f"File deletion failed: {str(e)}")
+
+        return jsonify({"errors": errors}), 400
+
+    try:
+        for index, row in df.iterrows():
+            nosaukums = str(row['Name']).strip()
+            kalorijas = safe_number(row['Energy Value (kcal per kg)'])
+            olbaltumvielas = safe_number(row['Proteins (g per kg)'])
+            tauki = safe_number(row['Fats (g per kg)'])
+            oglhidrati = safe_number(row['Carbohydrates (g per kg)'])
+            meris_vieniba = str(row['Unit (measurement unit)']).strip()
+            kategorija_key = int(row['Category Key (unique identifier)'])
+            kategorija_name = str(row['Category (product group)']).strip()
+            vegan = 1 if str(row['Vegan']).strip().lower() == '1' else 0
+            saite_maxima = str(row['Maxima Link']).strip() if pd.notna(row['Maxima Link']) else None
+            saite_rimi = str(row['Rimi Link']).strip() if pd.notna(row['Rimi Link']) else None
 
             if not check_duplicate(cursor, "kategorijas", "kategorija_key", kategorija_key):
                 cursor.execute(
@@ -164,19 +184,23 @@ def upload_products():
             )
             next_id += 1
 
-        except Exception as e:
-            errors.append(f"Row {index + 1}: {str(e)}")
-            continue
+        connection.commit()
 
-    connection.commit()
-
-    try:
-        os.remove(file_path)
     except Exception as e:
-        errors.append(f"File deletion failed: {str(e)}")
+        connection.rollback()
+        errors.append(f"Database error: {str(e)}")
+        return jsonify({"errors": errors}), 500
 
+    finally:
+        try:
+            os.remove(file_path)
+        except Exception as e:
+            errors.append(f"File deletion failed: {str(e)}")
 
-    return jsonify({"errors": errors})
+        cursor.close()
+        connection.close()
+
+    return jsonify({"message": "All products added successfully!"})
 
 @product_bp.route('/manage_products', methods=['GET'])
 def manage_products():
