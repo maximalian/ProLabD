@@ -104,7 +104,7 @@ def upload_products():
 
     for index, row in df.iterrows():
         try:
-            nosaukums = str(row['Name']).strip()
+            nosaukums = str(row['Name']).strip().lower()
             kalorijas = safe_number(row['Energy Value (kcal per kg)'])
             olbaltumvielas = safe_number(row['Proteins (g per kg)'])
             tauki = safe_number(row['Fats (g per kg)'])
