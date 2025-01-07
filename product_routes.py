@@ -143,8 +143,13 @@ def upload_products():
                 if not saite_rimi.startswith("https://www.rimi.lv/"):
                     errors.append(f"Row {index + 1}: Rimi link must start with 'https://www.rimi.lv/'.")
 
-            if check_duplicate(cursor, "produkts", "nosaukums", nosaukums):
-                errors.append(f"Row {index + 1}: Product name already exists.")
+            cursor.execute(
+                "SELECT COUNT(*) FROM produkts WHERE LOWER(TRIM(nosaukums)) = LOWER(TRIM(%s))",
+                (nosaukums,)
+            )
+            if cursor.fetchone()[0] > 0:
+                errors.append(f"Row {index + 1}: Product name '{nosaukums}' already exists.")
+
 
             if errors:
                 continue
