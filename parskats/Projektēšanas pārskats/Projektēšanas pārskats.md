@@ -65,28 +65,39 @@ Sistēmas prasības tiek sadalītas vairākās galvenajās kategorijās: funkcio
 
 - **Lietotāja prasības:**
 
-| Nr. | Lietotāju stāsts                                                              | Prioritāte     |
-|---- |------------------------------------------------------------------------------ |--------------- |
-| 1   | Lietotājs vēlas ievadīt savu vecumu, dzimumu un svaru, lai aprēķinātu ikdienas uztura vajadzības un personalizētu ēdienkartes plānu. | Must have      |
-| 2   | Lietotājs vēlas rediģēt savas uztura prasības, lai pielāgotu ēdienkartes plānu mainīgām vajadzībām. | Must have      |
-| 3   | Lietotājs vēlas sekot līdzi uzturvielu patēriņam, lai nodrošinātu sabalansētu uzturu. | Must have      |
-| 4   | Lietotājs vēlas pārbaudīt ēdienkartes kopējās izmaksas, lai kontrolētu savu budžetu. | Must have      |
-| 5   | Lietotājs vēlas saņemt vizualizācijas par uzturvielu sadalījumu, lai viegli analizētu datus. | Should have    |
-| 6   | Lietotājs vēlas iespēju pievienot jaunus produktus ar uzturvērtību datiem, lai paplašinātu savu izvēli. | Must have      |
-| 7   | Administrators vēlas pievienot un rediģēt produktu datus, lai uzturētu aktuālu datu bāzi. | Must have      |
-| 8   | Administrators vēlas pārbaudīt produkta saites derīgumu un cenas, lai garantētu datu precizitāti. | Must have      |
-| 9   | Lietotājs vēlas pievienot īpašus uztura ierobežojumus, piemēram, alerģijas vai vegānu opcijas. | Should have    |
-
+| Nr. | Lietotāja stāsts                                                                                               | Izpildīts (Jā/Nē) | Prioritāte     | Komentārs                                                                                                                      |
+|---- |----------------------------------------------------------------------------------------------------------------|-------------------|--------------- |-------------------------------------------------------------------------------------------------------------------------------|
+| 1   | Lietotājs vēlas ievadīt savu vecumu, dzimumu, svaru un īpašus uztura ierobežojumus (piemēram, alerģijas vai vegānu opcijas), lai aprēķinātu ikdienas uztura vajadzības un personalizētu ēdienkartes plānu. | Jā                | Must have      | Var izmantot kategorijas un ierobežojumus produktu daudzumiem, lai atbilstu uztura prasībām. (Profile, Add details)             |
+| 2   | Lietotājs vēlas rediģēt savas uztura prasības, lai pielāgotu ēdienkartes plānu mainīgām vajadzībām.              | Jā                | Must have      | Rediģēšana pieejama sadaļā. (Profile)                                                                                           |
+| 3   | Lietotājs vēlas izvēlēties cenas uz produktiem no dažādiem veikaliem, lai optimizētu savas izmaksas.             | Jā                | Must have      | Pieejama cenu salīdzināšanas funkcija no Maxima un Rimi. (Result)                                                                |
+| 4   | Lietotājs vēlas pārbaudīt ēdienkartes kopējās izmaksas, lai kontrolētu savu budžetu.                             | Jā                | Must have      | Izmaksu aprēķins pieejams. (Result)                                                                                              |
+| 5   | Lietotājs vēlas saņemt vizualizācijas par uzturvielu sadalījumu, lai viegli analizētu datus.                     | Jā                | Should have    | Grafiskais pārskats gatavs. (Result)                                                                                             |
+| 6   | Lietotājs vēlas iespēju pievienot jaunus produktus ar uzturvērtību datiem, lai paplašinātu savu izvēli.          | Jā                | Must have      | Produkta pievienošanas funkcija. (Edit products)                                                                                |
+| 7   | Lietotājs vēlas pārbaudīt produkta saites derīgumu un cenas, lai garantētu datu precizitāti.                      | Jā                | Must have      | Datu atjaunināšanas sistēma darbojas. (Edit products)                                                                            |
+| 8   | Lietotājs vēlas lejupielādēt ēdienkartes plānu DOCX formātā, lai to varētu izmantot bezsaistē.                   | Jā                | Could have     | Funkcija pieejama. (Result)                                                                                                    |
 
 ## 2. Algoritms
 
 Sistēma izmanto **lineārās programmēšanas algoritmu**, lai optimizētu lietotāja ēdienkarti. Algoritms darbojas šādi:
-1. **Ievaddatu apstrāde**: Lietotājs ievada prasības un ierobežojumus, kas tiek saglabāti datu bāzē.
-2. **Uzturvielu aprēķins**: Algoritms aprēķina nepieciešamās uzturvielas un produktus, kas atbilst lietotāja vajadzībām, ņemot vērā uzturvērtību un izmaksas.
-3. **Optimizācijas process**: Algoritms nosaka produktu kombināciju, kas nodrošina maksimālu uzturvielu vērtību, minimizējot kopējās izmaksas.
-4. **Rezultātu attēlošana**: Pēc optimizācijas lietotājam tiek parādīta ēdienkarte, kurā atspoguļoti uzturvērtību dati un kopējās izmaksas.
 
-![Algoritma diagramma](https://github.com/maximalian/ProLabD/blob/master/parskats/Algoritms1.png)
+1. **Ievaddatu apstrāde**  
+   - Lietotājs ievada savus datus, tostarp vecumu, dzimumu, svaru un uztura ierobežojumus (piemēram, alerģijas vai vegānu opcijas).  
+   - Dati tiek saglabāti datu bāzē turpmākai apstrādei.  
+
+2. **Uzturvielu aprēķins**  
+   - Algoritms aprēķina lietotāja ikdienas uztura vajadzības, balstoties uz ievadītajiem datiem.  
+   - Atlasīti produkti, kas atbilst uzturvērtībām un budžetam, izmantojot pieejamos cenu datus no dažādiem veikaliem (piemēram, Maxima un Rimi).  
+
+3. **Optimizācijas process**  
+   - Algoritms izvēlas produktu kombināciju, kas maksimāli atbilst uzturvērtību prasībām un minimizē kopējās izmaksas.  
+   - Optimizācijas rezultāti tiek validēti un pārbaudīti.  
+
+4. **Rezultātu attēlošana**  
+   - Sistēma parāda lietotājam optimizētu ēdienkarti ar uzturvielu sadalījumu un kopējām izmaksām.  
+   - Lietotājs var saglabāt rezultātus DOCX formātā vai rediģēt ievades parametrus turpmākai optimizācijai.  
+
+![Algoritma diagramma](https://github.com/maximalian/ProLabD/blob/master/parskats/Algoritms4.png)
+
 
 ## 3. Konceptu modelis
 
@@ -499,8 +510,8 @@ Tabula glabā informāciju par produktu kategorijām, lai grupētu produktus.
   - Datu bāze tiek aizsargāta ar lietotājvārdu un paroli.
   - Piekļuve ir iespējama tikai autorizētiem lietotājiem.
 
-## 6. Novērtējums
-### **6.1 Novērtēšanas plāns**
+# Novērtējums
+## **1. Novērtēšanas plāns**
 Novērtēšana tika veikta, balstoties uz sistēmas tīkla darbības analīzi un eksperimentu rezultātiem, kas pārbaudīja izstrādātā risinājuma spēju apmierināt uztura plānošanas prasības. Analīze tika veikta ar šādiem parametriem:
 
 1. **Tīkla darbības mērījumi**:
@@ -521,7 +532,7 @@ Novērtēšana tika veikta, balstoties uz sistēmas tīkla darbības analīzi un
      - Sistēmas pieprasījumu apstrādes ātrums: 3 sekundes.
      - Lietotāja pieredzes vērtējums: 4.5 no 5.
 
-## **6.2 Novērtēšanas rezultāti**
+## **2. Novērtēšanas rezultāti**
 
 1. **Tīkla darbība**:
    - Sistēma nodrošināja ātru resursu ielādi, ar vidējo atbildes laiku mazāku par 3 sekundēm.
@@ -537,13 +548,13 @@ Novērtēšana tika veikta, balstoties uz sistēmas tīkla darbības analīzi un
    - Aptaujas rezultāti liecināja par augstu lietotāju apmierinātību (4.5 no 5).
    - Lietotāji novērtēja saskarnes intuitivitāti un sistēmas ātrumu.
 
-## **6.3 Grafiskā analīze**
+## **3. Grafiskā analīze**
 
 ![Resursu ielādes laika analīze](https://github.com/maximalian/ProLabD/blob/master/parskats/network_response_time.png)
 
 Grafikā parādīts visu pieprasījumu ielādes laiks, kur kritiskākie posmi ir `calculate_menu` un `login` apstrādes laiki.
 
-## **6.4 Ieteikumi uzlabošanai**
+## **4. Ieteikumi uzlabošanai**
 
 1. **Servera optimizācija**:
    - Uzlabot `calculate_menu` pieprasījuma apstrādes efektivitāti.
