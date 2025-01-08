@@ -65,8 +65,6 @@ Sistēmas prasības tiek sadalītas vairākās galvenajās kategorijās: funkcio
 
 - **Lietotāja prasības:**
 
-# Prasību izpildes kontrolsaraksts
-
 | Nr. | Lietotāja stāsts                                                                                               | Izpildīts (Jā/Nē) | Komentārs                                                                                                                      |
 |---- |----------------------------------------------------------------------------------------------------------------|-------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | 1   | Lietotājs vēlas ievadīt savu vecumu, dzimumu, svaru un īpašus uztura ierobežojumus (piemēram, alerģijas vai vegānu opcijas), lai aprēķinātu ikdienas uztura vajadzības un personalizētu ēdienkartes plānu. | Jā                | Var izmantot kategorijas un ierobežojumus produktu daudzumiem, lai atbilstu uztura prasībām. (Profile, Add details)             |
