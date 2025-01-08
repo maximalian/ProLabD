@@ -65,17 +65,18 @@ Sistēmas prasības tiek sadalītas vairākās galvenajās kategorijās: funkcio
 
 - **Lietotāja prasības:**
 
-| Nr. | Lietotāju stāsts                                                              | Prioritāte     |
-|---- |------------------------------------------------------------------------------ |--------------- |
-| 1   | Lietotājs vēlas ievadīt savu vecumu, dzimumu un svaru, lai aprēķinātu ikdienas uztura vajadzības un personalizētu ēdienkartes plānu. | Must have      |
-| 2   | Lietotājs vēlas rediģēt savas uztura prasības, lai pielāgotu ēdienkartes plānu mainīgām vajadzībām. | Must have      |
-| 3   | Lietotājs vēlas sekot līdzi uzturvielu patēriņam, lai nodrošinātu sabalansētu uzturu. | Must have      |
-| 4   | Lietotājs vēlas pārbaudīt ēdienkartes kopējās izmaksas, lai kontrolētu savu budžetu. | Must have      |
-| 5   | Lietotājs vēlas saņemt vizualizācijas par uzturvielu sadalījumu, lai viegli analizētu datus. | Should have    |
-| 6   | Lietotājs vēlas iespēju pievienot jaunus produktus ar uzturvērtību datiem, lai paplašinātu savu izvēli. | Must have      |
-| 7   | Administrators vēlas pievienot un rediģēt produktu datus, lai uzturētu aktuālu datu bāzi. | Must have      |
-| 8   | Administrators vēlas pārbaudīt produkta saites derīgumu un cenas, lai garantētu datu precizitāti. | Must have      |
-| 9   | Lietotājs vēlas pievienot īpašus uztura ierobežojumus, piemēram, alerģijas vai vegānu opcijas. | Should have    |
+# Prasību izpildes kontrolsaraksts
+
+| Nr. | Lietotāja stāsts                                                                                               | Izpildīts (Jā/Nē) | Komentārs                                                                                                                      |
+|---- |----------------------------------------------------------------------------------------------------------------|-------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| 1   | Lietotājs vēlas ievadīt savu vecumu, dzimumu, svaru un īpašus uztura ierobežojumus (piemēram, alerģijas vai vegānu opcijas), lai aprēķinātu ikdienas uztura vajadzības un personalizētu ēdienkartes plānu. | Jā                | Var izmantot kategorijas un ierobežojumus produktu daudzumiem, lai atbilstu uztura prasībām. (Profile, Add details)             |
+| 2   | Lietotājs vēlas rediģēt savas uztura prasības, lai pielāgotu ēdienkartes plānu mainīgām vajadzībām.              | Jā                | Rediģēšana pieejama sadaļā. (Profile)                                                                                           |
+| 3   | Lietotājs vēlas izvēlēties cenas uz produktiem no dažādiem veikaliem, lai optimizētu savas izmaksas.             | Jā                | Pieejama cenu salīdzināšanas funkcija no Maxima un Rimi. (Result)                                                                |
+| 4   | Lietotājs vēlas pārbaudīt ēdienkartes kopējās izmaksas, lai kontrolētu savu budžetu.                             | Jā                | Izmaksu aprēķins pieejams. (Result)                                                                                              |
+| 5   | Lietotājs vēlas saņemt vizualizācijas par uzturvielu sadalījumu, lai viegli analizētu datus.                     | Jā                | Grafiskais pārskats gatavs. (Result)                                                                                             |
+| 6   | Lietotājs vēlas iespēju pievienot jaunus produktus ar uzturvērtību datiem, lai paplašinātu savu izvēli.          | Jā                | Produkta pievienošanas funkcija. (Edit products)                                                                                |
+| 7   | Lietotājs vēlas pārbaudīt produkta saites derīgumu un cenas, lai garantētu datu precizitāti.                      | Jā                | Datu atjaunināšanas sistēma darbojas. (Edit products)                                                                            |
+
 
 
 ## 2. Algoritms
