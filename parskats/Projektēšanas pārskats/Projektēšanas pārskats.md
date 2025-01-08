@@ -510,55 +510,43 @@ Tabula glabā informāciju par produktu kategorijām, lai grupētu produktus.
   - Datu bāze tiek aizsargāta ar lietotājvārdu un paroli.
   - Piekļuve ir iespējama tikai autorizētiem lietotājiem.
 
-# Novērtējums
-## **1. Novērtēšanas plāns**
-Novērtēšana tika veikta, balstoties uz sistēmas tīkla darbības analīzi un eksperimentu rezultātiem, kas pārbaudīja izstrādātā risinājuma spēju apmierināt uztura plānošanas prasības. Analīze tika veikta ar šādiem parametriem:
+## 6. Novērtējums
 
-1. **Tīkla darbības mērījumi**:
-   - Kopējais pieprasījumu ielādes laiks: 3 sekundes.
-   - Atsevišķu resursu ielādes laiks, piemēram:
-     - `login` pāradresācija (302 status): 347 ms.
-     - `calculate_menu` pieprasījuma apstrāde (200 status): 345 ms.
-     - CSS un JavaScript faili tika ielādēti ātrā laikā (vidēji 42–88 ms).
+Novērtēt uztura plāna precizitāti un optimizācijas efektivitāti, balstoties uz lietotāja prasībām un produktu datiem.
 
-2. **Eksperimentu plāns un parametri** ([28]):
-   - **Ieejas parametri**:
-     - Lietotāja vecums, dzimums, aktivitātes līmenis, svars.
-     - Produktu dati (uzturvērtības un cenas).
-     - Ierobežojumi (alerģijas, produktu nepieejamība).
-   - **Novērtēšanas mēri**:
-     - Uzturvērtību atbilstības procents: 90%.
-     - Optimizācijas ietaupījums: līdz 20 EUR.
-     - Sistēmas pieprasījumu apstrādes ātrums: 3 sekundes.
-     - Lietotāja pieredzes vērtējums: 4.5 no 5.
+## **6.1 Ieejas mainīgie**
+- **Datu apjoms (N)**: Produktu skaits datubāzē ( 100, 150, 175 produkti).
+- **Diētas tips (V)**:
+  - **A**: Dzīvnieku izcelsmes diēta (Animal-based diet) - Yes Vegan.
+  - **B**: Augu izcelsmes diēta (Plant-based diet) - No Vegan.
+  - **C**: Zema tauku satura diēta (Low-fat diet)- Gaļas produkti (5), Zivju produkti (6), Jūras veltes (7), Piena produkti (8), Eļļas un taukvielas (15), Sausās uzkodas (16),  Mērce (22).
 
-## **2. Novērtēšanas rezultāti**
+## **6.2 Novērtēšanas mēri**
+- **Precizitāte (P, %)**: Pārbaudīt, cik labi uztura plāns atbilst kaloriju un uzturvielu prasībām.
+- **Aprēķina laiks (T_A, sekundes)**: Laiks, kas nepieciešams optimizācijas algoritma izpildei.
+- **Pielāgojamības ātrums (T_R, sekundes)**: Laiks, kas vajadzīgs izmaiņu veikšanai prasībās.
 
-1. **Tīkla darbība**:
-   - Sistēma nodrošināja ātru resursu ielādi, ar vidējo atbildes laiku mazāku par 3 sekundēm.
-   - Statiskie resursi, piemēram, fonti un attēli, tika optimāli kešoti un ielādēti mazāk nekā 20 ms laikā.
+   ![Ikdienas uzturvielas un normas](https://github.com/maximalian/ProLabD/blob/master/parskats/daily_nutrients&norms.png)
 
-2. **Uzturvērtību atbilstība**:
-   - Ēdienkartes atbilstības procents uzturvērtību prasībām sasniedza 90%, pamatojoties uz testēšanas datiem.
+## **6.3 Aprēķina soļi procentuālai novērtēšanai**
 
-3. **Optimizācijas rezultāti**:
-   - Lietotāji ietaupīja līdz pat 20 EUR uz vienu optimizēto ēdienkarti, saglabājot uztura prasības.
+![Aprēķina soļi procentuālai novērtēšanai](https://github.com/maximalian/ProLabD/blob/master/parskats/aprekina_soli_procentualai_novertesanai.docx)
 
-4. **Lietotāja pieredze**:
-   - Aptaujas rezultāti liecināja par augstu lietotāju apmierinātību (4.5 no 5).
-   - Lietotāji novērtēja saskarnes intuitivitāti un sistēmas ātrumu.
+## **6.4 Aprēķini**
 
-## **3. Grafiskā analīze**
+Aprēķinus detalizētāk var apskatīt, noklišķinot uz linku.
+![Eksperimnetu aprēķini](https://github.com/maximalian/ProLabD/blob/master/parskats/eksperiments.docx)
 
-![Resursu ielādes laika analīze](https://github.com/maximalian/ProLabD/blob/master/parskats/network_response_time.png)
+## **6.5 Novērtēšanas rezultāti**
 
-Grafikā parādīts visu pieprasījumu ielādes laiks, kur kritiskākie posmi ir `calculate_menu` un `login` apstrādes laiki.
-
-## **4. Ieteikumi uzlabošanai**
-
-1. **Servera optimizācija**:
-   - Uzlabot `calculate_menu` pieprasījuma apstrādes efektivitāti.
-2. **Kešošana**:
-   - Paplašināt kešošanas politiku, lai samazinātu atkārtotu pieprasījumu laiku.
-3. **Lietotāja saskarnes uzlabojumi**:
-   - Īstenot ātrāku piekļuvi biežāk izmantotajām funkcijām.
+| Nr. | N   | V | P (%)  | T_A (s) | T_R (s) |
+|-----|-----|---|--------|---------|---------|
+| 1   | 100 | A | 86.17  | 0.134   | 0.048   |
+| 2   | 150 | A | 86.17  | 0.132   | 0.063   |
+| 3   | 200 | A | 86.17  | 0.163   | 0.069   |
+| 4   | 100 | B | 93.91  | 0.092   | 0.056   |
+| 5   | 150 | B | 93.91  | 0.135   | 0.052   |
+| 6   | 200 | B | 93.91  | 0.126   | 0.060   |
+| 7   | 100 | C | 90.70  | 0.097   | 0.064   |
+| 8   | 150 | C | 90.70  | 0.103   | 0.074   |
+| 9   | 200 | C | 90.70  | 0.200   | 0.078   |
