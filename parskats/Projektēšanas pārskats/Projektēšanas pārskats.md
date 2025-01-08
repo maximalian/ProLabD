@@ -510,8 +510,8 @@ Tabula glabā informāciju par produktu kategorijām, lai grupētu produktus.
   - Datu bāze tiek aizsargāta ar lietotājvārdu un paroli.
   - Piekļuve ir iespējama tikai autorizētiem lietotājiem.
 
-## Novērtējums
-### **1. Novērtēšanas plāns**
+# Novērtējums
+## **1. Novērtēšanas plāns**
 Novērtēšana tika veikta, balstoties uz sistēmas tīkla darbības analīzi un eksperimentu rezultātiem, kas pārbaudīja izstrādātā risinājuma spēju apmierināt uztura plānošanas prasības. Analīze tika veikta ar šādiem parametriem:
 
 1. **Tīkla darbības mērījumi**:
@@ -548,13 +548,13 @@ Novērtēšana tika veikta, balstoties uz sistēmas tīkla darbības analīzi un
    - Aptaujas rezultāti liecināja par augstu lietotāju apmierinātību (4.5 no 5).
    - Lietotāji novērtēja saskarnes intuitivitāti un sistēmas ātrumu.
 
-## **6.3 Grafiskā analīze**
+## **3. Grafiskā analīze**
 
 ![Resursu ielādes laika analīze](https://github.com/maximalian/ProLabD/blob/master/parskats/network_response_time.png)
 
 Grafikā parādīts visu pieprasījumu ielādes laiks, kur kritiskākie posmi ir `calculate_menu` un `login` apstrādes laiki.
 
-## **6.4 Ieteikumi uzlabošanai**
+## **4. Ieteikumi uzlabošanai**
 
 1. **Servera optimizācija**:
    - Uzlabot `calculate_menu` pieprasījuma apstrādes efektivitāti.
