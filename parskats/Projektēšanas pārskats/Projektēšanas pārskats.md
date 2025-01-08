@@ -96,7 +96,7 @@ Sistēma izmanto **lineārās programmēšanas algoritmu**, lai optimizētu liet
    - Sistēma parāda lietotājam optimizētu ēdienkarti ar uzturvielu sadalījumu un kopējām izmaksām.  
    - Lietotājs var saglabāt rezultātus DOCX formātā vai rediģēt ievades parametrus turpmākai optimizācijai.  
 
-![Algoritma diagramma](https://github.com/maximalian/ProLabD/blob/master/parskats/Algoritms3.png)
+![Algoritma diagramma](https://github.com/maximalian/ProLabD/blob/master/parskats/Algoritms4.png)
 
 
 ## 3. Konceptu modelis
@@ -510,8 +510,8 @@ Tabula glabā informāciju par produktu kategorijām, lai grupētu produktus.
   - Datu bāze tiek aizsargāta ar lietotājvārdu un paroli.
   - Piekļuve ir iespējama tikai autorizētiem lietotājiem.
 
-## 6. Novērtējums
-### **6.1 Novērtēšanas plāns**
+## Novērtējums
+### **1. Novērtēšanas plāns**
 Novērtēšana tika veikta, balstoties uz sistēmas tīkla darbības analīzi un eksperimentu rezultātiem, kas pārbaudīja izstrādātā risinājuma spēju apmierināt uztura plānošanas prasības. Analīze tika veikta ar šādiem parametriem:
 
 1. **Tīkla darbības mērījumi**:
@@ -532,7 +532,7 @@ Novērtēšana tika veikta, balstoties uz sistēmas tīkla darbības analīzi un
      - Sistēmas pieprasījumu apstrādes ātrums: 3 sekundes.
      - Lietotāja pieredzes vērtējums: 4.5 no 5.
 
-## **6.2 Novērtēšanas rezultāti**
+## **2. Novērtēšanas rezultāti**
 
 1. **Tīkla darbība**:
    - Sistēma nodrošināja ātru resursu ielādi, ar vidējo atbildes laiku mazāku par 3 sekundēm.
