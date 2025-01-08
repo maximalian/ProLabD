@@ -96,7 +96,7 @@ Sistēma izmanto **lineārās programmēšanas algoritmu**, lai optimizētu liet
    - Sistēma parāda lietotājam optimizētu ēdienkarti ar uzturvielu sadalījumu un kopējām izmaksām.  
    - Lietotājs var saglabāt rezultātus DOCX formātā vai rediģēt ievades parametrus turpmākai optimizācijai.  
 
-![Algoritma diagramma](https://github.com/maximalian/ProLabD/blob/master/parskats/Algoritms4.png)
+![Algoritma diagramma](https://github.com/maximalian/ProLabD/blob/main/parskats/Algoritms4.png)
 
 
 ## 3. Konceptu modelis
@@ -127,7 +127,7 @@ Tehnoloģiju steks, kas tiks izmantots risinājuma implementācijai, sastāv no 
 - **Operētājsistēma**: Ubuntu – servera operētājsistēma, kas nodrošina stabilu vidi lietotnes darbībai.
 - **Virtualizācija**: Amazon AWS (EC2) – virtualizācijas risinājums, kas nodrošina elastību un drošību serveru vadībā.
 
-![Tehnoloģiju steks](https://github.com/maximalian/ProLabD/blob/master/parskats/Tehnolo%C4%A3iju%20steks.png)
+![Tehnoloģiju steks](https://github.com/maximalian/ProLabD/blob/main/parskats/Tehnolo%C4%A3iju%20steks.png)
   
 ## 5. Programmatūras apraksts
 
@@ -145,19 +145,19 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 - Tiek veikta lietotāja autentifikācija, izmantojot bcrypt hash algoritmu.
 - Ja pieteikšanās ir veiksmīga, lietotājs tiek pāradresēts uz personalizēto profilu.
 
-![Pieteikšanās Lapa](https://github.com/maximalian/ProLabD/blob/master/parskats/login.png)
+![Pieteikšanās Lapa](https://github.com/maximalian/ProLabD/blob/main/parskats/login.png)
 
 ### Kods:
-- [app.py](https://github.com/maximalian/ProLabD/blob/master/app.py) - Galvenā aplikācijas konfigurācija un maršrutēšana.
+- [app.py](https://github.com/maximalian/ProLabD/blob/main/app.py) - Galvenā aplikācijas konfigurācija un maršrutēšana.
   - **home()** - Atgriež galveno lapu.
-- [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Pieteikšanās un reģistrācijas loģika.
+- [auth_routes.py](https://github.com/maximalian/ProLabD/blob/main/auth_routes.py) - Pieteikšanās un reģistrācijas loģika.
   - **login()** - Apstrādā pieteikšanās pieprasījumus (GET un POST).
   - **register()** - Reģistrē jaunu lietotāju.
   - **logout()** - Izraksta lietotāju no sistēmas.
-- [index.html](https://github.com/maximalian/ProLabD/blob/master/templates/index.html) - HTML veidne pieteikšanās lapai.
+- [index.html](https://github.com/maximalian/ProLabD/blob/main/templates/index.html) - HTML veidne pieteikšanās lapai.
   - Satur ievades laukus e-pastam un parolei.
   - Pogas pieteikšanās un reģistrācijai.
-- [styles.css](https://github.com/maximalian/ProLabD/blob/master/static/css/styles.css) - CSS stila faili lietotāja saskarnei.
+- [styles.css](https://github.com/maximalian/ProLabD/blob/main/static/css/styles.css) - CSS stila faili lietotāja saskarnei.
   - Nodrošina dizainu ar responsīvu izkārtojumu un pogu animācijām.
 
 ---
@@ -169,19 +169,19 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 - Validē e-pasta un paroles atbilstību.
 - Ja reģistrācija veiksmīga, lietotājs tiek novirzīts uz profila iestatīšanas lapu.
 
-![Reģistrācijas Lapa](https://github.com/maximalian/ProLabD/blob/master/parskats/register.png)
+![Reģistrācijas Lapa](https://github.com/maximalian/ProLabD/blob/main/parskats/register.png)
 
 ### Kods:
-- [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Reģistrācijas loģika.
+- [auth_routes.py](https://github.com/maximalian/ProLabD/blob/main/auth_routes.py) - Reģistrācijas loģika.
   - **register()** - Apstrādā reģistrācijas pieprasījumus (GET un POST).
   - **check_email()** - Pārbauda, vai e-pasta adrese jau pastāv datubāzē, un atgriež rezultātu JSON formātā.  
-- [register.html](https://github.com/maximalian/ProLabD/blob/master/templates/register.html) - HTML veidne reģistrācijas lapai.
+- [register.html](https://github.com/maximalian/ProLabD/blob/main/templates/register.html) - HTML veidne reģistrācijas lapai.
   - Ievades lauki e-pastam, parolei un apstiprinājuma parolei.
   - Validācija un paroles redzamības pārslēgšana.
-- [register.js](https://github.com/maximalian/ProLabD/blob/master/static/js/register.js) - JavaScript funkcijas reģistrācijas formas validācijai un paroles redzamības pārslēgšanai.  
+- [register.js](https://github.com/maximalian/ProLabD/blob/main/static/js/register.js) - JavaScript funkcijas reģistrācijas formas validācijai un paroles redzamības pārslēgšanai.  
   - **togglePasswordVisibility(passwordFieldId, toggleButtonId)** - Pārslēdz paroles redzamību ievades laukā, mainot tās tipu starp 'password' un 'text'.  
   - **validateForm(event)** - Validē reģistrācijas formu, pārbaudot e-pasta adreses pieejamību un paroles atbilstību apstiprinājuma laukam, pirms iesniedz datus serverim.
-- [styles.css](https://github.com/maximalian/ProLabD/blob/master/static/css/styles.css) - CSS stila faili.
+- [styles.css](https://github.com/maximalian/ProLabD/blob/main/static/css/styles.css) - CSS stila faili.
   - Dizains ar responsīvu izkārtojumu un animācijām.
 
 ---
@@ -204,16 +204,16 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 
 - Lietotāja datu ievade un filtri
 
-  ![Lietotāja dati](https://github.com/maximalian/ProLabD/blob/master/parskats/details.png)
+  ![Lietotāja dati](https://github.com/maximalian/ProLabD/blob/main/parskats/details.png)
 - Produktu filtrēšana piemērs
 
-  ![Produktu filtrs](https://github.com/maximalian/ProLabD/blob/master/parskats/details_filter.png)
+  ![Produktu filtrs](https://github.com/maximalian/ProLabD/blob/main/parskats/details_filter.png)
 
 ### Kods:
-- [auth_routes.py](https://github.com/maximalian/ProLabD/blob/master/auth_routes.py) - Datu apstrādes loģika.
+- [auth_routes.py](https://github.com/maximalian/ProLabD/blob/main/auth_routes.py) - Datu apstrādes loģika.
   - **add_details()** - Lietotāja datu pievienošana un atjaunināšana.
-- [add_details.html](https://github.com/maximalian/ProLabD/blob/master/templates/add_details.html) - HTML veidne lietotāja datu ievadei.
-- [product_table.js](https://github.com/maximalian/ProLabD/blob/master/static/js/product_table.js) - JavaScript funkcijas produktu filtrēšanai un ierobežojumu iestatīšanai.
+- [add_details.html](https://github.com/maximalian/ProLabD/blob/main/templates/add_details.html) - HTML veidne lietotāja datu ievadei.
+- [product_table.js](https://github.com/maximalian/ProLabD/blob/main/static/js/product_table.js) - JavaScript funkcijas produktu filtrēšanai un ierobežojumu iestatīšanai.
   - **prepareLimits()** - Sagatavo un validē minimālos un maksimālos produktu ierobežojumus, saglabājot tos JSON formātā.  
   - **renderRows(products)** - Ģenerē un attēlo produktu rindas tabulā ar iespēju iestatīt ierobežojumus un izslēgt produktus.  
   - **applyFilters(allProducts)** - Filtrē produktus pēc kategorijas, vegānisma statusa un nosaukuma, atjaunojot tabulu ar rezultātiem.  
@@ -221,7 +221,7 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
   - **clearLimitsForFiltered()** - Noņem minimālos un maksimālos ierobežojumus visiem filtrētajiem produktiem, neietekmējot izslēgtos produktus.  
   - **excludeFilteredProducts()** - Izslēdz filtrētos produktus no apstrādes un atjauno tabulu ar izmaiņām.  
   - **clearExcludedFilteredProducts()** - Noņem filtrēto produktu izslēgšanas statusu un atjauno tabulu ar atgrieztajiem produktiem.  
-- [profile.css](https://github.com/maximalian/ProLabD/blob/master/static/css/profile.css) - CSS stila faili lietotāja saskarnei.
+- [profile.css](https://github.com/maximalian/ProLabD/blob/main/static/css/profile.css) - CSS stila faili lietotāja saskarnei.
 
 ---
 
@@ -245,50 +245,50 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 - **"Profile"** - Ķauj rediģēt lietotāja informāciju (vārds, vecums, dzimums) un ierobežojumus uzturvielām.
 - **"Edit Products"** - Dod iespēju rediģēt esošo produktu sarakstu datubāzē.
 - **"Calculate"** - Aprēķina uztura plānu un cenas, balstoties uz lietotāja izvēlētajiem veikaliem.
-- **"Download as DOCX"** - Lejupielādē rezultātus DOCX faila formātā, ķaujot tos saglabāt vai izdrukāt. DOCX faila piemērs: [Arturs_Pavlovs_results.docx](https://github.com/maximalian/ProLabD/blob/master/parskats/Arturs_Pavlovs_results.docx).
+- **"Download as DOCX"** - Lejupielādē rezultātus DOCX faila formātā, ķaujot tos saglabāt vai izdrukāt. DOCX faila piemērs: [Arturs_Pavlovs_results.docx](https://github.com/maximalian/ProLabD/blob/main/parskats/Arturs_Pavlovs_results.docx).
 
 ### Aprēķinu rezultātu vizualizācijas:
 - Kopējās aprēķinu rezultātu lapa
 
-  ![Rezultātu lapa](https://github.com/maximalian/ProLabD/blob/master/parskats/result.png)
+  ![Rezultātu lapa](https://github.com/maximalian/ProLabD/blob/main/parskats/result.png)
 - Lietotāja dati
 
-  ![Lietotāja dati](https://github.com/maximalian/ProLabD/blob/master/parskats/user_details.png)
+  ![Lietotāja dati](https://github.com/maximalian/ProLabD/blob/main/parskats/user_details.png)
 - Aprēķinu tabula
 
-  ![Aprēķinu tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/calc_result.png)
+  ![Aprēķinu tabula](https://github.com/maximalian/ProLabD/blob/main/parskats/calc_result.png)
 - Dienas uzturvielu normas
 
-  ![Uzturvielu normas](https://github.com/maximalian/ProLabD/blob/master/parskats/daily_NN.png)
+  ![Uzturvielu normas](https://github.com/maximalian/ProLabD/blob/main/parskats/daily_NN.png)
 - Dienas uzturvielu salīdzinājums
 
-  ![Salīdzinājums](https://github.com/maximalian/ProLabD/blob/master/parskats/daily_NC.png)
+  ![Salīdzinājums](https://github.com/maximalian/ProLabD/blob/main/parskats/daily_NC.png)
 - Izvēlētie produkti
 
-  ![Izvēlētie produkti](https://github.com/maximalian/ProLabD/blob/master/parskats/selected_products.png)
+  ![Izvēlētie produkti](https://github.com/maximalian/ProLabD/blob/main/parskats/selected_products.png)
 - Veikalu izvēle un aprēķini
 
-  ![Veikalu izvēle](https://github.com/maximalian/ProLabD/blob/master/parskats/calculate.png)
+  ![Veikalu izvēle](https://github.com/maximalian/ProLabD/blob/main/parskats/calculate.png)
 - Navigācijas pogas
 
-  ![Navigācijas pogas](https://github.com/maximalian/ProLabD/blob/master/parskats/result_buttons.png)
+  ![Navigācijas pogas](https://github.com/maximalian/ProLabD/blob/main/parskats/result_buttons.png)
 
 ### Kods:
-- [DIETcalc.py](https://github.com/maximalian/ProLabD/blob/master/DIETcalc.py) - Galvenais algoritms uztura plāna aprēķināšanai.
+- [DIETcalc.py](https://github.com/maximalian/ProLabD/blob/main/DIETcalc.py) - Galvenais algoritms uztura plāna aprēķināšanai.
   - **calculate_diet()** - Veido optimizācijas modeli, lai minimizētu izmaksas un nodrošinātu uzturvielu prasības.
   - Algoritms izmanto Pulp bibliotēku, lai atrisinātu lineārās programmēšanas problēmu.
-- [user_routes.py](https://github.com/maximalian/ProLabD/blob/master/user_routes.py) - Funkcijas aprēķinu veikšanai un lietotāja datu apstrādei.
+- [user_routes.py](https://github.com/maximalian/ProLabD/blob/main/user_routes.py) - Funkcijas aprēķinu veikšanai un lietotāja datu apstrādei.
   - **calculate_menu()** - Aprēķina uztura plānu.
   - **update_selected_products()** - Atjauno lietotāja izvēlētos produktus.
-- [result.html](https://github.com/maximalian/ProLabD/blob/master/templates/result.html) - HTML veidne aprēķinu rezultātu parādīšanai.
-- [result.js](https://github.com/maximalian/ProLabD/blob/master/static/js/result.js) - JavaScript koda funkcijas vizualizācijai un validācijai.
+- [result.html](https://github.com/maximalian/ProLabD/blob/main/templates/result.html) - HTML veidne aprēķinu rezultātu parādīšanai.
+- [result.js](https://github.com/maximalian/ProLabD/blob/main/static/js/result.js) - JavaScript koda funkcijas vizualizācijai un validācijai.
   - **validateStoreSelection()** - Pārbauda, vai lietotājs ir izvēlējies vismaz vienu veikalu (Maxima vai Rimi) un parāda brīdinājumu, ja veikals nav izvēlēts.
   - **generateChart()** - Ģenerē uzturvielu salīdzinājuma diagrammu, vizualizējot iegūtās un dienas normas vērtības.
   - **downloadDoc()** - Ģenerē un lejupielādē DOCX dokumentu ar aprēķinu rezultātiem, iekļaujot tabulas un diagrammas no lapas satura.
   - **prepareChartImage()** - Konvertē diagrammu attēla formātā, lai to pievienotu DOCX dokumentam.
   - **exportTableToHtml()** - Izveido HTML struktūru no tabulas datiem, ko var eksportēt DOCX formātā.
   - **addChartToExport()** - Pievieno diagrammas attēlu pie eksporta datiem DOCX dokumentam.
-- [result.css](https://github.com/maximalian/ProLabD/blob/master/static/css/result.css) - CSS stili rezultātu noformējumam un izkārtojumam.
+- [result.css](https://github.com/maximalian/ProLabD/blob/main/static/css/result.css) - CSS stili rezultātu noformējumam un izkārtojumam.
 
 ---
 
@@ -307,30 +307,30 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 
 - Kopējais profils:
 
-  ![Profils](https://github.com/maximalian/ProLabD/blob/master/parskats/user_profile.png)
+  ![Profils](https://github.com/maximalian/ProLabD/blob/main/parskats/user_profile.png)
 - Lietotāja informācija:
 
-  ![Informācija](https://github.com/maximalian/ProLabD/blob/master/parskats/user_info.png)
+  ![Informācija](https://github.com/maximalian/ProLabD/blob/main/parskats/user_info.png)
 - Filtra piemēri:
 
-  ![Filtri](https://github.com/maximalian/ProLabD/blob/master/parskats/profile_product_filter.png)
+  ![Filtri](https://github.com/maximalian/ProLabD/blob/main/parskats/profile_product_filter.png)
   
-  ![Filtru ierobežojumi](https://github.com/maximalian/ProLabD/blob/master/parskats/profile_filter.png)
+  ![Filtru ierobežojumi](https://github.com/maximalian/ProLabD/blob/main/parskats/profile_filter.png)
 
 - Navigācijas pogas:
 
-  ![Navigācija](https://github.com/maximalian/ProLabD/blob/master/parskats/profile_button.png)
+  ![Navigācija](https://github.com/maximalian/ProLabD/blob/main/parskats/profile_button.png)
 - Jauni aprēķini pēc izmaiņām:
 
-  ![Rezultāti](https://github.com/maximalian/ProLabD/blob/master/parskats/new_calculation_result.png)
-  ![Izvēlētie produkti](https://github.com/maximalian/ProLabD/blob/master/parskats/new_celected_products.png)
+  ![Rezultāti](https://github.com/maximalian/ProLabD/blob/main/parskats/new_calculation_result.png)
+  ![Izvēlētie produkti](https://github.com/maximalian/ProLabD/blob/main/parskats/new_celected_products.png)
 
 ### Kods:
-- [user_routes.py](https://github.com/maximalian/ProLabD/blob/master/user_routes.py) - Funkcijas profila un uztura ierobežojumu atjaunināšanai.
+- [user_routes.py](https://github.com/maximalian/ProLabD/blob/main/user_routes.py) - Funkcijas profila un uztura ierobežojumu atjaunināšanai.
   - **profile()** - Rediģē lietotāja profilu.
   - **update_selected_products()** - Atjauno lietotāja izvēlētos produktus.
-- [profile.html](https://github.com/maximalian/ProLabD/blob/master/templates/profile.html) - HTML veidne profila rediģēšanai.
-- [product_table.js](https://github.com/maximalian/ProLabD/blob/master/static/js/product_table.js) - Produkta filtru pārvaldība.
+- [profile.html](https://github.com/maximalian/ProLabD/blob/main/templates/profile.html) - HTML veidne profila rediģēšanai.
+- [product_table.js](https://github.com/maximalian/ProLabD/blob/main/static/js/product_table.js) - Produkta filtru pārvaldība.
   - **prepareLimits()** - Sagatavo un validē minimālos un maksimālos produktu ierobežojumus, saglabājot tos JSON formātā.  
   - **renderRows(products)** - Ģenerē un attēlo produktu rindas tabulā ar iespēju iestatīt ierobežojumus un izslēgt produktus.  
   - **applyFilters(allProducts)** - Filtrē produktus pēc kategorijas, vegānisma statusa un nosaukuma, atjaunojot tabulu ar rezultātiem.  
@@ -338,7 +338,7 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
   - **clearLimitsForFiltered()** - Noņem minimālos un maksimālos ierobežojumus visiem filtrētajiem produktiem, neietekmējot izslēgtos produktus.  
   - **excludeFilteredProducts()** - Izslēdz filtrētos produktus no apstrādes un atjauno tabulu ar izmaiņām.  
   - **clearExcludedFilteredProducts()** - Noņem filtrēto produktu izslēgšanas statusu un atjauno tabulu ar atgrieztajiem produktiem.  
-- [profile.css](https://github.com/maximalian/ProLabD/blob/master/static/css/profile.css) - Stila faili profila lapai.
+- [profile.css](https://github.com/maximalian/ProLabD/blob/main/static/css/profile.css) - Stila faili profila lapai.
 
 ---
 
@@ -361,28 +361,28 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
 ### Produktu pārvaldības sadaļas:
   - Galvenā pārvaldības lapa, kas apvieno visas funkcionalitātes: filtrus, kategoriju pārvaldību, datu augšupielādi un produktu sarakstu.
 
-  ![Produktu pārvaldības lapa](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_products.png)
+  ![Produktu pārvaldības lapa](https://github.com/maximalian/ProLabD/blob/main/parskats/manage_products.png)
 
 - **Produktu tabula**:
   - Produkta īpašību (kalorijas, olbaltumvielas, tauki, ogļhidrāti, cenas, saites) rediģēšana un saglabāšana.
   - Rediģēšanas piemērs ar izceltiem nederīgiem URL sarkanā krāsā.
 
-  ![Produktu tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_table.png)
+  ![Produktu tabula](https://github.com/maximalian/ProLabD/blob/main/parskats/manage_table.png)
 
 - **Produktu filtrs**:
   - Lietotājs var meklēt produktus un filtrēt tos pēc noteiktiem kritērijiem (kategorija, vegānisms, bojāti URL).
 
-  ![Produktu filtrs](https://github.com/maximalian/ProLabD/blob/master/parskats/filter_manage_product.png)
+  ![Produktu filtrs](https://github.com/maximalian/ProLabD/blob/main/parskats/filter_manage_product.png)
 
 - **Kategoriju pārvaldība**:
   - Jaunas kategorijas pievienošana vai esošās kategorijas dzēšana.
 
-  ![Kategorijas pārvaldība](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_category.png)
+  ![Kategorijas pārvaldība](https://github.com/maximalian/ProLabD/blob/main/parskats/manage_category.png)
 
 - **Failu pārvaldība**:
   - Masveida produktu pievienošana, izmantojot .xlsx failus.
 
-  ![Failu pārvaldība](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_file.png)
+  ![Failu pārvaldība](https://github.com/maximalian/ProLabD/blob/main/parskats/manage_file.png)
 
 - **Produktu rindas**:
   - Jaunu produktu pievienošana pa vienam vai vairākiem uzreiz.
@@ -391,16 +391,16 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
   - Pievienot produktus ar pogu **Add Product** vai dzēst tos ar pogu **Delete Table**.
   - Papildu iespēja pievienot vairākas rindas vienlaicīgi, izmantojot pogu **Add Table** vai pievienot visus produktus uzreiz ar pogu **Add All**.
 
-  ![Produktu rinda](https://github.com/maximalian/ProLabD/blob/master/parskats/product_rows.png)
-  ![Produktu rindas](https://github.com/maximalian/ProLabD/blob/master/parskats/product_rows_addTable.png)
+  ![Produktu rinda](https://github.com/maximalian/ProLabD/blob/main/parskats/product_rows.png)
+  ![Produktu rindas](https://github.com/maximalian/ProLabD/blob/main/parskats/product_rows_addTable.png)
 
 - **Navigācijas pogas**:
   - Pāreja uz citām sadaļām (Profils vai Rezultāti).
 
-  ![Navigācijas pogas](https://github.com/maximalian/ProLabD/blob/master/parskats/manage_products_button.png)
+  ![Navigācijas pogas](https://github.com/maximalian/ProLabD/blob/main/parskats/manage_products_button.png)
 
 ### Kods:
-- [product_routes.py](https://github.com/maximalian/ProLabD/blob/master/product_routes.py) - Funkcijas produktu saraksta pārvaldībai:
+- [product_routes.py](https://github.com/maximalian/ProLabD/blob/main/product_routes.py) - Funkcijas produktu saraksta pārvaldībai:
   - **download_template()** - Lejupielādē produktu veidnes Excel failu ar aktuālajām kategorijām.
   - **download_example()** - Lejupielādē piemēra Excel failu produktu sarakstam.
   - **upload_products()** - Augšupielādē produktus no Excel faila, validē datus un pievieno tos datubāzei.
@@ -413,8 +413,8 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
   - **add_category()** - Pievieno jaunu kategoriju ar unikālu nosaukumu un identifikatoru.
   - **delete_category()** - Dzēš norādīto kategoriju no datubāzes pēc tās ID.
 
-- [manage_products.html](https://github.com/maximalian/ProLabD/blob/master/templates/manage_products.html) - HTML veidne produktu saraksta pārvaldībai.
-- [manage_products.js](https://github.com/maximalian/ProLabD/blob/master/static/js/manage_products.js) - JavaScript funkcijas tabulas un produktu datu validācijai.
+- [manage_products.html](https://github.com/maximalian/ProLabD/blob/main/templates/manage_products.html) - HTML veidne produktu saraksta pārvaldībai.
+- [manage_products.js](https://github.com/maximalian/ProLabD/blob/main/static/js/manage_products.js) - JavaScript funkcijas tabulas un produktu datu validācijai.
   - **deleteProduct(productId)** - Dzēš produktu pēc ID, nosūtot POST pieprasījumu serverim un apstrādājot atbildi.  
   - **saveRow(productId)** - Saglabā izmaiņas produktam, validē ievadītos datus un nosūta tos serverim.  
   - **renderRows(products)** - Ģenerē tabulas rindas katram produktam un ievieto tās HTML tabulā.  
@@ -429,7 +429,7 @@ Programma ir izstrādāta, lai būtu lietotājam draudzīga, ar intuitīvu saska
   - **downloadTemplate()** - Lejupielādē Excel veidnes failu ar produktu struktūru.  
   - **downloadExample()** - Lejupielādē Excel faila piemēru ar produktu sarakstu.  
   - **uploadFile()** - Apstrādā lietotāja augšupielādēto Excel failu un nosūta datus serverim apstrādei.  
-- [manage_products.css](https://github.com/maximalian/ProLabD/blob/master/static/css/manage_products.css) - Stila faili tabulas un produktu pārvaldības lapai.
+- [manage_products.css](https://github.com/maximalian/ProLabD/blob/main/static/css/manage_products.css) - Stila faili tabulas un produktu pārvaldības lapai.
 
 ---
 
@@ -441,7 +441,7 @@ Programma izmanto relāciju datubāzi PostgreSQL, lai glabātu lietotāju, produ
 
 Tabula saglabā informāciju par lietotājiem, tostarp personīgos datus, uztura ierobežojumus un izvēles.
 
-![Lietotāju tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/lietotajs.png)
+![Lietotāju tabula](https://github.com/maximalian/ProLabD/blob/main/parskats/lietotajs.png)
 
 **Atribūtu apraksts:**
 - **id** - Unikāls identifikators katram lietotājam (primārā atslēga).
@@ -464,7 +464,7 @@ Tabula saglabā informāciju par lietotājiem, tostarp personīgos datus, uztura
 
 Tabula glabā produktu datus, tostarp uzturvērtības, cenas un saites uz veikaliem.
 
-![Produktu tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/produkts.png)
+![Produktu tabula](https://github.com/maximalian/ProLabD/blob/main/parskats/produkts.png)
 
 **Atribūtu apraksts:**
 - **id** - Unikāls identifikators katram produktam (primārā atslēga).
@@ -486,7 +486,7 @@ Tabula glabā produktu datus, tostarp uzturvērtības, cenas un saites uz veikal
 
 Tabula glabā informāciju par produktu kategorijām, lai grupētu produktus.
 
-![Kategoriju tabula](https://github.com/maximalian/ProLabD/blob/master/parskats/kategorijas.png)
+![Kategoriju tabula](https://github.com/maximalian/ProLabD/blob/main/parskats/kategorijas.png)
 
 **Atribūtu apraksts:**
 - **kategorija_key** - Unikāls identifikators katrai kategorijai (primārā atslēga).
@@ -550,7 +550,7 @@ Novērtēšana tika veikta, balstoties uz sistēmas tīkla darbības analīzi un
 
 ## **3. Grafiskā analīze**
 
-![Resursu ielādes laika analīze](https://github.com/maximalian/ProLabD/blob/master/parskats/network_response_time.png)
+![Resursu ielādes laika analīze](https://github.com/maximalian/ProLabD/blob/main/parskats/network_response_time.png)
 
 Grafikā parādīts visu pieprasījumu ielādes laiks, kur kritiskākie posmi ir `calculate_menu` un `login` apstrādes laiki.
 
