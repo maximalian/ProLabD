@@ -96,7 +96,7 @@ Sistēma izmanto **lineārās programmēšanas algoritmu**, lai optimizētu liet
    - Sistēma parāda lietotājam optimizētu ēdienkarti ar uzturvielu sadalījumu un kopējām izmaksām.  
    - Lietotājs var saglabāt rezultātus DOCX formātā vai rediģēt ievades parametrus turpmākai optimizācijai.  
 
-![Algoritma diagramma](https://github.com/maximalian/ProLabD/blob/master/parskats/Algoritms2.png)
+![Algoritma diagramma](https://github.com/maximalian/ProLabD/blob/master/parskats/Algoritms3.png)
 
 
 ## 3. Konceptu modelis
