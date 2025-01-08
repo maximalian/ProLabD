@@ -75,17 +75,28 @@ Sistēmas prasības tiek sadalītas vairākās galvenajās kategorijās: funkcio
 | 6   | Lietotājs vēlas iespēju pievienot jaunus produktus ar uzturvērtību datiem, lai paplašinātu savu izvēli.          | Jā                | Produkta pievienošanas funkcija. (Edit products)                                                                                |
 | 7   | Lietotājs vēlas pārbaudīt produkta saites derīgumu un cenas, lai garantētu datu precizitāti.                      | Jā                | Datu atjaunināšanas sistēma darbojas. (Edit products)                                                                            |
 
-
-
 ## 2. Algoritms
 
 Sistēma izmanto **lineārās programmēšanas algoritmu**, lai optimizētu lietotāja ēdienkarti. Algoritms darbojas šādi:
-1. **Ievaddatu apstrāde**: Lietotājs ievada prasības un ierobežojumus, kas tiek saglabāti datu bāzē.
-2. **Uzturvielu aprēķins**: Algoritms aprēķina nepieciešamās uzturvielas un produktus, kas atbilst lietotāja vajadzībām, ņemot vērā uzturvērtību un izmaksas.
-3. **Optimizācijas process**: Algoritms nosaka produktu kombināciju, kas nodrošina maksimālu uzturvielu vērtību, minimizējot kopējās izmaksas.
-4. **Rezultātu attēlošana**: Pēc optimizācijas lietotājam tiek parādīta ēdienkarte, kurā atspoguļoti uzturvērtību dati un kopējās izmaksas.
+
+1. **Ievaddatu apstrāde**  
+   - Lietotājs ievada savus datus, tostarp vecumu, dzimumu, svaru un uztura ierobežojumus (piemēram, alerģijas vai vegānu opcijas).  
+   - Dati tiek saglabāti datu bāzē turpmākai apstrādei.  
+
+2. **Uzturvielu aprēķins**  
+   - Algoritms aprēķina lietotāja ikdienas uztura vajadzības, balstoties uz ievadītajiem datiem.  
+   - Atlasīti produkti, kas atbilst uzturvērtībām un budžetam, izmantojot pieejamos cenu datus no dažādiem veikaliem (piemēram, Maxima un Rimi).  
+
+3. **Optimizācijas process**  
+   - Algoritms izvēlas produktu kombināciju, kas maksimāli atbilst uzturvērtību prasībām un minimizē kopējās izmaksas.  
+   - Optimizācijas rezultāti tiek validēti un pārbaudīti.  
+
+4. **Rezultātu attēlošana**  
+   - Sistēma parāda lietotājam optimizētu ēdienkarti ar uzturvielu sadalījumu un kopējām izmaksām.  
+   - Lietotājs var saglabāt rezultātus DOCX formātā vai rediģēt ievades parametrus turpmākai optimizācijai.  
 
 ![Algoritma diagramma](https://github.com/maximalian/ProLabD/blob/master/parskats/Algoritms2.png)
+
 
 ## 3. Konceptu modelis
 
