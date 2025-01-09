@@ -579,7 +579,7 @@ Balstoties uz novērtēšanas rezultātiem, var izdarīt šādus secinājumus:
 - Visēdāja diēta (**C**) piedāvā vislielāko elastību un precizitāti, savukārt augu izcelsmes diēta (**B**) nodrošina visātrāko aprēķinu.
 - Sistēma spēj efektīvi apstrādāt lietotāja prasības, nodrošinot reāllaika optimizāciju un ātru pielāgošanos.
 
-#Secinājumi
+# Secinājumi
 
 1. Problēmas aktualitāte:
    - Sabalansētas un ekonomiskas ēdienkartes plānošana mūsdienās ir aktuāla problēma.
