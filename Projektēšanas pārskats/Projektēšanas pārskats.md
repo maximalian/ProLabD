@@ -542,7 +542,7 @@ Novērtēt uztura plāna precizitāti un optimizācijas efektivitāti, balstotie
 ## **1. Aprēķini**
 
 Aprēķinus detalizētāk var apskatīt, noklišķinot uz linku.
-[Eksperimnetu aprēķini](https://github.com/maximalian/ProLabD/blob/master/Projekt%C4%93%C5%A1anas%20p%C4%81rskats/eksperements.docx)
+[Eksperimnetu aprēķini](https://github.com/maximalian/ProLabD/blob/master/Projekt%C4%93%C5%A1anas%20p%C4%81rskats/eksperiments.docx)
 
 ## **2. Novērtēšanas rezultāti**
 
