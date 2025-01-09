@@ -526,8 +526,6 @@ Novērtēt uztura plāna precizitāti un optimizācijas efektivitāti, balstotie
 - **Aprēķina laiks (T_A, sekundes)**: Laiks, kas nepieciešams optimizācijas algoritma izpildei.
 - **Pielāgojamības ātrums (T_R, sekundes)**: Laiks, kas vajadzīgs izmaiņu veikšanai prasībās.
 
-   ![Ikdienas uzturvielas un normas](https://github.com/maximalian/ProLabD/blob/master/parskats/daily_nutrients&norms.png)
-
 ## **3. Aprēķina soļi procentuālai novērtēšanai**
 
 1. **Kalorijas (%):**
@@ -568,6 +566,6 @@ Aprēķinus detalizētāk var apskatīt, noklišķinot uz linku.
 | 6   | 175 | B | 93.91  | 0.132   | 0.060   |
 | 7   | 100 | C | 93.33  | 0.113   | 0.055   |
 | 8   | 150 | C | 91.60  | 0.108   | 0.059   |
-| 9   | 175 | C | 91.91  | 0.111   | 0.064   |
+| 9   | 175 | C | 93.91  | 0.111   | 0.064   |
 
 Šāda pieeja ļauj izvērtēt, kā dažādi uztura tipi un datu apjomi ietekmē optimizācijas precizitāti un ātrumu, palīdzot lietotājam pieņemt informētus lēmumus par uztura plāniem.
