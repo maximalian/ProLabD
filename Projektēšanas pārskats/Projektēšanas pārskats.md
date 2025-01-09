@@ -110,7 +110,7 @@ Konceptu modelis ietver šādus pamata elementus:
 - **Cena**: Informācija par optimizēto ēdiena izmaksu dažādos veikalos.
 - **Uzturvērtība**: Produkta uzturvielu dati, kas tiek izmantoti optimizācijas algoritmā.
 
-![Konceptu modelis](https://github.com/maximalian/ProLabD/blob/master/parskats/Projekt%C4%93%C5%A1anas%20p%C4%81rskats/Konceptu%20modelis.jpg)
+![Konceptu modelis](https://github.com/maximalian/ProLabD/blob/master/Projekt%C4%93%C5%A1anas%20p%C4%81rskats/Konceptu%20modelis.jpg)
 
 ## 4. Tehnoloģiju steks
 
