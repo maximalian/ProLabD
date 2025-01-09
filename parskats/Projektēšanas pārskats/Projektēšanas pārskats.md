@@ -511,54 +511,63 @@ Tabula glabā informāciju par produktu kategorijām, lai grupētu produktus.
   - Piekļuve ir iespējama tikai autorizētiem lietotājiem.
 
 # Novērtējums
-## **1. Novērtēšanas plāns**
-Novērtēšana tika veikta, balstoties uz sistēmas tīkla darbības analīzi un eksperimentu rezultātiem, kas pārbaudīja izstrādātā risinājuma spēju apmierināt uztura plānošanas prasības. Analīze tika veikta ar šādiem parametriem:
 
-1. **Tīkla darbības mērījumi**:
-   - Kopējais pieprasījumu ielādes laiks: 3 sekundes.
-   - Atsevišķu resursu ielādes laiks, piemēram:
-     - `login` pāradresācija (302 status): 347 ms.
-     - `calculate_menu` pieprasījuma apstrāde (200 status): 345 ms.
-     - CSS un JavaScript faili tika ielādēti ātrā laikā (vidēji 42–88 ms).
+Novērtēt uztura plāna precizitāti un optimizācijas efektivitāti, balstoties uz lietotāja prasībām un produktu datiem.
 
-2. **Eksperimentu plāns un parametri** ([28]):
-   - **Ieejas parametri**:
-     - Lietotāja vecums, dzimums, aktivitātes līmenis, svars.
-     - Produktu dati (uzturvērtības un cenas).
-     - Ierobežojumi (alerģijas, produktu nepieejamība).
-   - **Novērtēšanas mēri**:
-     - Uzturvērtību atbilstības procents: 90%.
-     - Optimizācijas ietaupījums: līdz 20 EUR.
-     - Sistēmas pieprasījumu apstrādes ātrums: 3 sekundes.
-     - Lietotāja pieredzes vērtējums: 4.5 no 5.
+## **1. Ieejas mainīgie**
+- **Datu apjoms (N)**: Produktu skaits datubāzē ( 100, 150, 175 produkti).
+- **Diētas tips (V)**:
+  - **A**: Dzīvnieku izcelsmes diēta (Animal-based diet) - Yes Vegan.
+  - **B**: Augu izcelsmes diēta (Plant-based diet) - No Vegan.
+  - **C**: Zema tauku satura diēta (Low-fat diet)- Gaļas produkti (5), Zivju produkti (6), Jūras veltes (7), Piena produkti (8), Eļļas un taukvielas (15), Sausās uzkodas (16),  Mērce (22).
 
-## **2. Novērtēšanas rezultāti**
+## **2. Novērtēšanas mēri**
+- **Precizitāte (P, %)**: Pārbaudīt, cik labi uztura plāns atbilst kaloriju un uzturvielu prasībām.
+- **Aprēķina laiks (T_A, sekundes)**: Laiks, kas nepieciešams optimizācijas algoritma izpildei.
+- **Pielāgojamības ātrums (T_R, sekundes)**: Laiks, kas vajadzīgs izmaiņu veikšanai prasībās.
 
-1. **Tīkla darbība**:
-   - Sistēma nodrošināja ātru resursu ielādi, ar vidējo atbildes laiku mazāku par 3 sekundēm.
-   - Statiskie resursi, piemēram, fonti un attēli, tika optimāli kešoti un ielādēti mazāk nekā 20 ms laikā.
+   ![Ikdienas uzturvielas un normas](https://github.com/maximalian/ProLabD/blob/master/parskats/daily_nutrients&norms.png)
 
-2. **Uzturvērtību atbilstība**:
-   - Ēdienkartes atbilstības procents uzturvērtību prasībām sasniedza 90%, pamatojoties uz testēšanas datiem.
+## **3. Aprēķina soļi procentuālai novērtēšanai**
 
-3. **Optimizācijas rezultāti**:
-   - Lietotāji ietaupīja līdz pat 20 EUR uz vienu optimizēto ēdienkarti, saglabājot uztura prasības.
+1. **Kalorijas (%):**
 
-4. **Lietotāja pieredze**:
-   - Aptaujas rezultāti liecināja par augstu lietotāju apmierinātību (4.5 no 5).
-   - Lietotāji novērtēja saskarnes intuitivitāti un sistēmas ātrumu.
+   P_kalorijas = ( 1 - (|mērķa kalorijas - faktiskās kalorijas|) / mērķa kalorijas ) * 100
 
-## **3. Grafiskā analīze**
+2. **Proteīni (%):**
 
-![Resursu ielādes laika analīze](https://github.com/maximalian/ProLabD/blob/master/parskats/network_response_time.png)
+   P_proteīni = ( 1 - (|mērķa proteīni - faktiskie proteīni|) /  mērķa proteīni) * 100
 
-Grafikā parādīts visu pieprasījumu ielādes laiks, kur kritiskākie posmi ir `calculate_menu` un `login` apstrādes laiki.
+3. **Tauki (%):**
 
-## **4. Ieteikumi uzlabošanai**
+   P_tauki = ( 1 - (|mērķa tauki - faktiskie tauki|) / mērķa tauki) * 100
 
-1. **Servera optimizācija**:
-   - Uzlabot `calculate_menu` pieprasījuma apstrādes efektivitāti.
-2. **Kešošana**:
-   - Paplašināt kešošanas politiku, lai samazinātu atkārtotu pieprasījumu laiku.
-3. **Lietotāja saskarnes uzlabojumi**:
-   - Īstenot ātrāku piekļuvi biežāk izmantotajām funkcijām.
+4. **Ogļhidrāti (%):**
+
+   P_ogļhidrāti = ( 1 - (|mērķa ogļhidrāti - faktiskie ogļhidrāti|) / mērķa ogļhidrāti) * 100
+
+5. **Kopējā precizitāte (P):**
+
+   Tiek aprēķināts vidējais rādītājs no visām uzturvielām:
+   P = (P_kalorijas + P_proteīni + P_tauki + P_ogļhidrāti) / 4
+
+## **4. Aprēķini**
+
+Aprēķinus detalizētāk var apskatīt, noklišķinot uz linku.
+![Eksperimnetu aprēķini](https://github.com/maximalian/ProLabD/blob/master/parskats/eksperiments.docx)
+
+## **5. Novērtēšanas rezultāti**
+
+| Nr. | N   | V | P (%)  | T_A (s) | T_R (s) |
+|-----|-----|---|--------|---------|---------|
+| 1   | 100 | A | 87.32  | 0.122   | 0.055   |
+| 2   | 150 | A | 87.81  | 0.129   | 0.057   |
+| 3   | 175 | A | 86.20  | 0.120   | 0.058   |
+| 4   | 100 | B | 89.55  | 0.106   | 0.057   |
+| 5   | 150 | B | 91.58  | 0.118   | 0.056   |
+| 6   | 175 | B | 93.91  | 0.132   | 0.060   |
+| 7   | 100 | C | 93.33  | 0.113   | 0.055   |
+| 8   | 150 | C | 91.60  | 0.108   | 0.059   |
+| 9   | 175 | C | 91.91  | 0.111   | 0.064   |
+
+Šāda pieeja ļauj izvērtēt, kā dažādi uztura tipi un datu apjomi ietekmē optimizācijas precizitāti un ātrumu, palīdzot lietotājam pieņemt informētus lēmumus par uztura plāniem.
