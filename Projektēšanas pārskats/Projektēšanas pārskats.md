@@ -574,7 +574,7 @@ Balstoties uz novērtēšanas rezultātiem, var izdarīt šādus secinājumus:
 - Palielinot datu apjomu (no **100 līdz 175 produktiem**), precizitāte un aprēķina laiki nedaudz mainās, bet paliek efektīvi.
 - Augstākā precizitāte tiek sasniegta pie maksimālā datu apjoma, kas norāda uz algoritma spēju labi izmantot lielu datu kopu.
 
-### **3.5 Kopa secinājums:**
+### **3.5 Kopējais secinājums:**
 - Algoritms labi pielāgojas dažādiem uztura veidiem un datu apjomiem, nodrošinot augstu precizitāti un zemu aprēķina laiku.
 - Visēdāja diēta (**C**) piedāvā vislielāko elastību un precizitāti, savukārt augu izcelsmes diēta (**B**) nodrošina visātrāko aprēķinu.
 - Sistēma spēj efektīvi apstrādāt lietotāja prasības, nodrošinot reāllaika optimizāciju un ātru pielāgošanos.
