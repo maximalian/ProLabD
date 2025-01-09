@@ -515,7 +515,7 @@ Tabula glabā informāciju par produktu kategorijām, lai grupētu produktus.
 Novērtēt uztura plāna precizitāti un optimizācijas efektivitāti, balstoties uz lietotāja prasībām un produktu datiem.
 
 ## **1. Ieejas mainīgie**
-- **Datu apjoms (N)**: Produktu skaits datubāzē ( 100, 150, 175 produkti).
+- **Datu apjoms (N)**: Produktu skaits datubāzē (100, 150, 175 produkti).
 - **Diētas tips (V)**:
   - **A**: Dzīvnieku izcelsmes diēta (Animal-based diet) - Yes Vegan.
   - **B**: Augu izcelsmes diēta (Plant-based diet) - No Vegan.
@@ -546,3 +546,34 @@ Aprēķinus detalizētāk var apskatīt, noklišķinot uz linku.
 | 9   | 175 | C | 93.91  | 0.111   | 0.064   |
 
 Šāda pieeja ļauj izvērtēt, kā dažādi uztura tipi un datu apjomi ietekmē optimizācijas precizitāti un ātrumu, palīdzot lietotājam pieņemt informētus lēmumus par uztura plāniem.
+
+---
+
+## **5. Novērtējuma secinājumi**
+
+Balstoties uz novērtēšanas rezultātiem, var izdarīt šādus secinājumus:
+
+### **5.1 Precizitāte (P, %):**
+- Visēdāja diēta (**C**) uzrāda visaugstāko precizitāti ar vērtībām no **91.60% līdz 93.91%**.
+- Augu izcelsmes diēta (**B**) arī uzrāda augstu precizitāti, kas palielinās, pieaugot produktu skaitam (no **89.55% līdz 93.91%**).
+- Dzīvnieku izcelsmes diētai (**A**) precizitāte ir mazliet zemāka (no **86.20% līdz 87.81%**), kas varētu būt saistīts ar ierobežotāku produktu klāstu.
+
+### **5.2 Aprēķina laiks (T_A, sekundes):**
+- **Augu izcelsmes diēta (B)** ir visātrākā aprēķinu ziņā, kas liecina, ka algoritms efektīvāk pārvalda ierobežotāku datu kopu.
+- **Dzīvnieku izcelsmes diēta (A)** un **visēdāja diēta (C)** uzrāda līdzīgu aprēķinu laiku, tomēr pieaug datu apjoma gadījumā mazliet lēnāk.
+- Visu diētu aprēķina laiki paliek zem **0.15 sekundēm**, kas nozīmē, ka algoritms ir ātrs un piemērots reāllaika aprēķiniem.
+
+### **5.3 Pielāgojamības ātrums (T_R, sekundes):**
+- Visēdāja diēta (**C**) uzrāda nelielu pielāgošanās laika pieaugumu, palielinoties datu apjomam (līdz **0.064 sekundēm**).
+- Dzīvnieku izcelsmes (**A**) un augu izcelsmes (**B**) diētām pielāgošanās ātrums saglabājas stabils ap **0.055–0.060 sekundēm**.
+- Kopumā **T_R** vērtības ir ļoti zemas, kas norāda uz sistēmas spēju ātri pielāgoties izmaiņām.
+
+### **5.4 Datu apjoma ietekme:**
+- Palielinot datu apjomu (no **100 līdz 175 produktiem**), precizitāte un aprēķina laiki nedaudz mainās, bet paliek efektīvi.
+- Augstākā precizitāte tiek sasniegta pie maksimālā datu apjoma, kas norāda uz algoritma spēju labi izmantot lielu datu kopu.
+
+### **5.5 Secinājums:**
+- Algoritms labi pielāgojas dažādiem uztura veidiem un datu apjomiem, nodrošinot augstu precizitāti un zemu aprēķina laiku.
+- Visēdāja diēta (**C**) piedāvā vislielāko elastību un precizitāti, savukārt augu izcelsmes diēta (**B**) nodrošina visātrāko aprēķinu.
+- Sistēma spēj efektīvi apstrādāt lietotāja prasības, nodrošinot reāllaika optimizāciju un ātru pielāgošanos.
+
