@@ -47,19 +47,19 @@ def calculate_diet(age, height, weight, gender=1, selected_products=[], user_max
             continue
 
         # Iegūst produkta cenu no Maxima un Rimi
-        cenM = to_float(row[6])  # Cena Maxima
-        cenR = to_float(row[7])  # Cena Rimi
+        cenM = to_float(row[6]) if row[6] else None  # Cena Maxima
+        cenR = to_float(row[7]) if row[7] else None  # Cena Rimi
 
         # Izvēlas cenu atkarībā no veikala
-        if store == "Maxima" and cenM > 0:
+        if store == "Maxima" and cenM is not None and cenM > 0:
             price = cenM
-        elif store == "Rimi" and cenR > 0:
+        elif store == "Rimi" and cenR is not None and cenR > 0:
             price = cenR
         elif store == "both":
             # Ja tiek izvēlēti abi veikali, izvēlas minimālo cenu
-            price = min(filter(lambda x: x > 0, [cenM, cenR]), default=None)
+            price = min(filter(lambda x: x is not None and x > 0, [cenM, cenR]), default=None)
         else:
-            continue
+            price = None
 
         # Ja cena nav atrasta, produkts tiek izlaists
         if price is None:
