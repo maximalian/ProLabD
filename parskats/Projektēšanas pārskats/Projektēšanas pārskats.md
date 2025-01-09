@@ -519,7 +519,7 @@ Novērtēt uztura plāna precizitāti un optimizācijas efektivitāti, balstotie
 - **Diētas tips (V)**:
   - **A**: Dzīvnieku izcelsmes diēta (Animal-based diet) - Yes Vegan.
   - **B**: Augu izcelsmes diēta (Plant-based diet) - No Vegan.
-  - **C**: Zema tauku satura diēta (Low-fat diet)- Gaļas produkti (5), Zivju produkti (6), Jūras veltes (7), Piena produkti (8), Eļļas un taukvielas (15), Sausās uzkodas (16),  Mērce (22).
+  - **C**: Visēdāja diēta (Omnivore diet) – Visi produkti bez ierobežojumiem.
 
 ## **2. Novērtēšanas mēri**
 - **Precizitāte (P, %)**: Pārbaudīt, cik labi uztura plāns atbilst kaloriju un uzturvielu prasībām.
