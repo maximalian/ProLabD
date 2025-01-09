@@ -579,3 +579,27 @@ Balstoties uz novērtēšanas rezultātiem, var izdarīt šādus secinājumus:
 - Visēdāja diēta (**C**) piedāvā vislielāko elastību un precizitāti, savukārt augu izcelsmes diēta (**B**) nodrošina visātrāko aprēķinu.
 - Sistēma spēj efektīvi apstrādāt lietotāja prasības, nodrošinot reāllaika optimizāciju un ātru pielāgošanos.
 
+#Secinājumi
+
+1. Problēmas aktualitāte:
+   - Sabalansētas un ekonomiskas ēdienkartes plānošana mūsdienās ir aktuāla problēma.
+   - Šo problēmu var efektīvi risināt, izmantojot tehnoloģiskas pieejas.
+
+2. Līdzīgo risinājumu analīze:
+   - Esošie risinājumi pierāda lineārās programmēšanas modeļu efektivitāti.
+   - Tiem bieži trūkst dinamiskas pielāgošanās lietotāja prasībām un datu atjaunināšanas.
+
+3. Izstrādātais tehniskais risinājums:
+   - Sistēma piedāvā intuitīvu lietotāja pieredzi un personalizētu uztura plānošanu.
+   - Lineārās programmēšanas algoritms optimizē uzturvielu līdzsvaru un izmaksas.
+   - Izmantotās tehnoloģijas (Python Flask, PostgreSQL, Amazon AWS) nodrošina stabilitāti un elastību.
+
+4. Novērtēšanas rezultāti:
+   - Sistēma uzrāda augstu precizitāti un zemu aprēķinu laiku dažādos scenārijos.
+   - Algoritms efektīvi pielāgojas uztura plāniem un dažādiem datu apjomiem.
+
+5. Vispārējais secinājums:
+   - Izstrādātais risinājums ir dzīvotspējīgs un praktisks.
+   - Tas piedāvā personalizētu un ekonomisku pieeju sabalansētas ēdienkartes plānošanai.
+   - Risinājums ir gatavs turpmākai attīstībai, piemēram, jaunu uztura modeļu vai lielākas datubāzes integrācijai.
+
