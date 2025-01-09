@@ -78,7 +78,7 @@ function saveRow(productId) {
             return;
         }
 
-         if (maximaLink && maximaLink !== "NaN" && maximaLink !== "null" &&
+        if (maximaLink && maximaLink !== "NaN" && maximaLink !== "null" &&
             !(maximaLink.startsWith("https://barbora.lv/") || maximaLink.startsWith("https://www.barbora.lv/"))
         ) {
             alert("Maxima link must start with 'https://barbora.lv/' or 'https://www.barbora.lv/' if provided.");
