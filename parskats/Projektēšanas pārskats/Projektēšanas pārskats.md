@@ -526,35 +526,12 @@ Novērtēt uztura plāna precizitāti un optimizācijas efektivitāti, balstotie
 - **Aprēķina laiks (T_A, sekundes)**: Laiks, kas nepieciešams optimizācijas algoritma izpildei.
 - **Pielāgojamības ātrums (T_R, sekundes)**: Laiks, kas vajadzīgs izmaiņu veikšanai prasībās.
 
-## **3. Aprēķina soļi procentuālai novērtēšanai**
-
-1. **Kalorijas (%):**
-
-   P_kalorijas = ( 1 - (|mērķa kalorijas - faktiskās kalorijas|) / mērķa kalorijas ) * 100
-
-2. **Proteīni (%):**
-
-   P_proteīni = ( 1 - (|mērķa proteīni - faktiskie proteīni|) /  mērķa proteīni) * 100
-
-3. **Tauki (%):**
-
-   P_tauki = ( 1 - (|mērķa tauki - faktiskie tauki|) / mērķa tauki) * 100
-
-4. **Ogļhidrāti (%):**
-
-   P_ogļhidrāti = ( 1 - (|mērķa ogļhidrāti - faktiskie ogļhidrāti|) / mērķa ogļhidrāti) * 100
-
-5. **Kopējā precizitāte (P):**
-
-   Tiek aprēķināts vidējais rādītājs no visām uzturvielām:
-   P = (P_kalorijas + P_proteīni + P_tauki + P_ogļhidrāti) / 4
-
-## **4. Aprēķini**
+## **3. Aprēķini**
 
 Aprēķinus detalizētāk var apskatīt, noklišķinot uz linku.
 ![Eksperimnetu aprēķini](https://github.com/maximalian/ProLabD/blob/master/parskats/eksperiments.docx)
 
-## **5. Novērtēšanas rezultāti**
+## **4. Novērtēšanas rezultāti**
 
 | Nr. | N   | V | P (%)  | T_A (s) | T_R (s) |
 |-----|-----|---|--------|---------|---------|
