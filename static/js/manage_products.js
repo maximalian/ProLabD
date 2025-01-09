@@ -78,16 +78,17 @@ function saveRow(productId) {
             return;
         }
 
-        if (
-            maximaLink &&
-            !(maximaLink.startsWith("https://barbora.lv/") || maximaLink.startsWith("https://www.barbora.lv/"))) {
-            alert("Maxima link must start with 'https://barbora.lv/' or 'https://www.barbora.lv/'.");
+         if (maximaLink && maximaLink !== "NaN" && maximaLink !== "null" &&
+            !(maximaLink.startsWith("https://barbora.lv/") || maximaLink.startsWith("https://www.barbora.lv/"))
+        ) {
+            alert("Maxima link must start with 'https://barbora.lv/' or 'https://www.barbora.lv/' if provided.");
             return;
         }
 
-
-        if (rimiLink && !rimiLink.startsWith("https://www.rimi.lv/")) {
-            alert("Rimi link must start with 'https://www.rimi.lv/'.");
+        if (rimiLink && rimiLink !== "NaN" && rimiLink !== "null" &&
+            !rimiLink.startsWith("https://www.rimi.lv/")
+        ) {
+            alert("Rimi link must start with 'https://www.rimi.lv/' if provided.");
             return;
         }
 
