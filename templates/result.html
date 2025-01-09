@@ -57,37 +57,41 @@
                         <td>{{ "%.2f" % item.calories }}</td>
                         <td>{{ "%.2f" % item.quantity }} {{ item.unit }}</td>
 
-                        <td
-                            class="{% if item.price == item.maxima_price and ('Maxima' in store or 'both' in store) %}highlight{% endif %}">
+                        <td class="{% if item.price == item.maxima_price and ('Maxima' in store or 'both' in store) %}highlight{% endif %}">
                             {% if 'Maxima' in store or 'both' in store %}
-                            {% if item.maxima_link %}
-                            <a href="{{ item.maxima_link }}" target="_blank">
-                                {{ "%.2f" % item.maxima_price }} EUR/{{ item.unit }}
-                            </a>
+                                {% if item.maxima_price is not none %}
+                                    {% if item.maxima_link and item.maxima_link.strip() %}
+                                        <a href="{{ item.maxima_link }}" target="_blank">
+                                            {{ "%.2f" % item.maxima_price }} EUR/{{ item.unit }}
+                                        </a>
+                                    {% else %}
+                                        {{ "%.2f" % item.maxima_price }} EUR/{{ item.unit }}
+                                    {% endif %}
+                                {% else %}
+                                    -
+                                {% endif %}
                             {% else %}
-                            {{ "%.2f" % item.maxima_price }} EUR/{{ item.unit }}
-                            {% endif %}
-                            {% else %}
-                            -
+                                -
                             {% endif %}
                         </td>
-
-                        <td
-                            class="{% if item.price == item.rimi_price and ('Rimi' in store or 'both' in store) %}highlight{% endif %}">
+                        
+                        <td class="{% if item.price == item.rimi_price and ('Rimi' in store or 'both' in store) %}highlight{% endif %}">
                             {% if 'Rimi' in store or 'both' in store %}
-                            {% if item.rimi_link %}
-                            <a href="{{ item.rimi_link }}" target="_blank">
-                                {{ "%.2f" % item.rimi_price }} EUR/{{ item.unit }}
-                            </a>
+                                {% if item.rimi_price is not none %}
+                                    {% if item.rimi_link and item.rimi_link.strip() %}
+                                        <a href="{{ item.rimi_link }}" target="_blank">
+                                            {{ "%.2f" % item.rimi_price }} EUR/{{ item.unit }}
+                                        </a>
+                                    {% else %}
+                                        {{ "%.2f" % item.rimi_price }} EUR/{{ item.unit }}
+                                    {% endif %}
+                                {% else %}
+                                    -
+                                {% endif %}
                             {% else %}
-                            {{ "%.2f" % item.rimi_price }} EUR/{{ item.unit }}
-                            {% endif %}
-                            {% else %}
-                            -
+                                -
                             {% endif %}
                         </td>
-
-
 
                         <td>{{ "%.2f" % (item.price * item.quantity) }} EUR</td>
                     </tr>
