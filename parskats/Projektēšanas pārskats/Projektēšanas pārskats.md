@@ -127,7 +127,7 @@ Tehnoloģiju steks, kas tiks izmantots risinājuma implementācijai, sastāv no 
 - **Operētājsistēma**: Ubuntu – servera operētājsistēma, kas nodrošina stabilu vidi lietotnes darbībai.
 - **Virtualizācija**: Amazon AWS (EC2) – virtualizācijas risinājums, kas nodrošina elastību un drošību serveru vadībā.
 
-![Tehnoloģiju steks](https://github.com/maximalian/ProLabD/blob/master/parskats/Tehnolo%C4%A3iju%20steks.png)
+![Tehnoloģiju steks](https://github.com/maximalian/ProLabD/blob/master/parskats/Projekt%C4%93%C5%A1anas%20p%C4%81rskats/Tehnolo%C4%A3iju%20steks.png)
   
 ## 5. Programmatūras apraksts
 
