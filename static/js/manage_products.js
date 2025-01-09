@@ -53,16 +53,16 @@ function saveRow(productId) {
 
         const formData = new FormData();
 
-        function parseOrNull(value) {
+        function parseOrNaN(value) {
             if (!value || value.trim() === '' || isNaN(value)) {
-                return null;
+                return "NaN";
             }
             return parseFloat(value);
         }
 
         const productName = row.querySelector('input[data-field="nosaukums"]').value.trim();
-        const maximaLink = row.querySelector('input[data-field="saite_maxima"]').value.trim();
-        const rimiLink = row.querySelector('input[data-field="saite_rimi"]').value.trim();
+        const maximaLink = row.querySelector('input[data-field="saite_maxima"]').value.trim() || "NaN";
+        const rimiLink = row.querySelector('input[data-field="saite_rimi"]').value.trim() || "NaN";
 
         if (!productName) {
             alert("Product name cannot be empty.");
@@ -78,14 +78,16 @@ function saveRow(productId) {
             return;
         }
 
-        if (maximaLink && maximaLink !== "NaN" && maximaLink !== "null" &&
+        if (
+            maximaLink !== "NaN" &&
             !(maximaLink.startsWith("https://barbora.lv/") || maximaLink.startsWith("https://www.barbora.lv/"))
         ) {
             alert("Maxima link must start with 'https://barbora.lv/' or 'https://www.barbora.lv/' if provided.");
             return;
         }
 
-        if (rimiLink && rimiLink !== "NaN" && rimiLink !== "null" &&
+        if (
+            rimiLink !== "NaN" &&
             !rimiLink.startsWith("https://www.rimi.lv/")
         ) {
             alert("Rimi link must start with 'https://www.rimi.lv/' if provided.");
@@ -94,17 +96,17 @@ function saveRow(productId) {
 
         formData.append('id', productId);
         formData.append('nosaukums', productName);
-        formData.append('kalorijas', parseOrNull(row.querySelector('input[data-field="kalorijas"]').value));
-        formData.append('olbaltumvielas', parseOrNull(row.querySelector('input[data-field="olbaltumvielas"]').value));
-        formData.append('tauki', parseOrNull(row.querySelector('input[data-field="tauki"]').value));
-        formData.append('oglhidrati', parseOrNull(row.querySelector('input[data-field="oglhidrati"]').value));
-        formData.append('cena_maxima', parseOrNull(row.querySelector('input[data-field="cena_maxima"]').value));
-        formData.append('cena_rimi', parseOrNull(row.querySelector('input[data-field="cena_rimi"]').value));
-        formData.append('saite_maxima', maximaLink || null);
-        formData.append('saite_rimi', rimiLink || null);
-        formData.append('meris_vieniba', row.querySelector('input[data-field="meris_vieniba"]').value.trim() || null);
-        formData.append('kategorija_key', row.querySelector('select[data-field="kategorija_key"]').value || null);
-        formData.append('vegan', row.querySelector('select[data-field="vegan"]').value || null);
+        formData.append('kalorijas', parseOrNaN(row.querySelector('input[data-field="kalorijas"]').value));
+        formData.append('olbaltumvielas', parseOrNaN(row.querySelector('input[data-field="olbaltumvielas"]').value));
+        formData.append('tauki', parseOrNaN(row.querySelector('input[data-field="tauki"]').value));
+        formData.append('oglhidrati', parseOrNaN(row.querySelector('input[data-field="oglhidrati"]').value));
+        formData.append('cena_maxima', parseOrNaN(row.querySelector('input[data-field="cena_maxima"]').value));
+        formData.append('cena_rimi', parseOrNaN(row.querySelector('input[data-field="cena_rimi"]').value));
+        formData.append('saite_maxima', maximaLink || "NaN");
+        formData.append('saite_rimi', rimiLink || "NaN");
+        formData.append('meris_vieniba', row.querySelector('input[data-field="meris_vieniba"]').value.trim() || "NaN");
+        formData.append('kategorija_key', row.querySelector('select[data-field="kategorija_key"]').value || "NaN");
+        formData.append('vegan', row.querySelector('select[data-field="vegan"]').value || "NaN");
 
         fetch('/product_bp/update_product', {
             method: 'POST',
