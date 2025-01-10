@@ -131,7 +131,6 @@ function saveRow(productId) {
     }
 }
 
-
 function renderRows(products) {
 
     /**
@@ -144,63 +143,65 @@ function renderRows(products) {
         if (!tableBody) {
             throw new Error("Table body element not found. Please ensure the table structure is correct.");
         }
-    tableBody.innerHTML = "";
+        tableBody.innerHTML = "";
 
-    products.forEach(product => {
-        try {
-        const hasFailedUrls = product.failed_urls && product.failed_urls.length > 0;
+        products.forEach(product => {
+            try {
+                const hasFailedUrls = product.failed_urls && product.failed_urls.length > 0;
 
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td><input type="text" value="${product.nosaukums || ''}" data-id="${product.id}" data-field="nosaukums"></td>
-            <td><input type="number" step="0.01" value="${product.kalorijas !== null ? product.kalorijas : ''}" data-id="${product.id}" data-field="kalorijas"></td>
-            <td><input type="number" step="0.01" value="${product.olbaltumvielas !== null ? product.olbaltumvielas : ''}" data-id="${product.id}" data-field="olbaltumvielas"></td>
-            <td><input type="number" step="0.01" value="${product.tauki !== null ? product.tauki : ''}" data-id="${product.id}" data-field="tauki"></td>
-            <td><input type="number" step="0.01" value="${product.oglhidrati !== null ? product.oglhidrati : ''}" data-id="${product.id}" data-field="oglhidrati"></td>
-            <td>
-                <input 
-                    type="text" 
-                    value="${product.saite_maxima || ''}" 
-                    class="${hasFailedUrls && product.failed_urls.includes(product.saite_maxima) ? 'highlight-error' : ''}" 
-                    data-id="${product.id}" 
-                    data-field="saite_maxima">
-            </td>
-            <td><input type="number" step="0.01" value="${product.cena_maxima !== null ? product.cena_maxima : ''}" data-id="${product.id}" data-field="cena_maxima"></td>
-            <td>
-                <input 
-                    type="text" 
-                    value="${product.saite_rimi || ''}" 
-                    class="${hasFailedUrls && product.failed_urls.includes(product.saite_rimi) ? 'highlight-error' : ''}" 
-                    data-id="${product.id}" 
-                    data-field="saite_rimi">
-            </td>
-            <td><input type="number" step="0.01" value="${product.cena_rimi !== null ? product.cena_rimi : ''}" data-id="${product.id}" data-field="cena_rimi"></td>
-            <td><input type="text" value="${product.meris_vieniba || ''}" data-id="${product.id}" data-field="meris_vieniba"></td>
-            <td>
-                <select data-id="${product.id}" data-field="kategorija_key">
-                    ${categories.map(cat => `
-                        <option value="${cat.kategorija_key}" ${product.kategorija_key == cat.kategorija_key ? 'selected' : ''}>
-                            ${cat.nosaukums}
-                        </option>
-                    `).join('')}
-                </select>
-            </td>
-            <td>
-                <select data-id="${product.id}" data-field="vegan">
-                    <option value="1" ${product.vegan ? 'selected' : ''}>Yes</option>
-                    <option value="0" ${!product.vegan ? 'selected' : ''}>No</option>
-                </select>
-            </td>
-            <td>
-                <button class="save-button" onclick="saveRow(${product.id})">Save</button>
-                <button class="delete-button" onclick="deleteProduct(${product.id})" style="margin-left: 10px;">Delete</button>
-            </td>
-        `;
-        tableBody.appendChild(row);
-        } catch (productError) {
-            console.error(`Error rendering product ID ${product.id}:`, productError);
-        }
-    });
+                const cleanValue = (value) => value === "NaN" || value === null ? '' : value;
+
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td><input type="text" value="${product.nosaukums || ''}" data-id="${product.id}" data-field="nosaukums"></td>
+                    <td><input type="number" step="0.01" value="${product.kalorijas !== null ? product.kalorijas : ''}" data-id="${product.id}" data-field="kalorijas"></td>
+                    <td><input type="number" step="0.01" value="${product.olbaltumvielas !== null ? product.olbaltumvielas : ''}" data-id="${product.id}" data-field="olbaltumvielas"></td>
+                    <td><input type="number" step="0.01" value="${product.tauki !== null ? product.tauki : ''}" data-id="${product.id}" data-field="tauki"></td>
+                    <td><input type="number" step="0.01" value="${product.oglhidrati !== null ? product.oglhidrati : ''}" data-id="${product.id}" data-field="oglhidrati"></td>
+                    <td>
+                        <input 
+                            type="text" 
+                            value="${cleanValue(product.saite_maxima)}" 
+                            class="${hasFailedUrls && product.failed_urls.includes(product.saite_maxima) ? 'highlight-error' : ''}" 
+                            data-id="${product.id}" 
+                            data-field="saite_maxima">
+                    </td>
+                    <td><input type="number" step="0.01" value="${product.cena_maxima !== null ? product.cena_maxima : ''}" data-id="${product.id}" data-field="cena_maxima"></td>
+                    <td>
+                        <input 
+                            type="text" 
+                            value="${cleanValue(product.saite_rimi)}" 
+                            class="${hasFailedUrls && product.failed_urls.includes(product.saite_rimi) ? 'highlight-error' : ''}" 
+                            data-id="${product.id}" 
+                            data-field="saite_rimi">
+                    </td>
+                    <td><input type="number" step="0.01" value="${product.cena_rimi !== null ? product.cena_rimi : ''}" data-id="${product.id}" data-field="cena_rimi"></td>
+                    <td><input type="text" value="${product.meris_vieniba || ''}" data-id="${product.id}" data-field="meris_vieniba"></td>
+                    <td>
+                        <select data-id="${product.id}" data-field="kategorija_key">
+                            ${categories.map(cat => `
+                                <option value="${cat.kategorija_key}" ${product.kategorija_key == cat.kategorija_key ? 'selected' : ''}>
+                                    ${cat.nosaukums}
+                                </option>
+                            `).join('')}
+                        </select>
+                    </td>
+                    <td>
+                        <select data-id="${product.id}" data-field="vegan">
+                            <option value="1" ${product.vegan ? 'selected' : ''}>Yes</option>
+                            <option value="0" ${!product.vegan ? 'selected' : ''}>No</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button class="save-button" onclick="saveRow(${product.id})">Save</button>
+                        <button class="delete-button" onclick="deleteProduct(${product.id})" style="margin-left: 10px;">Delete</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            } catch (productError) {
+                console.error(`Error rendering product ID ${product.id}:`, productError);
+            }
+        });
     } catch (error) {
         console.error("Error in renderRows:", error);
         alert("An error occurred while rendering the table rows. Please try again later.");
