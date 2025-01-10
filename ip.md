@@ -19,7 +19,7 @@ Projekta vietne ir pieejama šeit: [http://13.61.89.142/](http://13.61.89.142/) 
 
 ## Kā lietot
 1. Atveriet norādīto saiti.
-2. Izvēlieties vēlamo ēdienkarti vai pielāgojiet savus parametrus.
+2. Pielāgojiet savus parametrus.
 3. Saņemiet optimizētu ēdienkartes plānu.
 
 ## Papildu informācija
