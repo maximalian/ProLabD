@@ -4,7 +4,6 @@
      - **Maksims Maļinovskis** (Maksims.Malinovskis_2@edu.rtu.lv) [https://github.com/maximalian]
      - **Jūgans Tomingass** [https://github.com/yvargg]
      - **Aleksejs Bočarovs** [https://github.com/Xizerten]
-     - **Olesja Samohvalova** [https://github.com/Olesja-Samohvaalova]
      - **Viktors Nikolajevs** [https://github.com/sweetkaa]
 
 # Ievads
