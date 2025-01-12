@@ -92,7 +92,7 @@ def calculate_diet(age, height, weight, gender=1, selected_products=[], user_max
 
 
     lower_tolerance = 0.90
-    upper_tolerance = 1.20
+    upper_tolerance = 1.10
 
     # Izveido optimizācijas problēmu izmaksu minimizācijai
     problem = pulp.LpProblem("Minimum_Cost_Diet", pulp.LpMinimize)
