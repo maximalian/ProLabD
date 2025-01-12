@@ -165,4 +165,6 @@ def calculate_diet(age, height, weight, gender=1, selected_products=[], user_max
         "Calories": round(total_calories, 2),
     }
 
+    results["Cena"] = round(sum(round(item["price"] * item["quantity"], 2) for item in results["Edienkarte"]), 2)
+
     return results
