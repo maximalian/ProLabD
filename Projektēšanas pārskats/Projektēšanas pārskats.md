@@ -1,4 +1,4 @@
-# **Food Balance**
+# **Food Balance** Grupa Nr.9
 # **Projekta komanda**
    - Projekta izstrādātāji:
      - **Aleksandrs Popjonoks** [https://github.com/AleksandrsPo]
