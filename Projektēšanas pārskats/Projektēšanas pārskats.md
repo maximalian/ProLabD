@@ -1,3 +1,4 @@
+# **Food Balance**
 # **Projekta komanda**
    - Projekta izstrādātāji:
      - **Aleksandrs Popjonoks** [https://github.com/AleksandrsPo]
